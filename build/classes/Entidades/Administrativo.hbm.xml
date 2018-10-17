@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 11, 2018 11:50:31 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.Administrativo" table="Administrativo" catalog="u248270916_ma18" optimistic-lock="version">
+        <id name="idAdministrativo" type="java.lang.Integer">
+            <column name="id_administrativo" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="100" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="100" not-null="true" />
+        </property>
+        <property name="dni" type="int">
+            <column name="DNI" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
