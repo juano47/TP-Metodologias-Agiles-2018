@@ -6,7 +6,6 @@
 package Gestores;
 
 import Dao.DaoAdministrativo;
-import Dao.LDAP;
 import Entidades.Administrativo;
 
 //COMPROBAR QUE FUNCIONA COMO SINGLETON!
@@ -31,13 +30,11 @@ public class GestorAdministrativo {
     }
     
     public int validarAdministrativo(String username, String password){
-      
+    
         Integer idAdministrativo;
-        LDAP ldap = new LDAP();
-        idAdministrativo=ldap.findPorUsernameYClave(username, password);
-        if(idAdministrativo!=null){
-        
         DaoAdministrativo administrativoDAO = new DaoAdministrativo();
+        idAdministrativo=administrativoDAO.findPorUsernameYClave(username, password);
+        if(idAdministrativo!=null){
         administrativo=administrativoDAO.buscarAdministrativo(idAdministrativo);
         return 1;
         }
