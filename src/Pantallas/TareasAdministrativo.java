@@ -81,9 +81,9 @@ public class TareasAdministrativo extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ls_user)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
         );
         jPanel_superiorLayout.setVerticalGroup(
             jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +180,6 @@ public class TareasAdministrativo extends javax.swing.JFrame {
         lda_fecha_nac.setText("jLabel15");
 
         combobox_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
-
-        ls_observaciones.setText("jTextField1");
 
         ls_apellido.setText("jLabel15");
 
