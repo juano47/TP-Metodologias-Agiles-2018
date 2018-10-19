@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 11, 2018 11:50:31 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Oct 19, 2018 12:09:16 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Entidades.Titular" table="Titular" catalog="u248270916_ma18" optimistic-lock="version">
         <id name="idTitular" type="int">

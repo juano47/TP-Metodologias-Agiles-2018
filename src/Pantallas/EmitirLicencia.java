@@ -70,7 +70,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_nombre_user = new javax.swing.JLabel();
         jPanel_inferior = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        boton_atras = new javax.swing.JButton();
         jPanel_izq = new javax.swing.JPanel();
         jPanel_der = new javax.swing.JPanel();
         jPanel_centro = new javax.swing.JPanel();
@@ -100,6 +100,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_observaciones = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 525));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -129,9 +130,9 @@ public class EmitirLicencia extends javax.swing.JFrame {
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_nombre_user)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel_superiorLayout.setVerticalGroup(
             jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,10 +153,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         jButton2.setText("Finalizar");
 
-        jButton3.setText("Atrás");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        boton_atras.setText("Atrás");
+        boton_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                boton_atrasActionPerformed(evt);
             }
         });
 
@@ -165,7 +166,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
             jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_inferiorLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(327, 327, 327)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -175,7 +176,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
             .addGroup(jPanel_inferiorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -410,9 +411,11 @@ public class EmitirLicencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
+         Gestion obj = new Gestion();
+            obj.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_boton_atrasActionPerformed
 
     private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
         // TODO add your handling code here:
@@ -476,10 +479,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_atras;
     private javax.swing.JComboBox<String> combobox_clase;
     private javax.swing.JComboBox<String> combobox_donante;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

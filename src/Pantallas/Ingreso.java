@@ -232,7 +232,7 @@ public class Ingreso extends javax.swing.JFrame {
        
         if (validacion==1) {
 
-            EmitirLicencia obj = new EmitirLicencia();
+            Gestion obj = new Gestion();
             obj.setVisible(true);
             dispose();
         } else {
@@ -250,19 +250,19 @@ public class Ingreso extends javax.swing.JFrame {
     private void boton_ingresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_ingresarKeyPressed
         //da al enter la misma accion que el click
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-           botonIngresarActionPerformed(null);
+           boton_ingresarActionPerformed(null);
         }
     }//GEN-LAST:event_boton_ingresarKeyPressed
 
     private void txt_userKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_userKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-           botonIngresarActionPerformed(null);
+           boton_ingresarActionPerformed(null);
         }
     }//GEN-LAST:event_txt_userKeyPressed
 
     private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-           botonIngresarActionPerformed(null);
+           boton_ingresarActionPerformed(null);
         }
     }//GEN-LAST:event_txt_passKeyPressed
 

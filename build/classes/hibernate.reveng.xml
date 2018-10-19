@@ -41,6 +41,6 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="u248270916_ma18"/>
-  <table-filter match-name="Administrativo"/>
-  <table-filter match-name="Titular"/>
+   <table-filter match-name="Administrativo"/>
+    <table-filter match-name="Titular"/>
 </hibernate-reverse-engineering>

@@ -1,5 +1,5 @@
 package Entidades;
-// Generated Oct 11, 2018 11:50:31 AM by Hibernate Tools 4.3.1
+// Generated Oct 19, 2018 12:09:15 PM by Hibernate Tools 4.3.1
 
 
 
@@ -13,14 +13,18 @@ public class Administrativo  implements java.io.Serializable {
      private String nombre;
      private String apellido;
      private int dni;
+     private String username;
+     private String password;
 
     public Administrativo() {
     }
 
-    public Administrativo(String nombre, String apellido, int dni) {
+    public Administrativo(String nombre, String apellido, int dni, String username, String password) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
+       this.username = username;
+       this.password = password;
     }
    
     public Integer getIdAdministrativo() {
@@ -50,6 +54,20 @@ public class Administrativo  implements java.io.Serializable {
     
     public void setDni(int dni) {
         this.dni = dni;
+    }
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 

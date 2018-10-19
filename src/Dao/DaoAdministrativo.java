@@ -78,4 +78,23 @@ public class DaoAdministrativo extends AbstractDao {
         }
         return administrativo;
     }
+    
+    public Integer findPorUsernameYClave(String username, String password) throws DataAccessLayerException {
+        Integer idAdministrativo=null;
+        try {
+            startOperation();
+            
+          Query query = session.createSQLQuery("SELECT id_administrativo from Administrativo where username= :username and password= :password");
+                                                                                                                            //BD        java
+          query.setParameter("username", username);
+          query.setParameter("password", password);
+          idAdministrativo = (Integer) query.uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            HibernateFactory.close(session);
+        }
+        return idAdministrativo;
+    }
 }
