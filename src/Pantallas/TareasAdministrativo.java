@@ -53,13 +53,14 @@ public class TareasAdministrativo extends javax.swing.JFrame {
         ls_tipo_doc = new javax.swing.JLabel();
         lda_fecha_nac = new javax.swing.JLabel();
         combobox_clase = new javax.swing.JComboBox<>();
-        ls_observaciones = new javax.swing.JTextField();
         ls_apellido = new javax.swing.JLabel();
         ls_dni = new javax.swing.JLabel();
         ls_direccion = new javax.swing.JLabel();
         combobox_donante = new javax.swing.JComboBox<>();
         ls_grupo_sanguineo = new javax.swing.JLabel();
         ls_factor = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ls_observaciones = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -187,11 +188,28 @@ public class TareasAdministrativo extends javax.swing.JFrame {
 
         ls_direccion.setText("jLabel15");
 
-        combobox_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "NO" }));
+        combobox_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        combobox_donante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combobox_donanteActionPerformed(evt);
+            }
+        });
 
         ls_grupo_sanguineo.setText("jLabel15");
 
         ls_factor.setText("jLabel15");
+
+        ls_observaciones.setColumns(20);
+        ls_observaciones.setLineWrap(true);
+        ls_observaciones.setRows(5);
+        ls_observaciones.setToolTipText("");
+        ls_observaciones.setWrapStyleWord(true);
+        ls_observaciones.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ls_observacionesKeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(ls_observaciones);
 
         javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
         jPanel_centro.setLayout(jPanel_centroLayout);
@@ -218,7 +236,7 @@ public class TareasAdministrativo extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(combobox_clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(109, 109, 109)
+                        .addGap(130, 130, 130)
                         .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_centroLayout.createSequentialGroup()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,7 +256,7 @@ public class TareasAdministrativo extends javax.swing.JFrame {
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ls_apellido)))
-                                .addGap(70, 70, 70)
+                                .addGap(120, 120, 120)
                                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,7 +269,7 @@ public class TareasAdministrativo extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ls_observaciones)))
+                        .addComponent(jScrollPane2)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel_centroLayout.setVerticalGroup(
@@ -302,12 +320,12 @@ public class TareasAdministrativo extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(combobox_donante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7))
-                    .addComponent(ls_observaciones))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -343,6 +361,17 @@ public class TareasAdministrativo extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combobox_donanteActionPerformed
+
+    private void ls_observacionesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ls_observacionesKeyTyped
+        //se limita a 500 caracteres el campo observaciones
+        if (ls_observaciones.getText().length()== 500)
+
+        evt.consume();
+    }//GEN-LAST:event_ls_observacionesKeyTyped
 
     /**
      * @param args the command line arguments
@@ -410,6 +439,7 @@ public class TareasAdministrativo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_inferior;
     private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lda_fecha_nac;
     private javax.swing.JLabel ls_apellido;
     private javax.swing.JLabel ls_direccion;
@@ -417,7 +447,7 @@ public class TareasAdministrativo extends javax.swing.JFrame {
     private javax.swing.JLabel ls_factor;
     private javax.swing.JLabel ls_grupo_sanguineo;
     private javax.swing.JLabel ls_name;
-    private javax.swing.JTextField ls_observaciones;
+    private javax.swing.JTextArea ls_observaciones;
     private javax.swing.JLabel ls_tipo_doc;
     private javax.swing.JLabel ls_user;
     // End of variables declaration//GEN-END:variables
