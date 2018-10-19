@@ -1,4 +1,3 @@
-
 package Gestores;
 
 import java.util.Calendar;
@@ -24,6 +23,10 @@ public class GestorLicencias {
 		Date ld_fecha_actual = new Date();
 		boolean lb_primera_vez = true;
                 Date ld_fecha_final = (Date) ld_fecha_nacimiento.clone();
+                Date ld_fecha_cumple = (Date)ld_fecha_nacimiento.clone();
+                ld_fecha_cumple.setYear(ld_fecha_actual.getYear());
+                int li_meses_cumpleaños = Integer.max(restarFechas(ld_fecha_actual, ld_fecha_cumple)/30, restarFechas(ld_fecha_cumple, ld_fecha_actual)/30);
+                
 		
 		//Si es null, saca por primera vez
 		if(!(ld_fecha_expiracion == null)){
@@ -37,33 +40,62 @@ public class GestorLicencias {
                     int li_anios_actual = restarFechas(ld_fecha_nacimiento,ld_fecha_actual)/365;
 			//menor de 21
                     if(li_anios_actual < 21){
-                        if(lb_primera_vez){
-                            ld_fecha_final.setYear(ld_fecha_actual.getYear() + 1 );
+                        if(li_meses_cumpleaños<=3){
+                            if(lb_primera_vez){
+                                ld_fecha_final.setYear(ld_fecha_actual.getYear() + 2 );
+
+                            }
                             
+                            else{
+                                ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                            }
+                        }
+                        else{
+                            if(lb_primera_vez){
+                                ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
+
+                            }
+                            
+                            else{
+                                ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                            }
+                        }
+                            
+                        }
+                    else if(li_anios_actual <= 46){
+                        if(li_meses_cumpleaños<=3){
+                            
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 6);
+                        }
+                        else{
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                        }
+                    }
+                    else if(li_anios_actual <= 60){
+                        if(li_meses_cumpleaños<=3){
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                        }
+                        else{
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                        }
+                    }
+                    else if(li_anios_actual<=70){
+                        if(li_meses_cumpleaños<=3){
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
                         }
                         else{
                             ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
                         }
-                                                
                     }
-                    else if(li_anios_actual <= 46){
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
-                        }
-                    else if(li_anios_actual <= 60){
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
-                        }
-                    else if(li_anios_actual<=70){
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
-                        }
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 1);
+                        if(li_meses_cumpleaños<=3){
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
+                        }
+                        else{
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
+                        }
                     }
-                    	
-			//mayor de 21
 		}
-		
-		//obtener 
-				
 		return ld_fecha_final;
 	}
 
