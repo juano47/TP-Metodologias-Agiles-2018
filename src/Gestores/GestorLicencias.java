@@ -32,7 +32,14 @@ public class GestorLicencias {
         boolean lb_primera_vez = true;
         Date ld_fecha_final = (Date) ld_fecha_nacimiento.clone();
         Date ld_fecha_cumple = (Date)ld_fecha_nacimiento.clone();
-        ld_fecha_cumple.setYear(ld_fecha_actual.getYear());
+        boolean lb_cumplio_anios = false;
+        if(ld_fecha_actual.getMonth() <= ld_fecha_cumple.getMonth()){
+            ld_fecha_cumple.setYear(ld_fecha_actual.getYear());
+        }
+        else{
+            ld_fecha_cumple.setYear(ld_fecha_actual.getYear()+1);
+            lb_cumplio_anios = true;
+        }
         int li_meses_cumpleaños = Integer.max(restarFechas(ld_fecha_actual, ld_fecha_cumple)/30, restarFechas(ld_fecha_cumple, ld_fecha_actual)/30);
 
 
@@ -59,13 +66,25 @@ public class GestorLicencias {
                     }
                 }
                 else{
-                    if(lb_primera_vez){
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
+                    if(lb_cumplio_anios){
+                        if(lb_primera_vez){
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
 
+                        }
+
+                        else{
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                        }
                     }
-
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                        if(lb_primera_vez){
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+2);
+
+                        }
+
+                        else{
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                        }
                     }
                 }
 
@@ -76,7 +95,12 @@ public class GestorLicencias {
                     ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 6);
                 }
                 else{
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                    if(lb_cumplio_anios){
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                    }
+                    else{
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 6);
+                    }
                 }
             }
             else if(li_anios_actual <= 60){
@@ -84,7 +108,12 @@ public class GestorLicencias {
                     ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
                 }
                 else{
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                    if(lb_cumplio_anios){
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                    }
+                    else{
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                    }
                 }
             }
             else if(li_anios_actual<=70){
@@ -92,7 +121,13 @@ public class GestorLicencias {
                     ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
                 }
                 else{
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                    if(lb_cumplio_anios){
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                    }
+                    else{
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                    }
+                    
                 }
             }
             else{
@@ -100,7 +135,12 @@ public class GestorLicencias {
                     ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
                 }
                 else{
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
+                    if(lb_cumplio_anios){
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
+                    }
+                    else{
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
+                    }
                 }
             }
         }
