@@ -9,11 +9,11 @@ package Entidades;
 public class Titular  implements java.io.Serializable {
 
 
-     private int idTitular;
-     private String nombre;
-     private String apellido;
-     private int dni;
-     private String domicilio;
+     public int idTitular;
+     public String nombre;
+     public String apellido;
+     public int dni;
+     public String domicilio;
 
     public Titular() {
     }

@@ -7,13 +7,25 @@ package Pantallas;
 
 import Entidades.Titular;
 import Gestores.GestorAdministrativo;
+import static com.mchange.v2.c3p0.impl.C3P0Defaults.user;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author mueve el toto
  */
 public class EmitirLicencia extends javax.swing.JFrame {
-
+    Connection conexion = null;
+    PreparedStatement sentencia;
+    String ruta="jdbc:mysql://sql141.main-hosting.eu:3306/u248270916_ma18";
+    String driver="com.mysql.jdbc.Driver";
+    String user="u248270916_admin";
+    String pass="admin18";
+    
     /**
      * Creates new form Inicio2
      */
@@ -28,6 +40,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
         //borrar hasta aca
     }
+    
     public EmitirLicencia(Titular titular) {
         initComponents();
         setTitle("Emitir Licencia");
@@ -39,6 +52,9 @@ public class EmitirLicencia extends javax.swing.JFrame {
         //se setean los datos no modificables (datos del titular)
         txt_nombre.setText((String.valueOf(titular.getNombre())));
         txt_apellido.setText((String.valueOf(titular.getApellido())));
+        txt_nro_doc.setText((String.valueOf(titular.getDni())));
+        txt_direccion.setText((String.valueOf(titular.getDomicilio())));
+        
        // txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
        // txt_tipo_doc.setText((String.valueOf(titular.getTipoDoc())));
        // txt_nro_doc.setText((String.valueOf(titular.getNroDoc())));
@@ -152,6 +168,11 @@ public class EmitirLicencia extends javax.swing.JFrame {
         );
 
         jButton2.setText("Finalizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         boton_atras.setText("Atrás");
         boton_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +249,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jLabel14.setText("Factor RH");
 
         txt_nombre.setText("jLabel15");
+        txt_nombre.setName("li_nombre"); // NOI18N
 
         txt_tipo_doc.setText("jLabel15");
 
@@ -257,6 +279,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_observaciones.setRows(5);
         txt_observaciones.setToolTipText("");
         txt_observaciones.setWrapStyleWord(true);
+        txt_observaciones.setName("li_nombre"); // NOI18N
         txt_observaciones.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_observacionesKeyTyped(evt);
@@ -382,6 +405,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txt_nombre.getAccessibleContext().setAccessibleName("li_nombre");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -417,9 +442,34 @@ public class EmitirLicencia extends javax.swing.JFrame {
             dispose();
     }//GEN-LAST:event_boton_atrasActionPerformed
 
-    private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combobox_donanteActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         try { 
+            Class.forName(driver);
+            conexion=DriverManager.getConnection(ruta,user,pass);
+            sentencia = conexion.prepareStatement("insert into Titular values (?,?,?,?,?)");
+            //IdTitular va a ser un contador que nunca se reinicie.
+             int contador = 0000;
+            
+            sentencia.setInt(1,contador);
+            sentencia.setString(2,txt_nombre.getText());
+            sentencia.setString(3,txt_apellido.getText());
+            sentencia.setString(4,txt_nro_doc.getText());
+            sentencia.setString(5,txt_direccion.getText());
+            sentencia.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Datos Guardados con exito");
+                  
+        } catch(ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null,e);}
+          catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);}
+         
+         
+                
+        
+        
+     
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txt_observacionesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_observacionesKeyTyped
         //se limita a 500 caracteres el campo observaciones
@@ -427,6 +477,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         evt.consume();
     }//GEN-LAST:event_txt_observacionesKeyTyped
+
+    private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combobox_donanteActionPerformed
 
     /**
      * @param args the command line arguments

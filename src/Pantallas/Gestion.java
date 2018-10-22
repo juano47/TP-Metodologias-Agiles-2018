@@ -5,6 +5,7 @@
  */
 package Pantallas;
 
+import Entidades.Titular;
 import Gestores.GestorAdministrativo;
 import PlantillasDePantallas.*;
 
@@ -242,7 +243,15 @@ public class Gestion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void boton_licenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_licenciasActionPerformed
-        EmitirLicencia obj = new EmitirLicencia();
+      
+        Titular titular = new Titular();
+        titular.idTitular = 01;
+        titular.nombre = "Santiago";
+        titular.apellido = "Chort";
+        titular.dni = 37465689;
+        titular.domicilio = "Pellegrini 384";
+        
+        EmitirLicencia obj = new EmitirLicencia(titular);
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_licenciasActionPerformed
