@@ -484,9 +484,11 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
     private void txt_observacionesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_observacionesKeyTyped
         //se limita a 500 caracteres el campo observaciones
-        if (txt_observaciones.getText().length()== 500)
+        if (txt_observaciones.getText().length()>= 500){
 
         evt.consume();
+        JOptionPane.showMessageDialog(rootPane,"Alcanzo el maximo de caracteres (500 caracteres)");
+        }
     }//GEN-LAST:event_txt_observacionesKeyTyped
 
     private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
