@@ -452,7 +452,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
          try { 
             Class.forName(driver);
             conexion=DriverManager.getConnection(ruta,user,pass);
-            sentencia = conexion.prepareStatement("insert into Titular values (?,?,?,?,?,?,?,?,?)");
+            sentencia = conexion.prepareStatement("insert into Licencia values (?,?,?,?,?,?,?,?,?)");
             //IdTitular va a ser un contador que nunca se reinicie.
              int contador = 0000;
             
