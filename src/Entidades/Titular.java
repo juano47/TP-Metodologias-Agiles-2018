@@ -1,6 +1,9 @@
 package Entidades;
 // Generated Oct 19, 2018 12:09:15 PM by Hibernate Tools 4.3.1
 
+import java.util.Date;
+
+
 
 
 /**
@@ -12,19 +15,61 @@ public class Titular  implements java.io.Serializable {
      public int idTitular;
      public String nombre;
      public String apellido;
-     public int dni;
+     public String dni;
      public String domicilio;
-
-    public Titular() {
+     public String grupo_sanguineo;
+     public String tipo_dni;
+     public String factor_sanguineo;
+     public String fecha_nac;
+     
+  public Titular() {
     }
 
-    public Titular(int idTitular, String nombre, String apellido, int dni, String domicilio) {
-       this.idTitular = idTitular;
-       this.nombre = nombre;
-       this.apellido = apellido;
-       this.dni = dni;
-       this.domicilio = domicilio;
+    public Titular(int idTitular, String nombre, String apellido, String dni, String domicilio, String grupo_sanguineo, String tipo_dni, String factor_sanguineo, String fecha_nac) {
+        this.idTitular = idTitular;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.grupo_sanguineo = grupo_sanguineo;
+        this.tipo_dni = tipo_dni;
+        this.factor_sanguineo = factor_sanguineo;
+        this.fecha_nac = fecha_nac;
     }
+
+    public String getGrupo_sanguineo() {
+        return grupo_sanguineo;
+    }
+
+    public void setGrupo_sanguineo(String grupo_sanguineo) {
+        this.grupo_sanguineo = grupo_sanguineo;
+    }
+
+    public String getTipo_dni() {
+        return tipo_dni;
+    }
+
+    public void setTipo_dni(String tipo_dni) {
+        this.tipo_dni = tipo_dni;
+    }
+
+    public String getFactor_sanguineo() {
+        return factor_sanguineo;
+    }
+
+    public void setFactor_sanguineo(String factor_sanguineo) {
+        this.factor_sanguineo = factor_sanguineo;
+    }
+
+    public String getFecha_nac() {
+        return fecha_nac;
+    }
+
+    public void setFecha_nac(String fecha_nac) {
+        this.fecha_nac = fecha_nac;
+    }
+
+  
    
     public int getIdTitular() {
         return this.idTitular;
@@ -47,11 +92,11 @@ public class Titular  implements java.io.Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public int getDni() {
+    public String getDni() {
         return this.dni;
     }
     
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
     public String getDomicilio() {

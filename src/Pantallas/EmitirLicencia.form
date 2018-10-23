@@ -269,10 +269,10 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel13" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txt_factor_sanguineo" min="-2" max="-2" attributes="0"/>
                                       <Component id="txt_grupo_sanguineo" min="-2" max="-2" attributes="0"/>

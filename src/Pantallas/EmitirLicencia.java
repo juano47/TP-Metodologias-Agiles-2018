@@ -54,6 +54,12 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_apellido.setText((String.valueOf(titular.getApellido())));
         txt_nro_doc.setText((String.valueOf(titular.getDni())));
         txt_direccion.setText((String.valueOf(titular.getDomicilio())));
+        txt_fecha_nac.setText((String.valueOf(titular.getFecha_nac())));
+        txt_tipo_doc.setText((String.valueOf(titular.getTipo_dni())));
+        txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupo_sanguineo())));
+        txt_factor_sanguineo.setText((String.valueOf(titular.getFactor_sanguineo())));
+       
+        
         
        // txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
        // txt_tipo_doc.setText((String.valueOf(titular.getTipoDoc())));
@@ -334,9 +340,9 @@ public class EmitirLicencia extends javax.swing.JFrame {
                                         .addComponent(txt_apellido)))
                                 .addGap(120, 120, 120)
                                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(26, 26, 26)
                                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_factor_sanguineo)
                                     .addComponent(txt_grupo_sanguineo)))))
@@ -446,7 +452,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
          try { 
             Class.forName(driver);
             conexion=DriverManager.getConnection(ruta,user,pass);
-            sentencia = conexion.prepareStatement("insert into Titular values (?,?,?,?,?)");
+            sentencia = conexion.prepareStatement("insert into Titular values (?,?,?,?,?,?,?,?,?)");
             //IdTitular va a ser un contador que nunca se reinicie.
              int contador = 0000;
             
@@ -455,9 +461,14 @@ public class EmitirLicencia extends javax.swing.JFrame {
             sentencia.setString(3,txt_apellido.getText());
             sentencia.setString(4,txt_nro_doc.getText());
             sentencia.setString(5,txt_direccion.getText());
+            sentencia.setString(6,txt_fecha_nac.getText());
+            sentencia.setString(7,txt_tipo_doc.getText());
+            sentencia.setString(8,txt_grupo_sanguineo.getText());
+            sentencia.setString(9,txt_factor_sanguineo.getText());
             sentencia.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos Guardados con exito");
-                  
+                 
+            
         } catch(ClassNotFoundException e){
             JOptionPane.showMessageDialog(null,e);}
           catch(SQLException e){
@@ -466,7 +477,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
          
                 
         
-        
+           
      
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
