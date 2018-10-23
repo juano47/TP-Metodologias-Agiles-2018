@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Entidades.Titular</class>
     <class>Entidades.Administrativo</class>
+    <class>Entidades.Licencia</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql141.main-hosting.eu.:3306/u248270916_ma18?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="u248270916_admin"/>

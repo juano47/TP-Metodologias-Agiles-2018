@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2018 11:34:51 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.Licencia" table="Licencia" catalog="u248270916_ma18" optimistic-lock="version">
+        <id name="idLicencia" type="java.lang.Integer">
+            <column name="id_licencia" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="administrativo" class="Entidades.Administrativo" fetch="select">
+            <column name="id_administrativo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="titular" class="Entidades.Titular" fetch="select">
+            <column name="id_titular" not-null="true" />
+        </many-to-one>
+        <property name="fechaVenc" type="date">
+            <column name="fecha_venc" length="10" not-null="true" />
+        </property>
+        <property name="clase" type="string">
+            <column name="clase" length="5" not-null="true" />
+        </property>
+        <property name="donante" type="string">
+            <column name="donante" length="2" not-null="true" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="500" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column name="fecha_registro" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

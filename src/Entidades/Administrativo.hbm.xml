@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 19, 2018 12:09:16 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Oct 23, 2018 11:34:51 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Entidades.Administrativo" table="Administrativo" catalog="u248270916_ma18" optimistic-lock="version">
         <id name="idAdministrativo" type="java.lang.Integer">
@@ -23,5 +23,11 @@
         <property name="password" type="string">
             <column name="password" not-null="true" />
         </property>
+        <set name="licencias" table="Licencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_administrativo" not-null="true" />
+            </key>
+            <one-to-many class="Entidades.Licencia" />
+        </set>
     </class>
 </hibernate-mapping>

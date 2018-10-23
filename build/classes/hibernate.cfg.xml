@@ -46,7 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://sql141.main-hosting.eu.:3306/u248270916_ma18?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">u248270916_admin</property>
     <property name="hibernate.connection.password">admin18</property>
-    <mapping resource="Entidades/Titular.hbm.xml"/>
     <mapping resource="Entidades/Administrativo.hbm.xml"/>
+    <mapping resource="Entidades/Titular.hbm.xml"/>
+    <mapping resource="Entidades/Licencia.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

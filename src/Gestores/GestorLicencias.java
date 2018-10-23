@@ -3,7 +3,6 @@ package Gestores;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  * Permite gestionar todos los aspectos que tengan que ver con las licencias.

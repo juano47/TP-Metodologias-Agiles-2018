@@ -248,15 +248,15 @@ public class Gestion extends javax.swing.JFrame {
     private void boton_licenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_licenciasActionPerformed
       
         Titular titular = new Titular();
-        titular.idTitular = 01;
+        titular.idTitular = 02;
         titular.nombre = "Santiago";
         titular.apellido = "Chort";
         titular.dni = "37465689";
         titular.domicilio = "Pellegrini 384";
-        titular.factor_sanguineo="+";
-        titular.grupo_sanguineo="A";
-        titular.tipo_dni="DNI";
-        titular.fecha_nac="1993/05/03";
+        titular.factorSanguineo="+";
+        titular.grupoSanguineo="A";
+        titular.tipoDni="DNI";
+        titular.fechaNac="1993/05/03";
         
         
         EmitirLicencia obj = new EmitirLicencia(titular);

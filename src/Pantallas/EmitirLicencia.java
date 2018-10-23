@@ -54,10 +54,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_apellido.setText((String.valueOf(titular.getApellido())));
         txt_nro_doc.setText((String.valueOf(titular.getDni())));
         txt_direccion.setText((String.valueOf(titular.getDomicilio())));
-        txt_fecha_nac.setText((String.valueOf(titular.getFecha_nac())));
-        txt_tipo_doc.setText((String.valueOf(titular.getTipo_dni())));
-        txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupo_sanguineo())));
-        txt_factor_sanguineo.setText((String.valueOf(titular.getFactor_sanguineo())));
+        txt_fecha_nac.setText((String.valueOf(titular.getFechaNac())));
+        txt_tipo_doc.setText((String.valueOf(titular.getTipoDni())));
+        txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
+        txt_factor_sanguineo.setText((String.valueOf(titular.getFactorSanguineo())));
        
         
         
