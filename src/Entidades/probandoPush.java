@@ -10,7 +10,7 @@ package Entidades;
  * @author Ignacio
  */
 public class probandoPush {
-     
+    
 }
 
-public class HolaMundo { public static void main(String[] args) { System.out.println("Hola Mundo"); }
+public class HolaMundo { public static void main(String[] args) { System.out.println("Hola perros"); }
