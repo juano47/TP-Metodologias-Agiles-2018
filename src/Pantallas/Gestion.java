@@ -248,7 +248,7 @@ public class Gestion extends javax.swing.JFrame {
     private void boton_licenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_licenciasActionPerformed
       
         Titular titular = new Titular();
-        titular.idTitular = 02;
+        //titular.idTitular = 02;
         titular.nombre = "Santiago";
         titular.apellido = "Chort";
         titular.dni = "37465689";
@@ -256,7 +256,12 @@ public class Gestion extends javax.swing.JFrame {
         titular.factorSanguineo="+";
         titular.grupoSanguineo="A";
         titular.tipoDni="DNI";
-        titular.fechaNac="1993/05/03";
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
+        try{
+        Date fechaNac = formatoFecha.parse("1993/05/03");
+        }
+        catch(Exception e ){};
+        titular.fechaNac= fechaNac;
         
         
         EmitirLicencia obj = new EmitirLicencia(titular);

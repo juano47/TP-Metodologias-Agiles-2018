@@ -239,7 +239,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" pref="77" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="combobox_clase" min="-2" max="-2" attributes="0"/>
+                                  <Component id="listaClase" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
@@ -247,7 +247,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel12" min="-2" pref="77" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="combobox_donante" min="-2" max="-2" attributes="0"/>
+                                  <Component id="listaDonante" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel11" min="-2" pref="77" max="-2" attributes="0"/>
@@ -316,7 +316,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="combobox_clase" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="listaClase" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -352,7 +352,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="combobox_donante" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="listaDonante" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -450,7 +450,7 @@
             <Property name="text" type="java.lang.String" value="jLabel15"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combobox_clase">
+        <Component class="javax.swing.JComboBox" name="listaClase">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
@@ -464,8 +464,12 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaClaseActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="txt_apellido">
@@ -483,7 +487,7 @@
             <Property name="text" type="java.lang.String" value="jLabel15"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combobox_donante">
+        <Component class="javax.swing.JComboBox" name="listaDonante">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -493,7 +497,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combobox_donanteActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaDonanteActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

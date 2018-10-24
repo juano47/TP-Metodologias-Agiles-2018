@@ -5,6 +5,7 @@
  */
 package Pantallas;
 
+import Entidades.Licencia;
 import Entidades.Titular;
 import Gestores.GestorAdministrativo;
 import static com.mchange.v2.c3p0.impl.C3P0Defaults.user;
@@ -12,13 +13,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import Gestores.GestorLicencias;
 
 /**
  *
  * @author mueve el toto
  */
 public class EmitirLicencia extends javax.swing.JFrame {
+    Titular titular_aux;
     Connection conexion = null;
     PreparedStatement sentencia;
     String ruta="jdbc:mysql://sql141.main-hosting.eu:3306/u248270916_ma18";
@@ -42,6 +46,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }
     
     public EmitirLicencia(Titular titular) {
+        titular_aux = titular; 
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
@@ -111,11 +116,11 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_nombre = new javax.swing.JLabel();
         txt_tipo_doc = new javax.swing.JLabel();
         txt_fecha_nac = new javax.swing.JLabel();
-        combobox_clase = new javax.swing.JComboBox<>();
+        listaClase = new javax.swing.JComboBox<>();
         txt_apellido = new javax.swing.JLabel();
         txt_nro_doc = new javax.swing.JLabel();
         txt_direccion = new javax.swing.JLabel();
-        combobox_donante = new javax.swing.JComboBox<>();
+        listaDonante = new javax.swing.JComboBox<>();
         txt_grupo_sanguineo = new javax.swing.JLabel();
         txt_factor_sanguineo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -261,7 +266,12 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         txt_fecha_nac.setText("jLabel15");
 
-        combobox_clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
+        listaClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
+        listaClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaClaseActionPerformed(evt);
+            }
+        });
 
         txt_apellido.setText("jLabel15");
 
@@ -269,10 +279,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         txt_direccion.setText("jLabel15");
 
-        combobox_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-        combobox_donante.addActionListener(new java.awt.event.ActionListener() {
+        listaDonante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        listaDonante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combobox_donanteActionPerformed(evt);
+                listaDonanteActionPerformed(evt);
             }
         });
 
@@ -317,13 +327,13 @@ public class EmitirLicencia extends javax.swing.JFrame {
                             .addGroup(jPanel_centroLayout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(combobox_clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(listaClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(130, 130, 130)
                         .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_centroLayout.createSequentialGroup()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(combobox_donante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(listaDonante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel_centroLayout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -374,7 +384,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(combobox_clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(listaClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
                         .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_centroLayout.createSequentialGroup()
@@ -400,7 +410,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(combobox_donante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(listaDonante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
@@ -449,7 +459,20 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_atrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         try { 
+         Licencia licencia = new Licencia();
+         licencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+         licencia.setTitular(titular_aux);
+         String ls_clase = (String) listaClase.getSelectedItem();
+         licencia.setClase(ls_clase);
+         String ls_donante = (String) listaDonante.getSelectedItem();
+         licencia.setDonante(ls_donante);
+         licencia.setEstado("Original");
+         String ls_observaciones = (String) txt_observaciones.getText();
+         licencia.setObservaciones(ls_observaciones);
+         licencia.setFechaRegistro();
+         Date fecha_venc = GestorLicencias.calcularFechaLicencia(titular_aux.getFechaNac(), null);
+         
+        try { 
             Class.forName(driver);
             conexion=DriverManager.getConnection(ruta,user,pass);
             sentencia = conexion.prepareStatement("insert into Licencia values (?,?,?,?,?,?,?,?,?)");
@@ -491,9 +514,13 @@ public class EmitirLicencia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_observacionesKeyTyped
 
-    private void combobox_donanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_donanteActionPerformed
+    private void listaDonanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDonanteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_combobox_donanteActionPerformed
+    }//GEN-LAST:event_listaDonanteActionPerformed
+
+    private void listaClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaClaseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -547,8 +574,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
-    private javax.swing.JComboBox<String> combobox_clase;
-    private javax.swing.JComboBox<String> combobox_donante;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -571,6 +596,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JComboBox<String> listaClase;
+    private javax.swing.JComboBox<String> listaDonante;
     private javax.swing.JLabel txt_apellido;
     private javax.swing.JLabel txt_direccion;
     private javax.swing.JLabel txt_factor_sanguineo;

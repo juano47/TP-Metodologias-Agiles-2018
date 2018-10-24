@@ -6,7 +6,7 @@
     <class name="Entidades.Titular" table="Titular" catalog="u248270916_ma18" optimistic-lock="version">
         <id name="idTitular" type="int">
             <column name="id_titular" />
-            <generator class="assigned" />
+            <generator class="assigned" /> <!-- guarda con este assigned! -->
         </id>
         <property name="nombre" type="string">
             <column name="Nombre" length="100" not-null="true" />
@@ -32,7 +32,7 @@
         <property name="factorSanguineo" type="string">
             <column name="Factor_sanguineo" length="2" not-null="true" />
         </property>
-        <set name="licencias" table="Licencia" inverse="true" lazy="true" fetch="select">
+        <set name="licencias" table="Licencia" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="id_titular" not-null="true" />
             </key>
