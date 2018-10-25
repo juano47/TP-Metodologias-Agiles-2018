@@ -20,7 +20,7 @@
         <property name="domicilio" type="string">
             <column name="Domicilio" length="100" not-null="true" />
         </property>
-        <property name="fechaNac" type="string">
+        <property name="fechaNac" type="date">
             <column name="Fecha_nac" length="11" not-null="true" />
         </property>
         <property name="tipoDni" type="string">

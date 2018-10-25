@@ -469,7 +469,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
          licencia.setEstado("Original");
          String ls_observaciones = (String) txt_observaciones.getText();
          licencia.setObservaciones(ls_observaciones);
-         licencia.setFechaRegistro();
+//         licencia.setFechaRegistro();
          Date fecha_venc = GestorLicencias.calcularFechaLicencia(titular_aux.getFechaNac(), null);
          
         try { 

@@ -17,7 +17,7 @@ public class TitularAuxParaTabla  implements java.io.Serializable {
      private String apellido;
      private String dni;
      private String domicilio;
-     private String fechaNac;
+     private Date fechaNac;
      private String tipoDni;
      private String grupoSanguineo;
      private String factorSanguineo;
@@ -57,7 +57,7 @@ public class TitularAuxParaTabla  implements java.io.Serializable {
     }
 
 	
-    public TitularAuxParaTabla(int idTitular, String nombre, String apellido, String dni, String domicilio, String fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo) {
+    public TitularAuxParaTabla(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo) {
         this.idTitular = idTitular;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -68,7 +68,7 @@ public class TitularAuxParaTabla  implements java.io.Serializable {
         this.grupoSanguineo = grupoSanguineo;
         this.factorSanguineo = factorSanguineo;
     }
-    public TitularAuxParaTabla(int idTitular, String nombre, String apellido, String dni, String domicilio, String fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo, Set licencias) {
+    public TitularAuxParaTabla(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo, Set licencias) {
        this.idTitular = idTitular;
        this.nombre = nombre;
        this.apellido = apellido;
@@ -116,11 +116,11 @@ public class TitularAuxParaTabla  implements java.io.Serializable {
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
     }
-    public String getFechaNac() {
+    public Date getFechaNac() {
         return this.fechaNac;
     }
     
-    public void setFechaNac(String fechaNac) {
+    public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
     public String getTipoDni() {

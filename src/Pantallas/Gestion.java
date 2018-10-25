@@ -247,7 +247,7 @@ public class Gestion extends javax.swing.JFrame {
 
     private void boton_licenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_licenciasActionPerformed
       
-        Titular titular = new Titular();
+        /*Titular titular = new Titular();
         //titular.idTitular = 02;
         titular.nombre = "Santiago";
         titular.apellido = "Chort";
@@ -263,8 +263,8 @@ public class Gestion extends javax.swing.JFrame {
         catch(Exception e ){};
         titular.fechaNac= fechaNac;
         
-        
-        EmitirLicencia obj = new EmitirLicencia(titular);
+        */
+        GestionLicencias obj = new GestionLicencias();
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_licenciasActionPerformed
