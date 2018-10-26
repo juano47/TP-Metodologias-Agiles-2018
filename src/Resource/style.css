@@ -1,0 +1,70 @@
+
+html {
+    width: 545px;
+    height: 343px;
+	font-family: 'Martel Sans', sans-serif;
+	letter-spacing: 1px;
+	
+}
+#background {
+	height: 343px;
+	/* The image used */
+	background-image: url("template_licencia.jpg");
+	width: 545px;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#licencia {
+    position: absolute;
+    left: 255px;
+    top: 77px;
+}
+#sexo {
+    position: absolute;
+    left: 445px;
+    top: 77px;
+}
+#apellido {
+    position: absolute;
+    left: 255px;
+    top: 100px;
+}
+#nombre {
+    position: absolute;
+    left: 255px;
+    top: 123px;
+}
+#fecha_nacimiento {
+    position: absolute;
+    left: 255px;
+    top: 146px;
+}
+#domicilio {
+    position: absolute;
+    left: 255px;
+    top: 169px;
+}
+#otorgamiento {
+    position: absolute;
+    left: 255px;
+    top: 220px;
+}
+#categoria {
+    position: absolute;
+    left: 255px;
+    top: 243px;
+}
+#clase {
+    position: absolute;
+    left: 255px;
+    top: 266px;
+}
+#vencimiento {
+    position: absolute;
+    left: 400px;
+    top: 220px;
+}
+
