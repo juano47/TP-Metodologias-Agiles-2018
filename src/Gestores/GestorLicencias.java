@@ -9,9 +9,7 @@ import java.util.GregorianCalendar;
  * @author Nico y Mati
  */
 public class GestorLicencias {
-	
-	
-	/*
+        /*
 	Menores de 21 años: 1 año la primera vez y 3 años las siguientes.
 -        Hasta 46 años: 5 años
 -        Hasta 60 años: 4 años
@@ -30,15 +28,8 @@ public class GestorLicencias {
         Date ld_fecha_actual = new Date();
         boolean lb_primera_vez = true;
         Date ld_fecha_final = (Date) ld_fecha_nacimiento.clone();
-        Date ld_fecha_cumple = (Date)ld_fecha_nacimiento.clone();
-        boolean lb_cumplio_anios = false;
-        if(ld_fecha_actual.getMonth() <= ld_fecha_cumple.getMonth()){
-            ld_fecha_cumple.setYear(ld_fecha_actual.getYear());
-        }
-        else{
-            ld_fecha_cumple.setYear(ld_fecha_actual.getYear()+1);
-            lb_cumplio_anios = true;
-        }
+        Date ld_fecha_cumple = calcularFechaCumpleaños(ld_fecha_actual, (Date) ld_fecha_nacimiento.clone());
+        boolean lb_cumplio_anios = cumplioAños(ld_fecha_cumple, ld_fecha_actual);
         int li_meses_cumpleaños = Integer.max(restarFechas(ld_fecha_actual, ld_fecha_cumple)/30, restarFechas(ld_fecha_cumple, ld_fecha_actual)/30);
 
 
@@ -54,14 +45,13 @@ public class GestorLicencias {
             int li_anios_actual = restarFechas(ld_fecha_nacimiento,ld_fecha_actual)/365;
                 //menor de 21
             if(li_anios_actual < 21){
-                if(li_meses_cumpleaños<=3){
-                    if(lb_primera_vez){
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear() + 2 );
-
+                if(li_meses_cumpleaños<= 3){
+                    if(!lb_primera_vez){
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
                     }
-
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+3);
+                    
                     }
                 }
                 else{
@@ -72,17 +62,17 @@ public class GestorLicencias {
                         }
 
                         else{
-                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+3);
                         }
                     }
                     else{
                         if(lb_primera_vez){
-                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+2);
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear());
 
                         }
 
                         else{
-                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                            ld_fecha_final.setYear(ld_fecha_actual.getYear()+2);
                         }
                     }
                 }
@@ -91,54 +81,54 @@ public class GestorLicencias {
             else if(li_anios_actual <= 46){
                 if(li_meses_cumpleaños<=3){
 
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 6);
+                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
                 }
                 else{
                     if(lb_cumplio_anios){
                         ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
                     }
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 6);
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
                     }
                 }
             }
             else if(li_anios_actual <= 60){
                 if(li_meses_cumpleaños<=3){
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
                 }
                 else{
                     if(lb_cumplio_anios){
                         ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
                     }
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 5);
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
                     }
                 }
             }
             else if(li_anios_actual<=70){
                 if(li_meses_cumpleaños<=3){
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
                 }
                 else{
                     if(lb_cumplio_anios){
                         ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 3);
                     }
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 4);
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
                     }
                     
                 }
             }
             else{
                 if(li_meses_cumpleaños<=3){
-                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
+                    ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 1);
                 }
                 else{
                     if(lb_cumplio_anios){
                         ld_fecha_final.setYear(ld_fecha_actual.getYear()+1);
                     }
                     else{
-                        ld_fecha_final.setYear(ld_fecha_actual.getYear()+ 2);
+                        ld_fecha_final.setYear(ld_fecha_actual.getYear());
                     }
                 }
             }
@@ -176,5 +166,52 @@ public class GestorLicencias {
 		}
 
 		return dias;
+    }
+
+    private static Date calcularFechaCumpleaños(Date ld_fecha_actual, Date ld_fecha_cumple) {
+        
+        Date ld_actual_cumple = (Date) ld_fecha_cumple.clone();
+        ld_actual_cumple.setYear(ld_fecha_actual.getYear());
+        Date ld_anterior_cumple = (Date) ld_fecha_cumple.clone();
+        ld_anterior_cumple.setYear(ld_fecha_actual.getYear() - 1);
+        Date ld_siguiente_cumple = (Date) ld_fecha_cumple.clone();
+        ld_siguiente_cumple.setYear(ld_fecha_actual.getYear() +1 );
+        
+        int ahora = Integer.max(restarFechas(ld_fecha_actual,ld_actual_cumple), restarFechas(ld_actual_cumple,ld_fecha_actual));
+        int despues = Integer.max(restarFechas(ld_fecha_actual,ld_siguiente_cumple), restarFechas(ld_siguiente_cumple,ld_fecha_actual));
+        int antes = Integer.max(restarFechas(ld_fecha_actual,ld_anterior_cumple), restarFechas(ld_anterior_cumple,ld_fecha_actual));
+        
+        if(ahora <= despues && ahora <= antes){
+            return ld_actual_cumple;
+        }
+        else if(despues <= ahora && despues <= antes){
+            return ld_siguiente_cumple;         
+        }
+        else if (antes <= despues && antes <= ahora){
+            return ld_anterior_cumple;
+        }
+        else{
+            return ld_fecha_cumple;
+        }
+        
+    }
+
+    private static boolean cumplioAños(Date ld_fecha_cumple, Date ld_fecha_actual) {
+        
+        if(ld_fecha_actual.getYear() < ld_fecha_cumple.getYear()){
+                return true;
+            }
+        else if(ld_fecha_actual.getYear() > ld_fecha_cumple.getYear()){
+            return false;
+        }
+        else if(ld_fecha_actual.getMonth() > ld_fecha_cumple.getMonth()){
+            return true;
+        }
+        else if(ld_fecha_actual.getMonth() < ld_fecha_cumple.getMonth()){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
