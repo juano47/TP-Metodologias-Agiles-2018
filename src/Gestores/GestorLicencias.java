@@ -1,8 +1,12 @@
 package Gestores;
 
+import Entidades.Licencia;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  * Permite gestionar todos los aspectos que tengan que ver con las licencias.
@@ -16,6 +20,47 @@ public class GestorLicencias {
 -        Hasta 70 años: 3 años
 -        Mayores de 70 años: 1 año
 	*/
+    
+    private static Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
+    
+    public GestorLicencias () {
+        Vector costoA = new Vector();
+        Vector costoB = new Vector();
+        Vector costoC = new Vector();
+        Vector costoE = new Vector();
+        Vector costoG = new Vector();
+        
+        costoA.add(40);
+        costoA.add(30);
+        costoA.add(25);
+        costoA.add(20);
+        
+        costoB.add(40);
+        costoB.add(30);
+        costoB.add(25);
+        costoB.add(20);
+        
+        costoC.add(47);
+        costoC.add(35);
+        costoC.add(30);
+        costoC.add(23);
+        
+        costoE.add(59);
+        costoE.add(44);
+        costoE.add(39);
+        costoE.add(29);
+        
+        costoG.add(40);
+        costoG.add(30);
+        costoG.add(25);
+        costoG.add(20);
+        
+        mapaCostos.put('A', costoA);
+        mapaCostos.put('B', costoB); 
+        mapaCostos.put('C', costoC); 
+        mapaCostos.put('E', costoE); 
+        mapaCostos.put('G', costoG); 
+    }
     
     /**
      * Calcula la nueva fecha de vencimiento de la Licencia própiamente dicha.
@@ -147,8 +192,8 @@ public class GestorLicencias {
 		GregorianCalendar fechaFin = new GregorianCalendar();
 		fechaFin.setTime(fechaFinal);
 		int dias = 0;
-		
-		if (fechaFin.get(Calendar.YEAR) == fechaInicio.get(Calendar.YEAR)) {
+			
+	if (fechaFin.get(Calendar.YEAR) == fechaInicio.get(Calendar.YEAR)) {
 			dias = (fechaFin.get(Calendar.DAY_OF_YEAR) - fechaInicio.get(Calendar.DAY_OF_YEAR)) + 1;
 		} 
 		else {
@@ -213,5 +258,27 @@ public class GestorLicencias {
         else{
             return true;
         }
+    }
+    
+    public static Integer calculcarCostoLicencia(Licencia licencia){
+        Integer costo = 0;
+        Integer duracionLicencia = 0;
+        Vector costos = new Vector();
+        
+        Date fechaRegistro = licencia.getFechaRegistro();
+        Date fechaVencimiento = licencia.getFechaVenc();
+        String clase = licencia.getClase();
+        
+        duracionLicencia = restarFechas(fechaRegistro, fechaVencimiento);
+        
+        costos = mapaCostos.get(clase);
+        
+        duracionLicencia = duracionLicencia / 365;
+        
+        costo = (Integer) costos.get(duracionLicencia);
+        
+        costo +=8;
+        
+        return costo;
     }
 }
