@@ -1,17 +1,14 @@
 
 html {
-    width: 545px;
     height: 343px;
+    width: 545px;
 	font-family: 'Martel Sans', sans-serif;
 	letter-spacing: 1px;
-	
 }
 #background {
-	height: 343px;
-	/* The image used */
+    height: 343px;
+    width: 545px;
 	background-image: url("template_licencia.jpg");
-	width: 545px;
-
 	/* Center and scale the image nicely */
 	background-position: center;
 	background-repeat: no-repeat;
