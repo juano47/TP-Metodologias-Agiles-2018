@@ -8,6 +8,7 @@ package Pantallas;
 import Entidades.Titular;
 import Gestores.GestorAdministrativo;
 import PlantillasDePantallas.*;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
@@ -172,6 +173,11 @@ public class Gestion extends javax.swing.JFrame {
                 boton_licenciasActionPerformed(evt);
             }
         });
+        boton_licencias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_licenciasKeyPressed(evt);
+            }
+        });
 
         jButton6.setText("Listados");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -268,6 +274,12 @@ public class Gestion extends javax.swing.JFrame {
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_licenciasActionPerformed
+
+    private void boton_licenciasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_licenciasKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_licenciasActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_licenciasKeyPressed
 
     /**
      * @param args the command line arguments

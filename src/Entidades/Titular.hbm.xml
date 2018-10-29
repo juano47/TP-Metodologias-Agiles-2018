@@ -15,7 +15,7 @@
             <column name="Apellido" length="100" not-null="true" />
         </property>
         <property name="dni" type="string">
-            <column name="DNI" length="100" not-null="true" />
+            <column name="dni" length="8" not-null="true" />
         </property>
         <property name="domicilio" type="string">
             <column name="Domicilio" length="100" not-null="true" />

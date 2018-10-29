@@ -9,6 +9,7 @@ import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
 import Gestores.GestorTitular;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTable;
@@ -20,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class GestionLicencias extends javax.swing.JFrame {
 
-    CustomTableModel modeloTabla = new CustomTableModel();
+    TablaModeloTitular modeloTabla = new TablaModeloTitular();
     
     /**
      * Creates new form Inicio2
@@ -47,7 +48,8 @@ public class GestionLicencias extends javax.swing.JFrame {
 
         jPanel_inferior = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        boton_atras = new javax.swing.JButton();
+        txt_mensaje_error = new javax.swing.JLabel();
         jPanel_izq = new javax.swing.JPanel();
         jPanel_der = new javax.swing.JPanel();
         jPanel_centro = new javax.swing.JPanel();
@@ -58,6 +60,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_dni = new javax.swing.JTextField();
         boton_buscar = new javax.swing.JButton();
+        boton_emitir_licencia = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jPanel_superior3 = new javax.swing.JPanel();
@@ -72,12 +75,19 @@ public class GestionLicencias extends javax.swing.JFrame {
 
         jButton2.setText("jButton1");
 
-        jButton3.setText("jButton1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        boton_atras.setText("Atras");
+        boton_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                boton_atrasActionPerformed(evt);
             }
         });
+        boton_atras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_atrasKeyPressed(evt);
+            }
+        });
+
+        txt_mensaje_error.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
         jPanel_inferior.setLayout(jPanel_inferiorLayout);
@@ -85,18 +95,22 @@ public class GestionLicencias extends javax.swing.JFrame {
             jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_inferiorLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327)
+                .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_inferiorLayout.setVerticalGroup(
             jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_inferiorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -124,14 +138,49 @@ public class GestionLicencias extends javax.swing.JFrame {
 
         jLabel1.setText("Apellido:");
 
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nombreKeyPressed(evt);
+            }
+        });
+
         jLabel2.setText("Nombre:");
 
+        txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_apellidoKeyPressed(evt);
+            }
+        });
+
         jLabel3.setText("DNI:");
+
+        txt_dni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_dniKeyPressed(evt);
+            }
+        });
 
         boton_buscar.setText("Buscar");
         boton_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_buscarActionPerformed(evt);
+            }
+        });
+        boton_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_buscarKeyPressed(evt);
+            }
+        });
+
+        boton_emitir_licencia.setText("Emitir Licencia");
+        boton_emitir_licencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_emitir_licenciaActionPerformed(evt);
+            }
+        });
+        boton_emitir_licencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_emitir_licenciaKeyPressed(evt);
             }
         });
 
@@ -176,51 +225,45 @@ public class GestionLicencias extends javax.swing.JFrame {
             jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_centroLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(4, 4, 4)
-                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(boton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_centroLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(3, 3, 3)
+                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_buscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(67, Short.MAX_VALUE)))
         );
         jPanel_centroLayout.setVerticalGroup(
             jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_centroLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boton_buscar))))
-                .addGap(318, 318, 318))
+                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)
+                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton_buscar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addComponent(boton_emitir_licencia))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -305,122 +348,189 @@ public class GestionLicencias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
+        Gestion obj = new Gestion();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_boton_atrasActionPerformed
 
     private void boton_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscarActionPerformed
-       limpiarTabla(tabla,modeloTabla);    //se limpia la tabla para que al hacer busquedas consecutivas se borren los resultados anteriores
-       String nombre = txt_nombre.getText();    
+        //borro resultados anteriores al hacer busquedas sucesivas
+        limpiarTabla(tabla, modeloTabla);
+        txt_mensaje_error.setText("");
+        //obtengo los datos ingresados en los filtros de busqueda
+        String nombre = txt_nombre.getText();    
         String apellido = txt_apellido.getText();
         String dni = txt_dni.getText();
         
-        if("".equals(nombre) && "".equals(apellido) && "".equals(dni)){ //no completo al menos un criterio de busqueda
-            
-            GestorTitular gestorTitular = GestorTitular.getInstance();     //se pide la instancia de GestorPuesto
-            gestorTitular.buscarTitulares(modeloTabla);  //busca en la BS y completa la tabla que es pasada por parametro con los resultados
-            
+        GestorTitular gestorTitular = GestorTitular.getInstance(); //se pide la instancia de GestorPuesto
+        List<TitularAuxParaTabla> listaTitularAux= new ArrayList<TitularAuxParaTabla>();
+        if("".equals(nombre) && "".equals(apellido) && "".equals(dni)){ //no completo al menos un criterio de busqueda, se buscan todos los titulares  
+            listaTitularAux = gestorTitular.buscarTitulares();  //busca en la BS y pasa una lista con TODOS los titulares
+            modeloTabla.addAllTitulares(listaTitularAux);
         }
+        else{
+            listaTitularAux = gestorTitular.buscarTitulares(nombre, apellido, dni);  //busca en la BS y pasa una lista con los titulares filtrados
+            modeloTabla.addAllTitulares(listaTitularAux);
+        }
+        
+        if(modeloTabla.getListaTitularesAux().size()==0)
+            txt_mensaje_error.setText("No se encontraron registros");
     }//GEN-LAST:event_boton_buscarActionPerformed
 
-    private void limpiarTabla(JTable tabla, CustomTableModel modeloTabla){
-       for (int i = 0; i < tabla.getRowCount(); i++) {
-           modeloTabla.deleteRow(i);
-           i-=1;
+    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaActionPerformed
+       //http://www.lawebdelprogramador.com/foros/Java/719076-Obtener-el-valor-de-una-celda-el-JTABLE.html
+       Integer filaSeleccionada= tabla.getSelectedRow();
+       //si no hay una fila seleccionada filaSeleccionada= -1 por default
+        if (filaSeleccionada != -1) {
+            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
+            EmitirLicencia obj = new EmitirLicencia(titularAuxParaTabla);
+            obj.setVisible(true);
+            dispose();
        }
+        else{
+            txt_mensaje_error.setText("Seleccione el titular al cual desea emitir una licencia"); 
+        }
+    }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
+
+    private void txt_nombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_buscarActionPerformed(null);
+        }
+    }//GEN-LAST:event_txt_nombreKeyPressed
+
+    private void txt_apellidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_buscarActionPerformed(null);
+        }
+    }//GEN-LAST:event_txt_apellidoKeyPressed
+
+    private void txt_dniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dniKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_buscarActionPerformed(null);
+        }
+    }//GEN-LAST:event_txt_dniKeyPressed
+
+    private void boton_buscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_buscarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_buscarActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_buscarKeyPressed
+
+    private void boton_emitir_licenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_emitir_licenciaActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_emitir_licenciaKeyPressed
+
+    private void boton_atrasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_atrasKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_atrasActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_atrasKeyPressed
+
+    private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
+       modeloTabla.deleteAllTitulares();
     }
     
-    public class CustomTableModel extends AbstractTableModel {
+    public class TablaModeloTitular extends AbstractTableModel {
 
-        private ArrayList<TitularAuxParaTabla> data = new ArrayList<TitularAuxParaTabla>();
-        private int numColumns = 4; //cant de columnas con la que se crea la tabla
-        private String columnNames[] = {"Nombre", "Apellido", "DNI", "Clase"};   
-        
-        @Override
-        public int getRowCount() {  
-            
-            return data.size();
+    private String[] columnNames = {"Nombre", "Apellido","DNI", "Clase Licencia", "Estado", "Vigencia", "Registrada"};
+    private List<TitularAuxParaTabla> data = new ArrayList<TitularAuxParaTabla>();
+
+    public void addTitular(TitularAuxParaTabla titularAuxParaTabla) {
+        data.add(titularAuxParaTabla);
+        fireTableDataChanged();
+    }
+    
+     public void addAllTitulares(List<TitularAuxParaTabla> listaTitularAuxParaTabla ) {
+        data.addAll(listaTitularAuxParaTabla);
+        fireTableDataChanged();
+    }
+
+    public void deleteTitular(int rowIndex) {
+        data.remove(rowIndex);
+        fireTableDataChanged();
+    }
+    
+    public void deleteAllTitulares() {
+        data.clear();
+        fireTableDataChanged();
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        return columnNames[columnIndex];
+    }
+
+    @Override
+    public int getRowCount() {
+        return data.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 7;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+                return data.get(rowIndex).getTitularOriginal().getNombre();
+            case 1:
+                return data.get(rowIndex).getTitularOriginal().getApellido();
+            case 2:
+                return data.get(rowIndex).getTitularOriginal().getDni();
+            case 3:
+                if(data.get(rowIndex).getLicencia() == null)
+                    return " ";
+                else
+                    return data.get(rowIndex).getLicencia().getClase();
+            case 4:
+                if(data.get(rowIndex).getLicencia() == null)
+                    return " ";
+                else
+                return data.get(rowIndex).getLicencia().getEstado();
+            case 5: 
+                if(data.get(rowIndex).getLicencia() == null)
+                    return " ";
+                else
+                return data.get(rowIndex).getLicencia().getFechaVenc();
+            case 6: 
+                if(data.get(rowIndex).getLicencia() == null)
+                    return " ";
+                else
+                return data.get(rowIndex).getLicencia().getFechaRegistro();
+            default:
+                return null;
         }
-
-        @Override
-        public int getColumnCount() { //construye la cantidad de columnas que se retorna
-
-            return numColumns;
-        }
-
-        @Override
-        public String getColumnName(int col) {
-            return columnNames[col];
-        }
-
-        @Override
-        public Class getColumnClass(int col) {
-            //return classes[col];
-            return String.class; //no cambiar a int u otra cosa porque pierde la propiedad de editable
-        }
-
-        @Override
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return false;
-        }
-
-        @Override
-        // Cambia el valor que contiene una determinada casilla de
-        // la tabla
-        public void setValueAt(Object value, int row, int col) {
-            String c = (String)value;
-            Integer valorNumerico = null;
-            
-            fireTableCellUpdated(row, col);
-            // Indica que se ha cambiado
-            //fireTableDataChanged();
-        }
-        
-
-        public TitularAuxParaTabla getTitular(int fila) {
+    }
+    
+    public TitularAuxParaTabla getTitularAuxParaTabla(int fila) {
             return (TitularAuxParaTabla) data.get(fila);
         }
 
-        public List<TitularAuxParaTabla> getListaTitulares() {
+    @Override
+    public Class getColumnClass(int columnIndex) {
+//        return getValueAt(0, columnIndex).getClass();
+        return String.class;
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return false;
+    }
+
+    @Override
+    public void setValueAt(Object value, int rowIndex, int columnIndex) {
+        
+    }
+    
+    public List<TitularAuxParaTabla> getListaTitularesAux() {
             return data;
         }
-
-
-        @Override
-        //este metodo muestra por pantalla los nombres pero en realidad se esta manejando una lista con Titulares por detras
-        public Object getValueAt(int row, int col) {
-            Object retorno=null;
-            TitularAuxParaTabla t = (TitularAuxParaTabla) data.get(row);
-            System.out.println("get: " + data.size()+ "\n");
-            switch(col){
-                case 0:
-                    retorno= t.getNombre();
-                    break;
-                case 1:
-                    retorno= t.getApellido();
-                    break;
-                case 2:
-                    retorno= t.getDni();
-                    break;
-                case 3:
-                    retorno=t.getClase();
-            }
-            return retorno;
-        }
-
-        public void addTitular(TitularAuxParaTabla titular) {
-            data.add(titular);
-            System.out.println("gestion: " + titular.getApellido() + "\n");
-            fireTableDataChanged();
-        }
-
-        private void deleteRow(int row) {
-            data.remove(row);
-            
-            fireTableDataChanged();
-        }
-
-    }
+}
     /**
      * @param args the command line arguments
      */
@@ -464,9 +574,10 @@ public class GestionLicencias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_buscar;
+    private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
@@ -482,6 +593,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_dni;
+    private javax.swing.JLabel txt_mensaje_error;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_nombre_user;
     private javax.swing.JLabel txt_user;

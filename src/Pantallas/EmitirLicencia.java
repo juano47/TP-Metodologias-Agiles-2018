@@ -7,6 +7,7 @@ package Pantallas;
 
 import Entidades.Licencia;
 import Entidades.Titular;
+import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
 import static com.mchange.v2.c3p0.impl.C3P0Defaults.user;
 import java.sql.Connection;
@@ -45,8 +46,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
         //borrar hasta aca
     }
     
-    public EmitirLicencia(Titular titular) {
-        titular_aux = titular; 
+    public EmitirLicencia(TitularAuxParaTabla titularAuxParaTabla) {
+        titular_aux = titular_aux; 
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
@@ -55,29 +56,14 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
    
         //se setean los datos no modificables (datos del titular)
-        txt_nombre.setText((String.valueOf(titular.getNombre())));
-        txt_apellido.setText((String.valueOf(titular.getApellido())));
-        txt_nro_doc.setText((String.valueOf(titular.getDni())));
-        txt_direccion.setText((String.valueOf(titular.getDomicilio())));
-        txt_fecha_nac.setText((String.valueOf(titular.getFechaNac())));
-        txt_tipo_doc.setText((String.valueOf(titular.getTipoDni())));
-        txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
-        txt_factor_sanguineo.setText((String.valueOf(titular.getFactorSanguineo())));
-       
-        
-        
-       // txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
-       // txt_tipo_doc.setText((String.valueOf(titular.getTipoDoc())));
-       // txt_nro_doc.setText((String.valueOf(titular.getNroDoc())));
-       // txt_factor_sanguineo.setText((String.valueOf(titular.getFactorSanguineo())));
-       // txt_fecha_nac.setText((String.valueOf(titular.getFechaNacimiento())));
-       // txt_direccion.setText((String.valueOf(titular.getDireccion())));
-       // clase
-       // donante
-       // observaciones
-       
-    
-    
+        txt_nombre.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getNombre())));
+        txt_apellido.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getApellido())));
+        txt_nro_doc.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getDni())));
+        txt_direccion.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getDomicilio())));
+        txt_fecha_nac.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFechaNac())));
+        txt_tipo_doc.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getTipoDni())));
+        txt_grupo_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getGrupoSanguineo())));
+        txt_factor_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFactorSanguineo())));
     }
 
     /**
@@ -453,7 +439,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
-         Gestion obj = new Gestion();
+         GestionLicencias obj = new GestionLicencias();
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_atrasActionPerformed

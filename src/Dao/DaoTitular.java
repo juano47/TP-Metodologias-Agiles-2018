@@ -97,4 +97,62 @@ public class DaoTitular extends AbstractDao {
         return idAdministrativo;
     }
     */
+
+    public List findPorNombreApellidoDni(String nombre, String apellido, String dni) {
+        
+        List objects = null;
+
+        nombre = "%" + nombre + "%";     //al usar el criterio contiene busco todas las cadenas que contengan codigo
+        apellido = "%" + apellido + "%";
+        dni = "%" + dni + "%";
+        try {
+            startOperation();
+            Query query;
+
+           if (nombre!=null && apellido!=null && dni!=null)  { //busqueda por los tres parametros
+               query = session.createQuery("from Titular WHERE dni LIKE :dni AND nombre LIKE :nombre AND apellido LIKE :apellido");     
+                query.setParameter("nombre", nombre);
+                query.setParameter("apellido", apellido);
+                query.setParameter("dni", dni);
+                objects = query.list();
+           }
+           else if("".equals(apellido)){ //busqueda solo por dni y nombre
+               query = session.createQuery("from Titular WHERE dni LIKE :dni AND nombre LIKE :nombre");    
+                query.setParameter("nombre", nombre);
+                query.setParameter("apellido", apellido);
+                objects = query.list();
+           }
+            else if("".equals(nombre)){ //busqueda solo por dni y apellido
+               query = session.createQuery("from Titular WHERE dni LIKE :dni AND apellido LIKE :apellido");     
+                query.setParameter("nombre", nombre);
+                query.setParameter("dni", dni);
+                objects = query.list();
+           }
+            else if ("".equals(dni)) { //busqueda solo por nombre y apellido
+                query = session.createQuery("from Titular WHERE nombre LIKE :nombre AND apellido LIKE :apellido");
+                query.setParameter("apellido", apellido);
+                query.setParameter("nombre", nombre);
+                objects = query.list();
+            } else if ("".equals(apellido) && "".equals(nombre)){ //busqueda solo por dni
+                query = session.createQuery("from Titular WHERE dni LIKE :dni");      //el operador like funciona solo con cadenas por eso uso esto para dni
+                query.setParameter("dni", dni);
+                objects = query.list();
+            } else if ("".equals(apellido) && "".equals(dni)) { //busqueda solo por nombre
+                query = session.createQuery("from Titular WHERE nombre LIKE :nombre");
+                query.setParameter("nombre", nombre);
+                objects = query.list();
+            } else if ("".equals(nombre) && "".equals(dni)) { //busqueda solo por apellido
+                query = session.createQuery("from Titular WHERE apellido LIKE :apellido");
+                query.setParameter("apellido", apellido);
+                objects = query.list();
+            }
+
+            tx.commit();
+        } catch (HibernateException e) {
+            handleException(e);
+        } finally {
+            HibernateFactory.close(session);
+        }
+        return objects;
+    }
 }

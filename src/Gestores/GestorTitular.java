@@ -38,77 +38,69 @@ public class GestorTitular {
     
      
      // Busca todos los puestos por codigo puesto y empresa
-    public void buscarTitulares(GestionLicencias.CustomTableModel modeloTabla) {
+    public List<TitularAuxParaTabla> buscarTitulares() {
 
         List listaTitulares = null;
         TitularAuxParaTabla titularAuxParaTabla = new TitularAuxParaTabla();
         Titular titular;
         listaTitulares = daoTitular.findPorNombreApellidoDni();
-        
-        int id;
-    
+            
+        List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
         
         for (int a = 0; a < listaTitulares.size(); a++) {
             titular = (Titular) listaTitulares.get(a);
-            id=titular.getIdTitular();
-             Licencia licencia;
-                Date fechaVenc;
-                String clase;
-                String estado;
+            Licencia licencia;
             if(!titular.getLicencias().isEmpty()){
-               
+                
                 //convierto y guardo las licencias vinculadas al titular
                 List<Licencia> licencias = new ArrayList<Licencia>();
                 licencias.addAll(titular.getLicencias());
                 
                 //por cada licencia creo un objeto titularAuxParaTabla para poder mostrar una linea por c/ licencia qu tenga
                 for(int b=0; b<titular.getLicencias().size(); b++){
-                    titularAuxParaTabla.setIdTitular(titular.getIdTitular());
-                     titularAuxParaTabla.setNombre(titular.getNombre());
-                     titularAuxParaTabla.setApellido(titular.getApellido());
-                     titularAuxParaTabla.setDni(titular.getDni());
-                     titularAuxParaTabla.setDomicilio(titular.getDomicilio());
-                     titularAuxParaTabla.setFechaNac(titular.getFechaNac());
-                     titularAuxParaTabla.setTipoDni(titular.getTipoDni());
-                     titularAuxParaTabla.setGrupoSanguineo(titular.getGrupoSanguineo());
-                     titularAuxParaTabla.setFactorSanguineo(titular.getFactorSanguineo());
-                     titularAuxParaTabla.setLicencias(titular.getLicencias());
-                     licencia=licencias.get(b);
-                     fechaVenc= licencia.getFechaVenc();
-                     clase = licencia.getClase();
-                     estado = licencia.getEstado();
-                     titularAuxParaTabla.setFechaVenc(fechaVenc);
-                     titularAuxParaTabla.setClase(clase);
-                     titularAuxParaTabla.setEstado(estado);
-                     System.out.println("Gestor1 " + titularAuxParaTabla.getApellido() + "\n");
-                     modeloTabla.addTitular(titularAuxParaTabla);
-                     
+                    titularAuxParaTabla = new TitularAuxParaTabla();
+                    titularAuxParaTabla.setTitularOriginal(titular);
+                    licencia=licencias.get(b);
+                    titularAuxParaTabla.setLicencia(licencia);
+                  //  System.out.println(titularAuxParaTabla.getTitularOriginal().getApellido());
+                    listaTitularAux.add(titularAuxParaTabla);
+                   // modeloTabla.addTitular(titularAuxParaTabla);                 
                 }
-            }
-            
-            //aunque no tenga licencias asociadas estoy obligado a pasarme a titularAux para usar la tabla
-            else{
-                titularAuxParaTabla.setIdTitular(titular.getIdTitular());
-                     titularAuxParaTabla.setNombre(titular.getNombre());
-                     titularAuxParaTabla.setApellido(titular.getApellido());
-                     titularAuxParaTabla.setDni(titular.getDni());
-                     titularAuxParaTabla.setDomicilio(titular.getDomicilio());
-                     titularAuxParaTabla.setFechaNac(titular.getFechaNac());
-                     titularAuxParaTabla.setTipoDni(titular.getTipoDni());
-                     titularAuxParaTabla.setGrupoSanguineo(titular.getGrupoSanguineo());
-                     titularAuxParaTabla.setFactorSanguineo(titular.getFactorSanguineo());
-                     titularAuxParaTabla.setLicencias(titular.getLicencias());
-                     System.out.println("Gestor2 " + titularAuxParaTabla.getApellido() + "\n");
-                     modeloTabla.addTitular(titularAuxParaTabla);
-                     
-
-            }
-        }
+            }    
+        }    
+        return listaTitularAux;
     }
     
-     //no creo que sea necesario y hasta peligroso
-    /*public void setAdministrativo(Administrativo administrativo) {
-        this.administrativo = administrativo;
+    public List<TitularAuxParaTabla> buscarTitulares(String nombre, String apellido, String dni) {
+   
+        List listaTitulares = null;
+        TitularAuxParaTabla titularAuxParaTabla = new TitularAuxParaTabla();
+        Titular titular;
+        listaTitulares = daoTitular.findPorNombreApellidoDni(nombre, apellido, dni);
+            
+        List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
+        
+        for (int a = 0; a < listaTitulares.size(); a++) {
+            titular = (Titular) listaTitulares.get(a);
+            Licencia licencia;
+            if(!titular.getLicencias().isEmpty()){
+                
+                //convierto y guardo las licencias vinculadas al titular
+                List<Licencia> licencias = new ArrayList<Licencia>();
+                licencias.addAll(titular.getLicencias());
+                
+                //por cada licencia creo un objeto titularAuxParaTabla para poder mostrar una linea por c/ licencia qu tenga
+                for(int b=0; b<titular.getLicencias().size(); b++){
+                    titularAuxParaTabla = new TitularAuxParaTabla();
+                    titularAuxParaTabla.setTitularOriginal(titular);
+                    licencia=licencias.get(b);
+                    titularAuxParaTabla.setLicencia(licencia);
+                  //  System.out.println(titularAuxParaTabla.getTitularOriginal().getApellido());
+                    listaTitularAux.add(titularAuxParaTabla);
+                   // modeloTabla.addTitular(titularAuxParaTabla);                 
+                }
+            }     
+        }    
+        return listaTitularAux;
     }
-    */
 }
