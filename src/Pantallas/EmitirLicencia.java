@@ -23,7 +23,7 @@ import Gestores.GestorLicencias;
  * @author mueve el toto
  */
 public class EmitirLicencia extends javax.swing.JFrame {
-    Titular titular_aux;
+    TitularAuxParaTabla titular_aux;
     Connection conexion = null;
     PreparedStatement sentencia;
     String ruta="jdbc:mysql://sql141.main-hosting.eu:3306/u248270916_ma18";
@@ -47,7 +47,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }
     
     public EmitirLicencia(TitularAuxParaTabla titularAuxParaTabla) {
-        titular_aux = titular_aux; 
+        titular_aux = titularAuxParaTabla; 
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
@@ -445,7 +445,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_atrasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         Licencia licencia = new Licencia();
+        /* Licencia licencia = new Licencia();
          licencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
          licencia.setTitular(titular_aux);
          String ls_clase = (String) listaClase.getSelectedItem();
@@ -458,6 +458,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
 //         licencia.setFechaRegistro();
          Date fecha_venc = GestorLicencias.calcularFechaLicencia(titular_aux.getFechaNac(), null);
          
+        
         try { 
             Class.forName(driver);
             conexion=DriverManager.getConnection(ruta,user,pass);
@@ -482,7 +483,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);}
           catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);}
-         
+         */
          
                 
         

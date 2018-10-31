@@ -63,6 +63,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         boton_emitir_licencia = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        boton_modificar_titular = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -219,6 +220,18 @@ public class GestionLicencias extends javax.swing.JFrame {
         });
         jScrollPane13.setViewportView(tabla);
 
+        boton_modificar_titular.setText("Modificar Titular");
+        boton_modificar_titular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_modificar_titularActionPerformed(evt);
+            }
+        });
+        boton_modificar_titular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_modificar_titularKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
         jPanel_centro.setLayout(jPanel_centroLayout);
         jPanel_centroLayout.setHorizontalGroup(
@@ -226,7 +239,10 @@ public class GestionLicencias extends javax.swing.JFrame {
             .addGroup(jPanel_centroLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_centroLayout.createSequentialGroup()
+                        .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
@@ -263,7 +279,9 @@ public class GestionLicencias extends javax.swing.JFrame {
                         .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(boton_buscar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addComponent(boton_emitir_licencia))
+                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_emitir_licencia)
+                    .addComponent(boton_modificar_titular)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -429,6 +447,25 @@ public class GestionLicencias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_atrasKeyPressed
 
+    private void boton_modificar_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificar_titularActionPerformed
+        Integer filaSeleccionada= tabla.getSelectedRow();
+       //si no hay una fila seleccionada filaSeleccionada= -1 por default
+        if (filaSeleccionada != -1) {
+            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
+            Titular titular = titularAuxParaTabla.getTitularOriginal();
+            ModificarTitular obj = new ModificarTitular(titular);
+            obj.setVisible(true);
+            dispose();
+       }
+        else{
+            txt_mensaje_error.setText("Seleccione el titular al cual desea modificar"); 
+        }
+    }//GEN-LAST:event_boton_modificar_titularActionPerformed
+
+    private void boton_modificar_titularKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_modificar_titularKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_modificar_titularKeyPressed
+
     private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
        modeloTabla.deleteAllTitulares();
     }
@@ -577,6 +614,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_buscar;
     private javax.swing.JButton boton_emitir_licencia;
+    private javax.swing.JButton boton_modificar_titular;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

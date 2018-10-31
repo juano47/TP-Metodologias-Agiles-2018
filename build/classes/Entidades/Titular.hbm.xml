@@ -6,7 +6,7 @@
     <class name="Entidades.Titular" table="Titular" catalog="u248270916_ma18" optimistic-lock="version">
         <id name="idTitular" type="int">
             <column name="id_titular" />
-            <generator class="assigned" /> <!-- guarda con este assigned! -->
+            <generator class="identity" /> <!-- guarda con este assigned! -->
         </id>
         <property name="nombre" type="string">
             <column name="Nombre" length="100" not-null="true" />
