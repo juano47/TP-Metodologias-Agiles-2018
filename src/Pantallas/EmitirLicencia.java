@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import Gestores.GestorLicencias;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -24,6 +25,8 @@ import Gestores.GestorLicencias;
  */
 public class EmitirLicencia extends javax.swing.JFrame {
     Titular titular_aux;
+    Titular nuevoTitular;
+    private Boolean desdeNuevoTitular = false;
     Connection conexion = null;
     PreparedStatement sentencia;
     String ruta="jdbc:mysql://sql141.main-hosting.eu:3306/u248270916_ma18";
@@ -65,6 +68,30 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_grupo_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getGrupoSanguineo())));
         txt_factor_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFactorSanguineo())));
     }
+    
+    public EmitirLicencia(Titular nuevoTitular){
+        this.nuevoTitular = nuevoTitular; 
+        initComponents();
+        setTitle("Emitir Licencia");
+        setLocationRelativeTo(null);
+        //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
+        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
+        txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
+   
+        //se setean los datos no modificables (datos del titular)
+        txt_nombre.setText(nuevoTitular.getNombre());
+        txt_apellido.setText(nuevoTitular.getApellido());
+        txt_nro_doc.setText(nuevoTitular.getDni());
+        txt_direccion.setText(nuevoTitular.getDomicilio());
+        Date date = nuevoTitular.getFechaNac();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = format.format(date);
+        txt_fecha_nac.setText(dateString);
+        txt_tipo_doc.setText(nuevoTitular.getTipoDni());
+        txt_grupo_sanguineo.setText(nuevoTitular.getGrupoSanguineo());
+        txt_factor_sanguineo.setText(nuevoTitular.getFactorSanguineo());
+        desdeNuevoTitular = true;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,7 +109,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txt_nombre_user = new javax.swing.JLabel();
         jPanel_inferior = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        boton_emitir_licencia = new javax.swing.JButton();
         boton_atras = new javax.swing.JButton();
         jPanel_izq = new javax.swing.JPanel();
         jPanel_der = new javax.swing.JPanel();
@@ -113,7 +140,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_observaciones = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 525));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -145,7 +171,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                         .addComponent(txt_nombre_user)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_superiorLayout.setVerticalGroup(
             jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,10 +190,10 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Finalizar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        boton_emitir_licencia.setText("Finalizar");
+        boton_emitir_licencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                boton_emitir_licenciaActionPerformed(evt);
             }
         });
 
@@ -186,7 +212,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(327, 327, 327)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_inferiorLayout.setVerticalGroup(
@@ -195,7 +221,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -253,11 +279,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_fecha_nac.setText("jLabel15");
 
         listaClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
-        listaClase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaClaseActionPerformed(evt);
-            }
-        });
 
         txt_apellido.setText("jLabel15");
 
@@ -266,11 +287,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_direccion.setText("jLabel15");
 
         listaDonante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-        listaDonante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaDonanteActionPerformed(evt);
-            }
-        });
 
         txt_grupo_sanguineo.setText("jLabel15");
 
@@ -439,12 +455,21 @@ public class EmitirLicencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
-         GestionLicencias obj = new GestionLicencias();
-            obj.setVisible(true);
+        
+        if(desdeNuevoTitular){
+            NuevoTitular pantalla = new NuevoTitular(nuevoTitular);
+            pantalla.setVisible(true);
             dispose();
+        }
+        else{
+            GestionLicencias obj = new GestionLicencias();
+            obj.setVisible(true);
+            dispose(); 
+        }
+        
     }//GEN-LAST:event_boton_atrasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaActionPerformed
          Licencia licencia = new Licencia();
          licencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
          licencia.setTitular(titular_aux);
@@ -489,7 +514,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
            
      
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
 
     private void txt_observacionesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_observacionesKeyTyped
         //se limita a 500 caracteres el campo observaciones
@@ -499,14 +524,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane,"Alcanzo el maximo de caracteres (500 caracteres)");
         }
     }//GEN-LAST:event_txt_observacionesKeyTyped
-
-    private void listaDonanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDonanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaDonanteActionPerformed
-
-    private void listaClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaClaseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,7 +577,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
