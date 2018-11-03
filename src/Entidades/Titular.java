@@ -12,16 +12,16 @@ import java.util.Set;
 public class Titular  implements java.io.Serializable {
 
 
-     public int idTitular;
-     public String nombre;
-     public String apellido;
-     public String dni;
-     public String domicilio;
-     public Date fechaNac;
-     public String tipoDni;
-     public String grupoSanguineo;
-     public String factorSanguineo;
-     public Set licencias = new HashSet(0);
+     private int idTitular;
+     private String nombre;
+     private String apellido;
+     private String dni;
+     private String domicilio;
+     private Date fechaNac;
+     private String tipoDni;
+     private String grupoSanguineo;
+     private String factorSanguineo;
+     private Set licencias = new HashSet(0);
 
     public Titular() {
     }

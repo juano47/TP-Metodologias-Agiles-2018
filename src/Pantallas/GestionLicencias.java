@@ -64,6 +64,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         jScrollPane13 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         boton_modificar_titular = new javax.swing.JButton();
+        boton_nuevo_titular = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -232,6 +233,13 @@ public class GestionLicencias extends javax.swing.JFrame {
             }
         });
 
+        boton_nuevo_titular.setText("Crear Nuevo Titular");
+        boton_nuevo_titular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_nuevo_titularActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
         jPanel_centro.setLayout(jPanel_centroLayout);
         jPanel_centroLayout.setHorizontalGroup(
@@ -240,6 +248,8 @@ public class GestionLicencias extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
+                        .addComponent(boton_nuevo_titular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -281,7 +291,8 @@ public class GestionLicencias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_emitir_licencia)
-                    .addComponent(boton_modificar_titular)))
+                    .addComponent(boton_modificar_titular)
+                    .addComponent(boton_nuevo_titular)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -466,6 +477,12 @@ public class GestionLicencias extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_modificar_titularKeyPressed
 
+    private void boton_nuevo_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_nuevo_titularActionPerformed
+        NuevoTitular obj = new NuevoTitular();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_boton_nuevo_titularActionPerformed
+
     private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
        modeloTabla.deleteAllTitulares();
     }
@@ -615,6 +632,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JButton boton_buscar;
     private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JButton boton_modificar_titular;
+    private javax.swing.JButton boton_nuevo_titular;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
