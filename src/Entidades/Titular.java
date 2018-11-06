@@ -21,13 +21,15 @@ public class Titular  implements java.io.Serializable {
      private String tipoDni;
      private String grupoSanguineo;
      private String factorSanguineo;
+     private Administrativo administrativo;
+     private Date fechaUltimaActualizacion;
      private Set licencias = new HashSet(0);
 
     public Titular() {
     }
 
 	
-    public Titular(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo) {
+    public Titular(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo, Administrativo administrativo, Date fechaUltimaActualizacion) {
         this.idTitular = idTitular;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -37,8 +39,10 @@ public class Titular  implements java.io.Serializable {
         this.tipoDni = tipoDni;
         this.grupoSanguineo = grupoSanguineo;
         this.factorSanguineo = factorSanguineo;
+        this.administrativo = administrativo;
+        this.fechaUltimaActualizacion = fechaUltimaActualizacion;
     }
-    public Titular(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo, Set licencias) {
+    public Titular(int idTitular, String nombre, String apellido, String dni, String domicilio, Date fechaNac, String tipoDni, String grupoSanguineo, String factorSanguineo, Administrativo administrativo, Date fechaUltimaActualizacion, Set licencias) {
        this.idTitular = idTitular;
        this.nombre = nombre;
        this.apellido = apellido;
@@ -48,7 +52,25 @@ public class Titular  implements java.io.Serializable {
        this.tipoDni = tipoDni;
        this.grupoSanguineo = grupoSanguineo;
        this.factorSanguineo = factorSanguineo;
+       this.administrativo = administrativo;
+       this.fechaUltimaActualizacion = fechaUltimaActualizacion;
        this.licencias = licencias;
+    }
+
+    public void setAdministrativo(Administrativo administrativo) {
+        this.administrativo = administrativo;
+    }
+
+    public void setFechaUltimaActualizacion(Date fechaUltimaActualizacion) {
+        this.fechaUltimaActualizacion = fechaUltimaActualizacion;
+    }
+
+    public Administrativo getAdministrativo() {
+        return administrativo;
+    }
+
+    public Date getFechaUltimaActualizacion() {
+        return fechaUltimaActualizacion;
     }
    
     public int getIdTitular() {

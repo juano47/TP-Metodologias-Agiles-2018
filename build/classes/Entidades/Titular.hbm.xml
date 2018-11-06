@@ -32,6 +32,12 @@
         <property name="factorSanguineo" type="string">
             <column name="Factor_sanguineo" length="2" not-null="true" />
         </property>
+        <property name="fechaUltimaActualizacion" type="date">
+            <column name="fecha_ultima_modificacion" length="10" not-null="true" />
+        </property>
+        <many-to-one name="administrativo" class="Entidades.Administrativo" fetch="select">
+            <column name="id_administrativo" not-null="true" />
+        </many-to-one>
         <set name="licencias" table="Licencia" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="id_titular" not-null="true" />
