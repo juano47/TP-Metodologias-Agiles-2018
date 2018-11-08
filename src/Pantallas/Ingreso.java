@@ -6,8 +6,13 @@
 package Pantallas;
 
 import Gestores.GestorAdministrativo;
+import Gestores.GestorLicencias;
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -215,7 +220,16 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        
+        List <Map<String,String>> datasource = new ArrayList<Map<String,String>>();
+        Map <String, String> row = new HashMap<String, String>();
+        row.put("nombre", "Carlos");
+        row.put("apellido", "Rodriguez");
+        row.put("sexo", "M");
+        row.put("nro_licencia", "12345678");
+        
+        datasource.add(row);
+        GestorLicencias.imprimirLicencia(datasource);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed

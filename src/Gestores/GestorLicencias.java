@@ -5,8 +5,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.JPanel;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * Permite gestionar todos los aspectos que tengan que ver con las licencias.
@@ -61,7 +70,24 @@ public class GestorLicencias {
         mapaCostos.put('E', costoE); 
         mapaCostos.put('G', costoG); 
     }
-    
+    /***
+     * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
+     * @param datasource 
+     */
+    public static void imprimirLicencia(List <Map<String,String>> datasource){
+        
+        try{ 
+        JRDataSource a = new JRBeanCollectionDataSource(datasource);
+        JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\licencia.jrxml");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,null, a);
+        JasperViewer viewer = new JasperViewer(jasperPrint,false);
+        viewer.setVisible(true);
+        jasperPrint.setName("Reporte");
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+    }
     /**
      * Calcula la nueva fecha de vencimiento de la Licencia própiamente dicha.
      * Es un método estatico.
