@@ -38,12 +38,12 @@ public class DaoTitular extends AbstractDao {
     }
     
     
-/*
-    public void update(Titular administrativo) throws DataAccessLayerException {
-        super.update(administrativo);
+
+    public void update(Titular titular) throws DataAccessLayerException {
+        super.update(titular);
     }
 
-   
+   /*
     public void delete(Titular administrativo) throws DataAccessLayerException {
         super.delete(administrativo);
     }

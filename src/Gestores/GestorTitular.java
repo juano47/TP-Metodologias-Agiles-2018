@@ -103,4 +103,8 @@ public class GestorTitular {
         }    
         return listaTitularAux;
     }
+    
+    public void modificarTitular(Titular titular_aux) {
+       daoTitular.update(titular_aux);
+    }
 }

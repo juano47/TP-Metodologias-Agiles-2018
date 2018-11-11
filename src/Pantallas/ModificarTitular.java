@@ -5,18 +5,19 @@
  */
 package Pantallas;
 
-import Entidades.Licencia;
 import Entidades.Titular;
-import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
-import static com.mchange.v2.c3p0.impl.C3P0Defaults.user;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import Gestores.GestorTitular;
+import java.applet.AudioClip;
+import java.awt.event.KeyEvent;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Gestores.GestorLicencias;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /**
  *
@@ -24,6 +25,8 @@ import Gestores.GestorLicencias;
  */
 public class ModificarTitular extends javax.swing.JFrame {
     Titular titular_aux;
+    //pido la instancia de gestor de titular
+    GestorTitular gestorTitular = GestorTitular.getInstance();
     
     public ModificarTitular() {
         //borrar todo cuando este listo el metodo de abajo
@@ -50,11 +53,13 @@ public class ModificarTitular extends javax.swing.JFrame {
         txt_apellido.setText((String.valueOf(titular.getApellido())));
         txt_nro_doc.setText((String.valueOf(titular.getDni())));
         txt_direccion.setText((String.valueOf(titular.getDomicilio())));
-        txt_fecha_nac.setText((String.valueOf(titular.getFechaNac())));
-        if(titular.getTipoDni().equals("DNI"))
-            comboBox_tipo_dni.setSelectedIndex(0);
-        txt_grupo_sanguineo.setText((String.valueOf(titular.getGrupoSanguineo())));
-        txt_factor_sanguineo.setText((String.valueOf(titular.getFactorSanguineo())));
+        Date date = titular.getFechaNac();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        String dateString = format.format(date);
+        txt_fecha_nac.setValue(dateString);
+        combobox_tipo_dni.setSelectedItem(titular.getTipoDni());;
+        combobox_grupo_sanguineo.setSelectedItem(titular.getGrupoSanguineo());;
+        combobox_factor_sanguineo.setSelectedItem(titular.getFactorSanguineo());
     }
 
     /**
@@ -75,25 +80,27 @@ public class ModificarTitular extends javax.swing.JFrame {
         jPanel_inferior = new javax.swing.JPanel();
         boton_modificar = new javax.swing.JButton();
         boton_atras = new javax.swing.JButton();
+        txt_mensaje_error = new javax.swing.JLabel();
         jPanel_izq = new javax.swing.JPanel();
         jPanel_der = new javax.swing.JPanel();
-        jPanel_centro = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        comboBox_tipo_dni = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        txt_titulo_nombre = new javax.swing.JLabel();
+        txt_titulo_apellido = new javax.swing.JLabel();
+        txt_titulo_tipo_doc = new javax.swing.JLabel();
+        txt_titulo_num_doc = new javax.swing.JLabel();
+        combobox_tipo_dni = new javax.swing.JComboBox<>();
         txt_nombre = new javax.swing.JTextField();
-        txt_fecha_nac = new javax.swing.JTextField();
-        txt_grupo_sanguineo = new javax.swing.JTextField();
-        txt_factor_sanguineo = new javax.swing.JTextField();
-        txt_direccion = new javax.swing.JTextField();
-        txt_nro_doc = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
+        txt_titulo_direccion = new javax.swing.JLabel();
+        txt_fecha_nacimiento = new javax.swing.JLabel();
+        txt_direccion = new javax.swing.JTextField();
+        txt_fecha_nac = new javax.swing.JFormattedTextField();
+        txt_titulo_grupo_sang = new javax.swing.JLabel();
+        txt_titulo_factor_rh = new javax.swing.JLabel();
+        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
+        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
+        txt_nro_doc = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -126,7 +133,7 @@ public class ModificarTitular extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_nombre_user)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_superiorLayout.setVerticalGroup(
@@ -153,32 +160,43 @@ public class ModificarTitular extends javax.swing.JFrame {
             }
         });
 
-        boton_atras.setText("Atrás");
+        boton_atras.setText("Atras");
         boton_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_atrasActionPerformed(evt);
             }
         });
+        boton_atras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_atrasKeyPressed(evt);
+            }
+        });
+
+        txt_mensaje_error.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
         jPanel_inferior.setLayout(jPanel_inferiorLayout);
         jPanel_inferiorLayout.setHorizontalGroup(
             jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(91, 91, 91)
                 .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel_inferiorLayout.setVerticalGroup(
             jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel_izqLayout = new javax.swing.GroupLayout(jPanel_izq);
@@ -203,114 +221,121 @@ public class ModificarTitular extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("Nombre");
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray));
 
-        jLabel3.setText("Tipo Doc");
+        txt_titulo_nombre.setText("Nombre:");
 
-        jLabel4.setText("Fecha Nac.");
+        txt_titulo_apellido.setText("Apellido:");
 
-        jLabel9.setText("Apellido");
+        txt_titulo_tipo_doc.setText("Tipo Doc:");
 
-        jLabel10.setText("N° Doc");
+        txt_titulo_num_doc.setText("N° Doc:");
 
-        jLabel11.setText("Dirección");
+        combobox_tipo_dni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
 
-        jLabel13.setText("Grupo Sanguineo");
+        txt_titulo_direccion.setText("Dirección:");
 
-        jLabel14.setText("Factor RH");
+        txt_fecha_nacimiento.setText("Fecha Nac.:");
 
-        comboBox_tipo_dni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
+        try {
+            txt_fecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        txt_nombre.setText("jTextField1");
+        txt_titulo_grupo_sang.setText("Grupo Sanguineo:");
 
-        txt_fecha_nac.setText("jTextField1");
+        txt_titulo_factor_rh.setText("Factor RH:");
 
-        txt_grupo_sanguineo.setText("jTextField3");
+        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
 
-        txt_factor_sanguineo.setText("jTextField4");
+        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
 
-        txt_direccion.setText("jTextField5");
+        try {
+            txt_nro_doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        txt_nro_doc.setText("jTextField6");
+        jLabel2.setText("(día-mes-año)");
 
-        txt_apellido.setText("jTextField7");
-
-        javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
-        jPanel_centro.setLayout(jPanel_centroLayout);
-        jPanel_centroLayout.setHorizontalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_titulo_tipo_doc)
+                            .addComponent(txt_titulo_num_doc))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
+                            .addComponent(txt_nro_doc))
+                        .addGap(38, 38, 38))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_titulo_nombre)
+                            .addComponent(txt_titulo_apellido))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(txt_apellido))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_titulo_direccion)
+                    .addComponent(txt_fecha_nacimiento))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_titulo_factor_rh)
+                            .addComponent(txt_titulo_grupo_sang))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(111, 111, 111)
-                        .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(combobox_grupo_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combobox_factor_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
         );
-        jPanel_centroLayout.setVerticalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel13)
-                        .addComponent(txt_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(comboBox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel14)
-                    .addComponent(txt_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel11)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_titulo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_titulo_direccion)
+                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_titulo_grupo_sang)
+                    .addComponent(combobox_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_titulo_apellido)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_fecha_nacimiento)
                     .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(200, Short.MAX_VALUE))
+                    .addComponent(txt_titulo_factor_rh)
+                    .addComponent(combobox_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_titulo_tipo_doc)
+                    .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_titulo_num_doc)
+                    .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -321,10 +346,13 @@ public class ModificarTitular extends javax.swing.JFrame {
             .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_der, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(30, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,28 +361,93 @@ public class ModificarTitular extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel_izq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_inferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(109, 109, 109)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(110, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
-         GestionLicencias obj = new GestionLicencias();
+        GestionLicencias obj = new GestionLicencias();
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_atrasActionPerformed
 
+    private void boton_atrasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_atrasKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_atrasActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_atrasKeyPressed
+
     private void boton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificarActionPerformed
+        txt_nombre.setBackground(java.awt.Color.WHITE);
+        txt_apellido.setBackground(java.awt.Color.WHITE);
+        txt_direccion.setBackground(java.awt.Color.WHITE);
+        txt_fecha_nac.setBackground(java.awt.Color.WHITE);
+        txt_nro_doc.setBackground(java.awt.Color.WHITE);
         
+        titular_aux.setNombre(txt_nombre.getText());
+        titular_aux.setApellido(txt_apellido.getText());
+        titular_aux.setDni(txt_nro_doc.getText());
+        titular_aux.setTipoDni(combobox_tipo_dni.getSelectedItem().toString());
+        titular_aux.setDomicilio(txt_direccion.getText());
+        titular_aux.setFactorSanguineo(combobox_factor_sanguineo.getSelectedItem().toString());
+        titular_aux.setGrupoSanguineo(combobox_grupo_sanguineo.getSelectedItem().toString());
+        titular_aux.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        java.util.Date fecha_ultima_actualizacion = new Date();
+        titular_aux.setFechaUltimaActualizacion(fecha_ultima_actualizacion);
+        
+        String fecha_nacimiento_titular = txt_fecha_nac.getText();
+        Date fechaNacimientoTitular = new Date();
+        
+        try {
+            DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            fechaNacimientoTitular = format.parse(fecha_nacimiento_titular);
+            
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(NuevoTitular.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        titular_aux.setFechaNac(fechaNacimientoTitular);
+        
+        
+             if(txt_nombre.getText().equals("")||txt_apellido.getText().equals("")||txt_direccion.getText().equals("")||txt_nro_doc.getText().equals("        ")){
+                txt_mensaje_error.setText("Algunos campos se encuentran en blanco");
+                if (txt_nombre.getText().equals("")){
+                    txt_nombre.requestFocus();
+                    txt_nombre.setBackground(java.awt.Color.RED);
+                }
+                if (txt_apellido.getText().equals("")){
+                    txt_apellido.requestFocus();
+                    txt_apellido.setBackground(java.awt.Color.RED);
+                }
+                if (txt_direccion.getText().equals("")){
+                    txt_direccion.requestFocus();
+                    txt_direccion.setBackground(java.awt.Color.red);
+                }
+                if (txt_nro_doc.getText().equals("        ")){
+                    txt_nro_doc.requestFocus();
+                    txt_nro_doc.setBackground(java.awt.Color.red);
+                }
+             }
+             else {
+                 gestorTitular.modificarTitular(titular_aux);
+
+                 JOptionPane.showMessageDialog(null, "El titular se ha modificado correctamente");
+                 GestionLicencias obj = new GestionLicencias();
+                 obj.setVisible(true);
+                 dispose();
+             }
                 
         
-           
-     
-// TODO add your handling code here:
     }//GEN-LAST:event_boton_modificarActionPerformed
 
     /**
@@ -383,37 +476,7 @@ public class ModificarTitular extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ModificarTitular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -426,31 +489,33 @@ public class ModificarTitular extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_modificar;
-    private javax.swing.JComboBox<String> comboBox_tipo_dni;
+    private javax.swing.JComboBox<String> combobox_factor_sanguineo;
+    private javax.swing.JComboBox<String> combobox_grupo_sanguineo;
+    private javax.swing.JComboBox<String> combobox_tipo_dni;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel_centro;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel_der;
     private javax.swing.JPanel jPanel_inferior;
     private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_factor_sanguineo;
-    private javax.swing.JTextField txt_fecha_nac;
-    private javax.swing.JTextField txt_grupo_sanguineo;
+    private javax.swing.JFormattedTextField txt_fecha_nac;
+    private javax.swing.JLabel txt_fecha_nacimiento;
+    private javax.swing.JLabel txt_mensaje_error;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_nombre_user;
-    private javax.swing.JTextField txt_nro_doc;
+    private javax.swing.JFormattedTextField txt_nro_doc;
+    private javax.swing.JLabel txt_titulo_apellido;
+    private javax.swing.JLabel txt_titulo_direccion;
+    private javax.swing.JLabel txt_titulo_factor_rh;
+    private javax.swing.JLabel txt_titulo_grupo_sang;
+    private javax.swing.JLabel txt_titulo_nombre;
+    private javax.swing.JLabel txt_titulo_num_doc;
+    private javax.swing.JLabel txt_titulo_tipo_doc;
     private javax.swing.JLabel txt_user;
     // End of variables declaration//GEN-END:variables
 }
