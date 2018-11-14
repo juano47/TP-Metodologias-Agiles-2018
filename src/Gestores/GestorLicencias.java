@@ -1,6 +1,8 @@
 package Gestores;
 
 import Entidades.Licencia;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -8,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import static javassist.CtMethod.ConstParameter.string;
 import javax.swing.JPanel;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;

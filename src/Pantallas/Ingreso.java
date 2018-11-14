@@ -9,6 +9,7 @@ import Gestores.GestorAdministrativo;
 import Gestores.GestorLicencias;
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -221,12 +222,15 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
+        String imagenClose = new File(".").getAbsolutePath().replace(".", "") + "src\\Resource\\template_licencia.jpg";
+        
         List <Map<String,String>> datasource = new ArrayList<Map<String,String>>();
         Map <String, String> row = new HashMap<String, String>();
         row.put("nombre", "Carlos");
         row.put("apellido", "Rodriguez");
         row.put("sexo", "M");
         row.put("nro_licencia", "12345678");
+        row.put("imagen", imagenClose);
         
         datasource.add(row);
         GestorLicencias.imprimirLicencia(datasource);
