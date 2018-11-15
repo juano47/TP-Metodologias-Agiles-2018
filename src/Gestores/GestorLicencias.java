@@ -1,8 +1,11 @@
 package Gestores;
 
 import Entidades.Licencia;
+import Pantallas.EmitirLicencia;
 import java.io.File;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import static javassist.CtMethod.ConstParameter.string;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -18,6 +22,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -77,12 +82,30 @@ public class GestorLicencias {
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
      * @param datasource 
      */
-    public static void imprimirLicencia(List <Map<String,String>> datasource){
+    public static void imprimirLicencia(Licencia nuevaLicencia){
         
+        String imagenClose = new File(".").getAbsolutePath().replace(".", "") + "src\\Resource\\";
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        List <Map<String,String>> datasource = new ArrayList<Map<String,String>>();
+        Map <String, String> row = new HashMap<String, String>();
+        row.put("id_licencia", nuevaLicencia.getIdLicencia().toString());
+        row.put("nombre", nuevaLicencia.getTitular().getNombre());
+        row.put("apellido", nuevaLicencia.getTitular().getApellido());
+        row.put("domicilio", nuevaLicencia.getTitular().getDomicilio());
+        row.put("fecha_nac", formato.format(nuevaLicencia.getTitular().getFechaNac()));
+        row.put("fecha_registro", formato.format(nuevaLicencia.getFechaRegistro()));
+        row.put("fecha_venc", formato.format(nuevaLicencia.getFechaVenc()));
+        row.put("clase", nuevaLicencia.getClase());
+        datasource.add(row);
+        Map parametros = new HashMap<String,Object>();
+        parametros.put("imagen", imagenClose + "Ejemplo_Licencia_Conducir.png");
+          
+          
         try{ 
         JRDataSource a = new JRBeanCollectionDataSource(datasource);
-        JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\licencia.jrxml");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,null, a);
+        //JasperReport reporJasper = (JasperReport) JRLoader.loadObject(imagenClose + "reporteLicencias.jasper");
+        JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\reporteLicencias.jrxml");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,parametros, a);
         JasperViewer viewer = new JasperViewer(jasperPrint,false);
         viewer.setVisible(true);
         jasperPrint.setName("Reporte");

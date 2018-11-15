@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import Gestores.GestorLicencias;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 /**
  *
@@ -466,8 +467,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
         
         Licencia nuevaLicencia = new Licencia();
         nuevaLicencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-        nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
         if(desdeNuevoTitular){
+            nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
             DaoTitular daoTitular = new DaoTitular();
             DaoLicencia daoLicencia = new DaoLicencia();
             
@@ -501,6 +502,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 try{
                     daoLicencia.save(nuevaLicencia);
                     System.out.print("Se guardo bien la licencia!");
+                    GestorLicencias.imprimirLicencia(nuevaLicencia);
                     GestionLicencias pantalla = new GestionLicencias();
                     pantalla.setVisible(true);
                     dispose();
@@ -510,7 +512,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 }
             }
             
-            
+        
         }
         else{
             System.exit(0);

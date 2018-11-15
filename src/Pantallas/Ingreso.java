@@ -5,12 +5,16 @@
  */
 package Pantallas;
 
+import Entidades.Administrativo;
+import Entidades.Licencia;
+import Entidades.Titular;
 import Gestores.GestorAdministrativo;
 import Gestores.GestorLicencias;
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,18 +226,11 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        String imagenClose = new File(".").getAbsolutePath().replace(".", "") + "src\\Resource\\template_licencia.jpg";
-        
-        List <Map<String,String>> datasource = new ArrayList<Map<String,String>>();
-        Map <String, String> row = new HashMap<String, String>();
-        row.put("nombre", "Carlos");
-        row.put("apellido", "Rodriguez");
-        row.put("sexo", "M");
-        row.put("nro_licencia", "12345678");
-        row.put("imagen", imagenClose);
-        
-        datasource.add(row);
-        GestorLicencias.imprimirLicencia(datasource);
+        Administrativo a = new Administrativo("pedro", "Escamoso", 33889977, "pedrin", "hakca");
+        Titular t = new Titular(9999, "PAblo", "pachu", "33220099", "Su csas221", new Date(),"DNI", "Si", "otro SI", a, new Date());
+        Licencia l = new Licencia(a, t, new Date(), "A", "Ni en pedo", "Es Gay", "Bastante Puto", new Date());
+        l.setIdLicencia(9999);
+        GestorLicencias.imprimirLicencia(l);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
