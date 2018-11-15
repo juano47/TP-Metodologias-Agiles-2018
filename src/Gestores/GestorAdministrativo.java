@@ -25,7 +25,6 @@ public class GestorAdministrativo {
     }
 
     private static class GestorAdministrativoHolder {
-
         private static final GestorAdministrativo INSTANCE = new GestorAdministrativo();
     }
     

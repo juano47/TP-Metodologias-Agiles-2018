@@ -5,15 +5,13 @@
  */
 package Pantallas;
 
+import Dao.DaoLicencia;
+import Dao.DaoTitular;
+import Dao.DataAccessLayerException;
 import Entidades.Licencia;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
-import static com.mchange.v2.c3p0.impl.C3P0Defaults.user;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import Gestores.GestorLicencias;
@@ -27,12 +25,6 @@ public class EmitirLicencia extends javax.swing.JFrame {
     TitularAuxParaTabla titular_aux;
     Titular nuevoTitular;
     private Boolean desdeNuevoTitular = false;
-    Connection conexion = null;
-    PreparedStatement sentencia;
-    String ruta="jdbc:mysql://sql141.main-hosting.eu:3306/u248270916_ma18";
-    String driver="com.mysql.jdbc.Driver";
-    String user="u248270916_admin";
-    String pass="admin18";
     
     /**
      * Creates new form Inicio2
@@ -71,6 +63,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
     
     public EmitirLicencia(Titular nuevoTitular){
         this.nuevoTitular = nuevoTitular; 
+        this.nuevoTitular.setFechaUltimaActualizacion(new Date());
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
@@ -469,52 +462,60 @@ public class EmitirLicencia extends javax.swing.JFrame {
         
     }//GEN-LAST:event_boton_atrasActionPerformed
 
-    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        /* Licencia licencia = new Licencia();
-         licencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-         licencia.setTitular(titular_aux);
-         String ls_clase = (String) listaClase.getSelectedItem();
-         licencia.setClase(ls_clase);
-         String ls_donante = (String) listaDonante.getSelectedItem();
-         licencia.setDonante(ls_donante);
-         licencia.setEstado("Original");
-         String ls_observaciones = (String) txt_observaciones.getText();
-         licencia.setObservaciones(ls_observaciones);
-//         licencia.setFechaRegistro();
-         Date fecha_venc = GestorLicencias.calcularFechaLicencia(titular_aux.getFechaNac(), null);
-         
+    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {
         
-        try { 
-            Class.forName(driver);
-            conexion=DriverManager.getConnection(ruta,user,pass);
-            sentencia = conexion.prepareStatement("insert into Licencia values (?,?,?,?,?,?,?,?,?)");
-            //IdTitular va a ser un contador que nunca se reinicie.
-             int contador = 0000;
+        Licencia nuevaLicencia = new Licencia();
+        nuevaLicencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        if(desdeNuevoTitular){
+            DaoTitular daoTitular = new DaoTitular();
+            DaoLicencia daoLicencia = new DaoLicencia();
             
-            sentencia.setInt(1,contador);
-            sentencia.setString(2,txt_nombre.getText());
-            sentencia.setString(3,txt_apellido.getText());
-            sentencia.setString(4,txt_nro_doc.getText());
-            sentencia.setString(5,txt_direccion.getText());
-            sentencia.setString(6,txt_fecha_nac.getText());
-            sentencia.setString(7,txt_tipo_doc.getText());
-            sentencia.setString(8,txt_grupo_sanguineo.getText());
-            sentencia.setString(9,txt_factor_sanguineo.getText());
-            sentencia.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Datos Guardados con exito");
-                 
+            nuevaLicencia.setTitular(nuevoTitular);
+            String ls_clase = (String) listaClase.getSelectedItem();
+            nuevaLicencia.setClase(ls_clase);
+            String ls_donante = (String) listaDonante.getSelectedItem();
+            nuevaLicencia.setDonante(ls_donante);
+            nuevaLicencia.setEstado("Original");
+            String ls_observaciones = (String) txt_observaciones.getText();
+            nuevaLicencia.setObservaciones(ls_observaciones);
             
-        } catch(ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null,e);}
-          catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);}
-         */
-         
-                
+            Date fechaRegistro = new Date();
+            
+            nuevaLicencia.setFechaRegistro(fechaRegistro);
+            
+            Date fechaVencimiento = GestorLicencias.calcularFechaLicencia(nuevoTitular.getFechaNac(), null);
+            
+            nuevaLicencia.setFechaVenc(fechaVencimiento);
+            
+            nuevoTitular.setLicencias(nuevaLicencia);
+            
+            try{
+                daoTitular.save(nuevoTitular);
+                System.out.print("Se guardo bien el titular!");
+            }
+            catch(DataAccessLayerException e){
+                System.out.print(e);
+            }
+            finally{
+                try{
+                    daoLicencia.save(nuevaLicencia);
+                    System.out.print("Se guardo bien la licencia!");
+                    GestionLicencias pantalla = new GestionLicencias();
+                    pantalla.setVisible(true);
+                    dispose();
+                }
+                catch(DataAccessLayerException e){
+                    System.out.print(e);
+                }
+            }
+            
+            
+        }
+        else{
+            System.exit(0);
+        }
         
-           
-     
-// TODO add your handling code here:
     }                                                     
 
     private void txt_observacionesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_observacionesKeyTyped

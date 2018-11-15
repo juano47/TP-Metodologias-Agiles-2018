@@ -37,11 +37,15 @@ public class DaoTitular extends AbstractDao {
         return objects;
     }
     
+    public void save(Titular titular) throws DataAccessLayerException {
+        super.save(titular); 
+    }
     
 
     public void update(Titular titular) throws DataAccessLayerException {
         super.update(titular);
     }
+    
 
    /*
     public void delete(Titular administrativo) throws DataAccessLayerException {

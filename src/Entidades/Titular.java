@@ -143,6 +143,10 @@ public class Titular  implements java.io.Serializable {
     public void setLicencias(Set licencias) {
         this.licencias = licencias;
     }
+    
+    public void setLicencias(Licencia licencia) {
+        this.licencias.add(licencia);
+    }
 
 
 
