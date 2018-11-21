@@ -65,6 +65,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         boton_modificar_titular = new javax.swing.JButton();
         boton_nuevo_titular = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -240,6 +241,13 @@ public class GestionLicencias extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Renovar Licencia");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_renovar_licenciaActionPermirmed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
         jPanel_centro.setLayout(jPanel_centroLayout);
         jPanel_centroLayout.setHorizontalGroup(
@@ -248,8 +256,10 @@ public class GestionLicencias extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boton_nuevo_titular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(13, 13, 13)
                         .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,7 +302,8 @@ public class GestionLicencias extends javax.swing.JFrame {
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton_emitir_licencia)
                     .addComponent(boton_modificar_titular)
-                    .addComponent(boton_nuevo_titular)))
+                    .addComponent(boton_nuevo_titular)
+                    .addComponent(jButton1)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -483,6 +494,20 @@ public class GestionLicencias extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_boton_nuevo_titularActionPerformed
 
+    private void boton_renovar_licenciaActionPermirmed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_renovar_licenciaActionPermirmed
+        // TODO add your handling code here:
+        Integer filaSeleccionada= tabla.getSelectedRow();
+       if (filaSeleccionada != -1) {
+            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
+            RenovarLicencia obj = new RenovarLicencia(titularAuxParaTabla);
+            obj.setVisible(true);
+            dispose();
+       }
+        else{
+            txt_mensaje_error.setText("Seleccione el titular al cual desea emitir una licencia"); 
+        }
+    }//GEN-LAST:event_boton_renovar_licenciaActionPermirmed
+
     private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
        modeloTabla.deleteAllTitulares();
     }
@@ -633,6 +658,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JButton boton_modificar_titular;
     private javax.swing.JButton boton_nuevo_titular;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

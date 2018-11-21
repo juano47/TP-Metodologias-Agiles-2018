@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="700" pageHeight="1000" whenNoDataType="AllSectionsNoDetail" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="166"/>
+	<property name="ireport.y" value="365"/>
 	<parameter name="imagen" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -17,67 +17,148 @@
 	<field name="fecha_registro" class="java.lang.String"/>
 	<field name="fecha_venc" class="java.lang.String"/>
 	<field name="clase" class="java.lang.String"/>
+	<field name="costo" class="java.lang.String"/>
 	<detail>
-		<band height="403">
+		<band height="619">
 			<image>
 				<reportElement x="0" y="0" width="627" height="300"/>
 				<imageExpression><![CDATA[$P{imagen}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="185" y="106" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black" isBold="true"/>
+				<reportElement x="161" y="100" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="185" y="137" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="161" y="124" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="185" y="167" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="161" y="148" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{domicilio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="185" y="200" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="162" y="176" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_nac}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="186" y="229" width="115" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="161" y="204" width="115" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_registro}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="405" y="78" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="356" y="60" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{clase}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="347" y="229" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="324" y="204" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_venc}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="186" y="78" width="100" height="20"/>
-				<textElement>
-					<font fontName="Arial Black"/>
+				<reportElement x="161" y="73" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id_licencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="ss" x="158" y="60" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Numero de Licencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="158" y="88" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="158" y="111" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="158" y="136" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="158" y="164" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha de Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="158" y="192" width="161" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha de Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="318" y="60" width="59" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Clase:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="ss" x="318" y="192" width="126" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha de Fencimiento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="332" width="658" height="287"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="346" width="658" height="46"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="30"/>
+				</textElement>
+				<text><![CDATA[Comprobante de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="411" width="145" height="43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="20"/>
+				</textElement>
+				<text><![CDATA[Total a Pagar: $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="411" width="199" height="43"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

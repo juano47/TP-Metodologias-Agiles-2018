@@ -21,7 +21,7 @@ public class DaoLicencia extends AbstractDao{
     }
     
     public void update(Licencia licencia) throws DataAccessLayerException {
-        super.save(licencia);
+        super.update(licencia);
     }
     
     public void save(Licencia licencia) throws DataAccessLayerException {

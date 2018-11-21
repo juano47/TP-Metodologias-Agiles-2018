@@ -22,7 +22,9 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -38,10 +40,10 @@ public class GestorLicencias {
 -        Mayores de 70 años: 1 año
 	*/
     
-    private static Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
+    //private static Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
     
     public GestorLicencias () {
-        Vector costoA = new Vector();
+        /*Vector costoA = new Vector();
         Vector costoB = new Vector();
         Vector costoC = new Vector();
         Vector costoE = new Vector();
@@ -76,7 +78,7 @@ public class GestorLicencias {
         mapaCostos.put('B', costoB); 
         mapaCostos.put('C', costoC); 
         mapaCostos.put('E', costoE); 
-        mapaCostos.put('G', costoG); 
+        mapaCostos.put('G', costoG); */
     }
     /***
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
@@ -96,10 +98,10 @@ public class GestorLicencias {
         row.put("fecha_registro", formato.format(nuevaLicencia.getFechaRegistro()));
         row.put("fecha_venc", formato.format(nuevaLicencia.getFechaVenc()));
         row.put("clase", nuevaLicencia.getClase());
+        row.put("costo", calculcarCostoLicencia(nuevaLicencia).toString());
         datasource.add(row);
         Map parametros = new HashMap<String,Object>();
-        parametros.put("imagen", imagenClose + "Ejemplo_Licencia_Conducir.png");
-          
+        parametros.put("imagen", imagenClose + "Ejemplo_Licencia_Conducir.jpg");
           
         try{ 
         JRDataSource a = new JRBeanCollectionDataSource(datasource);
@@ -315,15 +317,51 @@ public class GestorLicencias {
     public static Integer calculcarCostoLicencia(Licencia licencia){
         Integer costo = 0;
         Integer duracionLicencia = 0;
-        Vector costos = new Vector();
+        Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
+        Vector costoA = new Vector();
+        Vector costoB = new Vector();
+        Vector costoC = new Vector();
+        Vector costoE = new Vector();
+        Vector costoG = new Vector();
         
+        costoA.add(40);
+        costoA.add(30);
+        costoA.add(25);
+        costoA.add(20);
+        
+        costoB.add(40);
+        costoB.add(30);
+        costoB.add(25);
+        costoB.add(20);
+        
+        costoC.add(47);
+        costoC.add(35);
+        costoC.add(30);
+        costoC.add(23);
+        
+        costoE.add(59);
+        costoE.add(44);
+        costoE.add(39);
+        costoE.add(29);
+        
+        costoG.add(40);
+        costoG.add(30);
+        costoG.add(25);
+        costoG.add(20);
+        
+        mapaCostos.put('A', costoA);
+        mapaCostos.put('B', costoB); 
+        mapaCostos.put('C', costoC); 
+        mapaCostos.put('E', costoE); 
+        mapaCostos.put('G', costoG); 
+        Vector costos = new Vector();
         Date fechaRegistro = licencia.getFechaRegistro();
         Date fechaVencimiento = licencia.getFechaVenc();
         String clase = licencia.getClase();
-        
+        char letra = licencia.getClase().charAt(0);
         duracionLicencia = restarFechas(fechaRegistro, fechaVencimiento);
         
-        costos = mapaCostos.get(clase);
+        costos = mapaCostos.get(letra);
         
         duracionLicencia = duracionLicencia / 365;
         
