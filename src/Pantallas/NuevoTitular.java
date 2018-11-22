@@ -154,6 +154,11 @@ public class NuevoTitular extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        input_fecha_nac_titular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_fecha_nac_titularActionPerformed(evt);
+            }
+        });
 
         txt_titulo_grupo_sang.setText("Grupo Sanguineo:");
 
@@ -347,6 +352,10 @@ public class NuevoTitular extends javax.swing.JFrame {
         pantalla.setVisible(true);
         dispose();
     }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
+
+    private void input_fecha_nac_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_fecha_nac_titularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_fecha_nac_titularActionPerformed
 
     /**
      * @param args the command line arguments

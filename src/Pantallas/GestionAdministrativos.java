@@ -5,6 +5,7 @@
  */
 package Pantallas;
 
+import Entidades.Administrativo;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
@@ -19,14 +20,14 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author mueve el toto
  */
-public class GestionLicencias extends javax.swing.JFrame {
+public class GestionAdministrativos extends javax.swing.JFrame {
 
-    TablaModeloTitular modeloTabla = new TablaModeloTitular();
+    TablaModeloAdministrativo modeloTabla = new TablaModeloAdministrativo();
     
     /**
      * Creates new form Inicio2
      */
-    public GestionLicencias() {
+    public GestionAdministrativos() {
         initComponents();
         setTitle("Gestión");
         setLocationRelativeTo(null);
@@ -60,12 +61,10 @@ public class GestionLicencias extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_dni = new javax.swing.JTextField();
         boton_buscar = new javax.swing.JButton();
-        boton_emitir_licencia = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         boton_modificar_titular = new javax.swing.JButton();
         boton_nuevo_titular = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -175,18 +174,6 @@ public class GestionLicencias extends javax.swing.JFrame {
             }
         });
 
-        boton_emitir_licencia.setText("Emitir Licencia");
-        boton_emitir_licencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_emitir_licenciaActionPerformed(evt);
-            }
-        });
-        boton_emitir_licencia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                boton_emitir_licenciaKeyPressed(evt);
-            }
-        });
-
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -222,7 +209,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         });
         jScrollPane13.setViewportView(tabla);
 
-        boton_modificar_titular.setText("Modificar Titular");
+        boton_modificar_titular.setText("Modificar Administrativo");
         boton_modificar_titular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_modificar_titularActionPerformed(evt);
@@ -234,17 +221,10 @@ public class GestionLicencias extends javax.swing.JFrame {
             }
         });
 
-        boton_nuevo_titular.setText("Crear Nuevo Titular");
+        boton_nuevo_titular.setText(" Nuevo Administrativo");
         boton_nuevo_titular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_nuevo_titularActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Renovar Licencia");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_renovar_licenciaActionPermirmed(evt);
             }
         });
 
@@ -255,14 +235,6 @@ public class GestionLicencias extends javax.swing.JFrame {
             .addGroup(jPanel_centroLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_nuevo_titular)
-                        .addGap(13, 13, 13)
-                        .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
@@ -276,8 +248,13 @@ public class GestionLicencias extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_buscar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(boton_buscar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel_centroLayout.createSequentialGroup()
+                        .addComponent(boton_nuevo_titular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(157, 157, 157))))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addContainerGap()
@@ -300,10 +277,8 @@ public class GestionLicencias extends javax.swing.JFrame {
                         .addComponent(boton_buscar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_emitir_licencia)
                     .addComponent(boton_modificar_titular)
-                    .addComponent(boton_nuevo_titular)
-                    .addComponent(jButton1)))
+                    .addComponent(boton_nuevo_titular)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -403,35 +378,20 @@ public class GestionLicencias extends javax.swing.JFrame {
         String apellido = txt_apellido.getText();
         String dni = txt_dni.getText();
         
-        GestorTitular gestorTitular = GestorTitular.getInstance(); //se pide la instancia de GestorTitular
-        List<TitularAuxParaTabla> listaTitularAux= new ArrayList<TitularAuxParaTabla>();
+        GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance(); //se pide la instancia de GestorAdministrativo
+        List<Administrativo> listaAdministrativo= new ArrayList<Administrativo>();
         if("".equals(nombre) && "".equals(apellido) && "".equals(dni)){ //no completo al menos un criterio de busqueda, se buscan todos los titulares  
-            listaTitularAux = gestorTitular.buscarTitulares();  //busca en la BS y pasa una lista con TODOS los titulares
-            modeloTabla.addAllTitulares(listaTitularAux);
+            listaAdministrativo = gestorAdministrativo.buscarAdministrativos();  //busca en la BS y pasa una lista con TODOS los titulares
+            modeloTabla.addAllAdministrativos(listaAdministrativo);
         }
         else{
-            listaTitularAux = gestorTitular.buscarTitulares(nombre, apellido, dni);  //busca en la BS y pasa una lista con los titulares filtrados
-            modeloTabla.addAllTitulares(listaTitularAux);
+            listaAdministrativo = gestorAdministrativo.buscarAdministrativos(nombre, apellido, dni);  //busca en la BS y pasa una lista con los titulares filtrados
+            modeloTabla.addAllAdministrativos(listaAdministrativo);
         }
-        
-        if(modeloTabla.getListaTitularesAux().size()==0)
+       
+        if(modeloTabla.getAdministrativos().size()==0)
             txt_mensaje_error.setText("No se encontraron registros");
     }//GEN-LAST:event_boton_buscarActionPerformed
-
-    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaActionPerformed
-       //http://www.lawebdelprogramador.com/foros/Java/719076-Obtener-el-valor-de-una-celda-el-JTABLE.html
-       Integer filaSeleccionada= tabla.getSelectedRow();
-       //si no hay una fila seleccionada filaSeleccionada= -1 por default
-        if (filaSeleccionada != -1) {
-            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
-            EmitirLicencia obj = new EmitirLicencia(titularAuxParaTabla);
-            obj.setVisible(true);
-            dispose();
-       }
-        else{
-            txt_mensaje_error.setText("Seleccione el titular al cual desea emitir una licencia"); 
-        }
-    }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
 
     private void txt_nombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -457,12 +417,6 @@ public class GestionLicencias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_buscarKeyPressed
 
-    private void boton_emitir_licenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-           boton_emitir_licenciaActionPerformed(null);
-        }
-    }//GEN-LAST:event_boton_emitir_licenciaKeyPressed
-
     private void boton_atrasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_atrasKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
            boton_atrasActionPerformed(null);
@@ -473,14 +427,13 @@ public class GestionLicencias extends javax.swing.JFrame {
         Integer filaSeleccionada= tabla.getSelectedRow();
        //si no hay una fila seleccionada filaSeleccionada= -1 por default
         if (filaSeleccionada != -1) {
-            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
-            Titular titular = titularAuxParaTabla.getTitularOriginal();
-            ModificarTitular obj = new ModificarTitular(titular);
+            Administrativo administrativo = modeloTabla.getAdministrativo(tabla.getSelectedRow());
+            ModificarAdministrativo obj = new ModificarAdministrativo(administrativo);
             obj.setVisible(true);
             dispose();
        }
         else{
-            txt_mensaje_error.setText("Seleccione el titular al cual desea modificar"); 
+            txt_mensaje_error.setText("Seleccione el administrador al cual desea modificar"); 
         }
     }//GEN-LAST:event_boton_modificar_titularActionPerformed
 
@@ -489,50 +442,36 @@ public class GestionLicencias extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_modificar_titularKeyPressed
 
     private void boton_nuevo_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_nuevo_titularActionPerformed
-        NuevoTitular obj = new NuevoTitular();
+/*        NuevoAdministrativo obj = new NuevoAdministrativo();
         obj.setVisible(true);
-        dispose();
+        dispose();*/
     }//GEN-LAST:event_boton_nuevo_titularActionPerformed
 
-    private void boton_renovar_licenciaActionPermirmed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_renovar_licenciaActionPermirmed
-        // TODO add your handling code here:
-        Integer filaSeleccionada= tabla.getSelectedRow();
-       if (filaSeleccionada != -1) {
-            TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
-            RenovarLicencia obj = new RenovarLicencia(titularAuxParaTabla);
-            obj.setVisible(true);
-            dispose();
-       }
-        else{
-            txt_mensaje_error.setText("Seleccione el titular al cual desea emitir una licencia"); 
-        }
-    }//GEN-LAST:event_boton_renovar_licenciaActionPermirmed
-
-    private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
-       modeloTabla.deleteAllTitulares();
+    private void limpiarTabla(JTable tabla, TablaModeloAdministrativo modeloTabla){
+       modeloTabla.deleteAllAdministrativos();
     }
     
-    public class TablaModeloTitular extends AbstractTableModel {
+    public class TablaModeloAdministrativo extends AbstractTableModel {
 
-    private String[] columnNames = {"Nombre", "Apellido","DNI", "Clase Licencia", "Estado", "Vigencia", "Registrada"};
-    private List<TitularAuxParaTabla> data = new ArrayList<TitularAuxParaTabla>();
+    private String[] columnNames = {"Nombre", "Apellido","DNI"};
+    private List<Administrativo> data = new ArrayList<Administrativo>();
 
-    public void addTitular(TitularAuxParaTabla titularAuxParaTabla) {
-        data.add(titularAuxParaTabla);
+    public void addAdministrativo(Administrativo administrativo) {
+        data.add(administrativo);
         fireTableDataChanged();
     }
     
-     public void addAllTitulares(List<TitularAuxParaTabla> listaTitularAuxParaTabla ) {
-        data.addAll(listaTitularAuxParaTabla);
+     public void addAllAdministrativos(List<Administrativo> administrativo ) {
+        data.addAll(administrativo);
         fireTableDataChanged();
     }
 
-    public void deleteTitular(int rowIndex) {
+    public void deleteAdministrativo(int rowIndex) {
         data.remove(rowIndex);
         fireTableDataChanged();
     }
     
-    public void deleteAllTitulares() {
+    public void deleteAllAdministrativos() {
         data.clear();
         fireTableDataChanged();
     }
@@ -549,45 +488,25 @@ public class GestionLicencias extends javax.swing.JFrame {
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 3;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return data.get(rowIndex).getTitularOriginal().getNombre();
+                return data.get(rowIndex).getNombre();
             case 1:
-                return data.get(rowIndex).getTitularOriginal().getApellido();
+                return data.get(rowIndex).getApellido();
             case 2:
-                return data.get(rowIndex).getTitularOriginal().getDni();
-            case 3:
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                    return data.get(rowIndex).getLicencia().getClase();
-            case 4:
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                return data.get(rowIndex).getLicencia().getEstado();
-            case 5: 
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                return data.get(rowIndex).getLicencia().getFechaVenc();
-            case 6: 
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                return data.get(rowIndex).getLicencia().getFechaRegistro();
+                return data.get(rowIndex).getDni();
             default:
                 return null;
         }
     }
     
-    public TitularAuxParaTabla getTitularAuxParaTabla(int fila) {
-            return (TitularAuxParaTabla) data.get(fila);
+    public Administrativo getAdministrativo(int fila) {
+            return (Administrativo) data.get(fila);
         }
 
     @Override
@@ -606,7 +525,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         
     }
     
-    public List<TitularAuxParaTabla> getListaTitularesAux() {
+    public List<Administrativo> getAdministrativos() {
             return data;
         }
 }
@@ -627,14 +546,22 @@ public class GestionLicencias extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionLicencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionAdministrativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionLicencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionAdministrativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionLicencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionAdministrativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionLicencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GestionAdministrativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -647,7 +574,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestionLicencias().setVisible(true);
+                new GestionAdministrativos().setVisible(true);
             }
         });
     }
@@ -655,10 +582,8 @@ public class GestionLicencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_buscar;
-    private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JButton boton_modificar_titular;
     private javax.swing.JButton boton_nuevo_titular;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

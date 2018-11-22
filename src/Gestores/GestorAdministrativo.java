@@ -7,6 +7,7 @@ package Gestores;
 
 import Dao.DaoAdministrativo;
 import Entidades.Administrativo;
+import java.util.List;
 
 //COMPROBAR QUE FUNCIONA COMO SINGLETON!
 /**
@@ -15,6 +16,7 @@ import Entidades.Administrativo;
  */
 public class GestorAdministrativo {
     
+    DaoAdministrativo daoAdministrativo = new DaoAdministrativo();
     private Administrativo administrativo;
     
     private GestorAdministrativo() {
@@ -44,10 +46,19 @@ public class GestorAdministrativo {
      public Administrativo getAdministrativo() {
         return this.administrativo;
     }
-    
-     //no creo que sea necesario y hasta peligroso
-    /*public void setAdministrativo(Administrativo administrativo) {
-        this.administrativo = administrativo;
+     
+     
+    // Busca todos los administrativos por nombre, apellido, dni
+    public List<Administrativo> buscarAdministrativos() {
+        return daoAdministrativo.findPorNombreApellidoDni();
     }
-    */
+    
+    public List<Administrativo> buscarAdministrativos(String nombre, String apellido, String dni) {
+   
+        return daoAdministrativo.findPorNombreApellidoDni(nombre, apellido, dni);   
+    }
+    
+    public void modificarTitular(Administrativo administrativo_aux) {
+        daoAdministrativo.update(administrativo_aux);
+    }
 }

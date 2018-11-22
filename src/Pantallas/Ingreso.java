@@ -226,7 +226,7 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        Administrativo a = new Administrativo("pedro", "Escamoso", 33889977, "pedrin", "hakca");
+        Administrativo a = new Administrativo("pedro", "Escamoso", "33889977", "pedrin", "hakca", 0);
         Titular t = new Titular(9999, "PAblo", "pachu", "33220099", "Su csas221", new Date(),"DNI", "Si", "otro SI", a, new Date());
         Licencia l = new Licencia(a, t, new Date(), "A", "Ni en pedo", "Es Gay", "Bastante Puto", new Date());
         l.setIdLicencia(9999);

@@ -29,7 +29,8 @@ public class Gestion extends javax.swing.JFrame {
         //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
         txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
-        
+        if(GestorAdministrativo.getInstance().getAdministrativo().getSuperuser()==0)
+            boton_usuarios.setVisible(false);
     }
 
     /**
@@ -56,6 +57,7 @@ public class Gestion extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         boton_licencias = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        boton_usuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -160,12 +162,16 @@ public class Gestion extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jPanel_centro.setLayout(null);
+
         jButton4.setText("Titulares");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+        jPanel_centro.add(jButton4);
+        jButton4.setBounds(231, 75, 182, 36);
 
         boton_licencias.setText("Licencias");
         boton_licencias.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +184,8 @@ public class Gestion extends javax.swing.JFrame {
                 boton_licenciasKeyPressed(evt);
             }
         });
+        jPanel_centro.add(boton_licencias);
+        boton_licencias.setBounds(231, 21, 182, 36);
 
         jButton6.setText("Listados");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -185,30 +193,22 @@ public class Gestion extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel_centro.add(jButton6);
+        jButton6.setBounds(231, 129, 182, 36);
 
-        javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
-        jPanel_centro.setLayout(jPanel_centroLayout);
-        jPanel_centroLayout.setHorizontalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_licencias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel_centroLayout.setVerticalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(boton_licencias, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        boton_usuarios.setText("Administración de Usuarios");
+        boton_usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_usuariosActionPerformed(evt);
+            }
+        });
+        boton_usuarios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_usuariosKeyPressed(evt);
+            }
+        });
+        jPanel_centro.add(boton_usuarios);
+        boton_usuarios.setBounds(231, 183, 182, 36);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,6 +263,18 @@ public class Gestion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_licenciasKeyPressed
 
+    private void boton_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_usuariosActionPerformed
+        GestionAdministrativos obj = new GestionAdministrativos();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_boton_usuariosActionPerformed
+
+    private void boton_usuariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_usuariosKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_usuariosActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_usuariosKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -307,6 +319,7 @@ public class Gestion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_licencias;
+    private javax.swing.JButton boton_usuarios;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

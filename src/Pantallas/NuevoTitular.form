@@ -278,6 +278,9 @@
               <Format format="####-##-##" subtype="-1" type="5"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="input_fecha_nac_titularActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txt_titulo_grupo_sang">
           <Properties>

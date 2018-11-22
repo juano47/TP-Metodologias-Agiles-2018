@@ -14,28 +14,31 @@ public class Administrativo  implements java.io.Serializable {
      private Integer idAdministrativo;
      private String nombre;
      private String apellido;
-     private int dni;
+     private String dni;
      private String username;
      private String password;
+     private int superuser;
      private Set licencias = new HashSet(0);
 
     public Administrativo() {
     }
 
 	
-    public Administrativo(String nombre, String apellido, int dni, String username, String password) {
+    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.username = username;
         this.password = password;
+        this.superuser = superuser;
     }
-    public Administrativo(String nombre, String apellido, int dni, String username, String password, Set licencias) {
+    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser, Set licencias) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
        this.username = username;
        this.password = password;
+       this.superuser = superuser;
        this.licencias = licencias;
     }
    
@@ -60,11 +63,11 @@ public class Administrativo  implements java.io.Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public int getDni() {
+    public String getDni() {
         return this.dni;
     }
     
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
     public String getUsername() {
@@ -81,6 +84,15 @@ public class Administrativo  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getSuperuser() {
+        return superuser;
+    }
+
+    public void setSuperuser(int superuser) {
+        this.superuser = superuser;
+    }
+    
     public Set getLicencias() {
         return this.licencias;
     }

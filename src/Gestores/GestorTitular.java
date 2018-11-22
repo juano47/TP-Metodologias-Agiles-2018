@@ -37,7 +37,7 @@ public class GestorTitular {
     }
     
      
-     // Busca todos los puestos por codigo puesto y empresa
+     // Busca todos los titulares por nombre, apellido y dni
     public List<TitularAuxParaTabla> buscarTitulares() {
 
         List listaTitulares = null;

@@ -5,54 +5,49 @@
  */
 package Pantallas;
 
-import Entidades.Titular;
+import Entidades.Administrativo;
 import Gestores.GestorAdministrativo;
 import Gestores.GestorTitular;
-import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /**
  *
  * @author mueve el toto
  */
-public class ModificarTitular extends javax.swing.JFrame {
-    Titular titular_aux;
+public class ModificarAdministrativo extends javax.swing.JFrame {
+    Administrativo administrativo_aux;
     //pido la instancia de gestor de titular
-    GestorTitular gestorTitular = GestorTitular.getInstance();
+    GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance();
     
-    public ModificarTitular() {
+    public ModificarAdministrativo() {
   
     }
     
-    public ModificarTitular(Titular titular) {
-        titular_aux = titular; 
+    public ModificarAdministrativo(Administrativo administrativo) {
+        administrativo_aux = administrativo; 
         initComponents();
-        setTitle("Modificar Titular");
+        setTitle("Modificar Administrativo");
         setLocationRelativeTo(null);
         //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
         txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
    
-        //se setean los datos no modificables (datos del titular)
-        txt_nombre.setText((String.valueOf(titular.getNombre())));
-        txt_apellido.setText((String.valueOf(titular.getApellido())));
-        txt_nro_doc.setText((String.valueOf(titular.getDni())));
-        txt_direccion.setText((String.valueOf(titular.getDomicilio())));
-        Date date = titular.getFechaNac();
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        String dateString = format.format(date);
-        txt_fecha_nac.setValue(dateString);
-        combobox_tipo_dni.setSelectedItem(titular.getTipoDni());;
-        combobox_grupo_sanguineo.setSelectedItem(titular.getGrupoSanguineo());;
-        combobox_factor_sanguineo.setSelectedItem(titular.getFactorSanguineo());
+        //se setean los datos no modificables (datos del administrativo)
+        txt_nombre.setText((String.valueOf(administrativo.getNombre())));
+        txt_apellido.setText((String.valueOf(administrativo.getApellido())));
+        txt_nro_doc.setText((String.valueOf(administrativo.getDni())));
+        txt_nombre_usuario.setText((String.valueOf(administrativo.getUsername())));
+        txt_pass.setText((String.valueOf(administrativo.getPassword())));
+        int check = administrativo.getSuperuser();
+ 
+        if(check == 1)
+            checkBox_superuser.setSelected(true);
+        else
+            checkBox_superuser.setSelected(false);
+    
     }
 
     /**
@@ -79,28 +74,23 @@ public class ModificarTitular extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txt_titulo_nombre = new javax.swing.JLabel();
         txt_titulo_apellido = new javax.swing.JLabel();
-        txt_titulo_tipo_doc = new javax.swing.JLabel();
         txt_titulo_num_doc = new javax.swing.JLabel();
-        combobox_tipo_dni = new javax.swing.JComboBox<>();
         txt_nombre = new javax.swing.JTextField();
         txt_apellido = new javax.swing.JTextField();
-        txt_titulo_direccion = new javax.swing.JLabel();
-        txt_fecha_nacimiento = new javax.swing.JLabel();
-        txt_direccion = new javax.swing.JTextField();
-        txt_fecha_nac = new javax.swing.JFormattedTextField();
-        txt_titulo_grupo_sang = new javax.swing.JLabel();
-        txt_titulo_factor_rh = new javax.swing.JLabel();
-        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
-        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
         txt_nro_doc = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        checkBox_superuser = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_nombre_usuario = new javax.swing.JTextField();
+        txt_pass = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modificar Titular");
+        jLabel1.setText("Modificar Administrativo");
 
         jLabel8.setText("Usuario: ");
 
@@ -220,29 +210,7 @@ public class ModificarTitular extends javax.swing.JFrame {
 
         txt_titulo_apellido.setText("Apellido:");
 
-        txt_titulo_tipo_doc.setText("Tipo Doc:");
-
-        txt_titulo_num_doc.setText("N° Doc:");
-
-        combobox_tipo_dni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
-
-        txt_titulo_direccion.setText("Dirección:");
-
-        txt_fecha_nacimiento.setText("Fecha Nac.:");
-
-        try {
-            txt_fecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        txt_titulo_grupo_sang.setText("Grupo Sanguineo:");
-
-        txt_titulo_factor_rh.setText("Factor RH:");
-
-        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
-
-        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+        txt_titulo_num_doc.setText("DNI:");
 
         try {
             txt_nro_doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
@@ -250,54 +218,58 @@ public class ModificarTitular extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jLabel2.setText("(día-mes-año)");
+        jLabel3.setText("Superuser:");
+
+        checkBox_superuser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBox_superuserActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Nombre de usuario:");
+
+        jLabel4.setText("Contraseña:");
+
+        try {
+            txt_pass.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("********")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_titulo_tipo_doc)
-                            .addComponent(txt_titulo_num_doc))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
-                            .addComponent(txt_nro_doc))
-                        .addGap(38, 38, 38))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_nombre_usuario)
+                            .addComponent(txt_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkBox_superuser, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_titulo_nombre)
                             .addComponent(txt_titulo_apellido))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(txt_apellido))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_titulo_direccion)
-                    .addComponent(txt_fecha_nacimiento))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_titulo_factor_rh)
-                            .addComponent(txt_titulo_grupo_sang))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(combobox_grupo_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combobox_factor_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_nro_doc, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                    .addComponent(txt_apellido)))))
+                    .addComponent(txt_titulo_num_doc))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,30 +277,31 @@ public class ModificarTitular extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_titulo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_grupo_sang)
-                    .addComponent(combobox_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_titulo_apellido)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_fecha_nacimiento)
-                    .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_factor_rh)
-                    .addComponent(combobox_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_titulo_tipo_doc)
-                    .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_titulo_num_doc)
                     .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_nombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(checkBox_superuser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -361,14 +334,14 @@ public class ModificarTitular extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(109, 109, 109)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(110, Short.MAX_VALUE)))
+                    .addContainerGap(93, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_atrasActionPerformed
-        GestionLicencias obj = new GestionLicencias();
+        GestionAdministrativos obj = new GestionAdministrativos();
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_boton_atrasActionPerformed
@@ -382,37 +355,9 @@ public class ModificarTitular extends javax.swing.JFrame {
     private void boton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificarActionPerformed
         txt_nombre.setBackground(java.awt.Color.WHITE);
         txt_apellido.setBackground(java.awt.Color.WHITE);
-        txt_direccion.setBackground(java.awt.Color.WHITE);
-        txt_fecha_nac.setBackground(java.awt.Color.WHITE);
         txt_nro_doc.setBackground(java.awt.Color.WHITE);
-        
-        titular_aux.setNombre(txt_nombre.getText());
-        titular_aux.setApellido(txt_apellido.getText());
-        titular_aux.setDni(txt_nro_doc.getText());
-        titular_aux.setTipoDni(combobox_tipo_dni.getSelectedItem().toString());
-        titular_aux.setDomicilio(txt_direccion.getText());
-        titular_aux.setFactorSanguineo(combobox_factor_sanguineo.getSelectedItem().toString());
-        titular_aux.setGrupoSanguineo(combobox_grupo_sanguineo.getSelectedItem().toString());
-        titular_aux.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-        java.util.Date fecha_ultima_actualizacion = new Date();
-        titular_aux.setFechaUltimaActualizacion(fecha_ultima_actualizacion);
-        
-        String fecha_nacimiento_titular = txt_fecha_nac.getText();
-        Date fechaNacimientoTitular = new Date();
-        
-        try {
-            DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-            fechaNacimientoTitular = format.parse(fecha_nacimiento_titular);
             
-            
-        } catch (ParseException ex) {
-            Logger.getLogger(NuevoTitular.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        titular_aux.setFechaNac(fechaNacimientoTitular);
-        
-        
-             if(txt_nombre.getText().equals("")||txt_apellido.getText().equals("")||txt_direccion.getText().equals("")||txt_nro_doc.getText().equals("        ")){
+             if(txt_nombre.getText().equals("")||txt_apellido.getText().equals("")||txt_nombre_usuario.getText().equals("")||txt_nro_doc.getText().equals("        ")||txt_pass.getText().equals("        ")){
                 txt_mensaje_error.setText("Algunos campos se encuentran en blanco");
                 if (txt_nombre.getText().equals("")){
                     txt_nombre.requestFocus();
@@ -422,26 +367,47 @@ public class ModificarTitular extends javax.swing.JFrame {
                     txt_apellido.requestFocus();
                     txt_apellido.setBackground(java.awt.Color.RED);
                 }
-                if (txt_direccion.getText().equals("")){
-                    txt_direccion.requestFocus();
-                    txt_direccion.setBackground(java.awt.Color.red);
+                
+                if (txt_nombre_usuario.getText().equals("")){
+                    txt_nombre_usuario.requestFocus();
+                    txt_nombre_usuario.setBackground(java.awt.Color.RED);
                 }
+              
                 if (txt_nro_doc.getText().equals("        ")){
                     txt_nro_doc.requestFocus();
                     txt_nro_doc.setBackground(java.awt.Color.red);
                 }
+                
+                if (txt_pass.getText().equals("        ")){
+                    txt_pass.requestFocus();
+                    txt_pass.setBackground(java.awt.Color.red);
+                }
              }
              else {
-                 gestorTitular.modificarTitular(titular_aux);
-
-                 JOptionPane.showMessageDialog(null, "El titular se ha modificado correctamente");
-                 GestionLicencias obj = new GestionLicencias();
+                 administrativo_aux.setNombre(txt_nombre.getText());
+                 administrativo_aux.setApellido(txt_apellido.getText());
+                 administrativo_aux.setDni(txt_nro_doc.getText());
+                 administrativo_aux.setUsername(txt_nombre_usuario.getText());
+                 administrativo_aux.setPassword(txt_pass.getText());
+                 
+                 if(checkBox_superuser.isSelected())
+                     administrativo_aux.setSuperuser(1);
+                 else administrativo_aux.setSuperuser(0);
+                 
+                 gestorAdministrativo.modificarTitular(administrativo_aux);
+     
+                 JOptionPane.showMessageDialog(null, "El administrativo se ha modificado correctamente");
+                 GestionAdministrativos obj = new GestionAdministrativos();
                  obj.setVisible(true);
                  dispose();
              }
                 
         
     }//GEN-LAST:event_boton_modificarActionPerformed
+
+    private void checkBox_superuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_superuserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBox_superuserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,21 +426,22 @@ public class ModificarTitular extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarTitular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarTitular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarTitular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarTitular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificarTitular().setVisible(true);
+                new ModificarAdministrativo().setVisible(true);
             }
         });
     }
@@ -482,12 +449,12 @@ public class ModificarTitular extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_modificar;
-    private javax.swing.JComboBox<String> combobox_factor_sanguineo;
-    private javax.swing.JComboBox<String> combobox_grupo_sanguineo;
-    private javax.swing.JComboBox<String> combobox_tipo_dni;
+    private javax.swing.JCheckBox checkBox_superuser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel_der;
@@ -495,20 +462,15 @@ public class ModificarTitular extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JTextField txt_apellido;
-    private javax.swing.JTextField txt_direccion;
-    private javax.swing.JFormattedTextField txt_fecha_nac;
-    private javax.swing.JLabel txt_fecha_nacimiento;
     private javax.swing.JLabel txt_mensaje_error;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JLabel txt_nombre_user;
+    private javax.swing.JTextField txt_nombre_usuario;
     private javax.swing.JFormattedTextField txt_nro_doc;
+    private javax.swing.JFormattedTextField txt_pass;
     private javax.swing.JLabel txt_titulo_apellido;
-    private javax.swing.JLabel txt_titulo_direccion;
-    private javax.swing.JLabel txt_titulo_factor_rh;
-    private javax.swing.JLabel txt_titulo_grupo_sang;
     private javax.swing.JLabel txt_titulo_nombre;
     private javax.swing.JLabel txt_titulo_num_doc;
-    private javax.swing.JLabel txt_titulo_tipo_doc;
     private javax.swing.JLabel txt_user;
     // End of variables declaration//GEN-END:variables
 }
