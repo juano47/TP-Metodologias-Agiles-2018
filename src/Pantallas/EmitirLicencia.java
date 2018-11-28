@@ -50,7 +50,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
         txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
-   
+        
         //se setean los datos no modificables (datos del titular)
         txt_nombre.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getNombre())));
         txt_apellido.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getApellido())));
@@ -60,6 +60,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
         txt_tipo_doc.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getTipoDni())));
         txt_grupo_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getGrupoSanguineo())));
         txt_factor_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFactorSanguineo())));
+        
+        this.nuevoTitular = titularAuxParaTabla.getTitularOriginal();
     }
     
     public EmitirLicencia(Titular nuevoTitular){
@@ -467,55 +469,51 @@ public class EmitirLicencia extends javax.swing.JFrame {
         
         Licencia nuevaLicencia = new Licencia();
         nuevaLicencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-        if(desdeNuevoTitular){
-            nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-            DaoTitular daoTitular = new DaoTitular();
-            DaoLicencia daoLicencia = new DaoLicencia();
-            
-            nuevaLicencia.setTitular(nuevoTitular);
-            String ls_clase = (String) listaClase.getSelectedItem();
-            nuevaLicencia.setClase(ls_clase);
-            String ls_donante = (String) listaDonante.getSelectedItem();
-            nuevaLicencia.setDonante(ls_donante);
-            nuevaLicencia.setEstado("Original");
-            String ls_observaciones = (String) txt_observaciones.getText();
-            nuevaLicencia.setObservaciones(ls_observaciones);
-            
-            Date fechaRegistro = new Date();
-            
-            nuevaLicencia.setFechaRegistro(fechaRegistro);
-            
-            Date fechaVencimiento = GestorLicencias.calcularFechaLicencia(nuevoTitular.getFechaNac(), null);
-            
-            nuevaLicencia.setFechaVenc(fechaVencimiento);
-            
-            nuevoTitular.setLicencias(nuevaLicencia);
-            
+        
+        nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        DaoTitular daoTitular = new DaoTitular();
+        DaoLicencia daoLicencia = new DaoLicencia();
+
+        nuevaLicencia.setTitular(nuevoTitular);
+        String ls_clase = (String) listaClase.getSelectedItem();
+        nuevaLicencia.setClase(ls_clase);
+        String ls_donante = (String) listaDonante.getSelectedItem();
+        nuevaLicencia.setDonante(ls_donante);
+        nuevaLicencia.setEstado("Original");
+        String ls_observaciones = (String) txt_observaciones.getText();
+        nuevaLicencia.setObservaciones(ls_observaciones);
+
+        Date fechaRegistro = new Date();
+
+        nuevaLicencia.setFechaRegistro(fechaRegistro);
+
+        Date fechaVencimiento = GestorLicencias.calcularFechaLicencia(nuevoTitular.getFechaNac(), null);
+
+        nuevaLicencia.setFechaVenc(fechaVencimiento);
+
+        nuevoTitular.setLicencias(nuevaLicencia);
+
+        try{
+            if(desdeNuevoTitular){
+            daoTitular.save(nuevoTitular);
+            System.out.print("Se guardo bien el titular!");
+            }
+        }
+        catch(DataAccessLayerException e){
+            System.out.print(e);
+        }
+        finally{
             try{
-                daoTitular.save(nuevoTitular);
-                System.out.print("Se guardo bien el titular!");
+                daoLicencia.save(nuevaLicencia);
+                System.out.print("Se guardo bien la licencia!");
+                GestorLicencias.imprimirLicencia(nuevaLicencia);
+                GestionLicencias pantalla = new GestionLicencias();
+                pantalla.setVisible(true);
+                dispose();
             }
             catch(DataAccessLayerException e){
                 System.out.print(e);
             }
-            finally{
-                try{
-                    daoLicencia.save(nuevaLicencia);
-                    System.out.print("Se guardo bien la licencia!");
-                    GestorLicencias.imprimirLicencia(nuevaLicencia);
-                    GestionLicencias pantalla = new GestionLicencias();
-                    pantalla.setVisible(true);
-                    dispose();
-                }
-                catch(DataAccessLayerException e){
-                    System.out.print(e);
-                }
-            }
-            
-        
-        }
-        else{
-            System.exit(0);
         }
         
     }                                                     
