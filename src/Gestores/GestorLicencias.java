@@ -1,6 +1,7 @@
 package Gestores;
 
 import Entidades.Licencia;
+import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
 import java.io.File;
 import java.nio.file.Path;
@@ -32,6 +33,8 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Nico y Mati
  */
 public class GestorLicencias {
+
+    
         /*
 	Menores de 21 años: 1 año la primera vez y 3 años las siguientes.
 -        Hasta 46 años: 5 años
@@ -370,5 +373,33 @@ public class GestorLicencias {
         costo +=8;
         
         return costo;
+    }
+    
+    /***
+     * Permite realizar, o no, una nueva copia de la licencia.
+     * @param titularAuxParaTabla auxiliar de tabla. 
+     */
+    public static boolean realizarCopia(Licencia licencia) {
+        boolean bresultado = false;
+        Date dfecha_vencimiento = licencia.getFechaVenc();
+        Date dfecha_actual = new Date();
+        
+        if(dfecha_vencimiento.getYear() > dfecha_actual.getYear()){
+            bresultado = true;
+        }
+        else if(dfecha_vencimiento.getYear() == dfecha_actual.getYear()){
+            if (dfecha_vencimiento.getMonth() > dfecha_actual.getMonth()){
+                bresultado = true;
+            }
+            else if(dfecha_vencimiento.getMonth() == dfecha_actual.getMonth()){
+                if(dfecha_vencimiento.getDay() > dfecha_actual.getDay()){
+                    bresultado = true;
+                }
+            }
+        }
+        
+        //titularAuxParaTabla.getLicencia().get
+        //if(titularAuxParaTabla.getLicencia().getFechaVenc())
+        return bresultado;
     }
 }

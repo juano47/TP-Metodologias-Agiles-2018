@@ -1,12 +1,15 @@
 package Pantallas;
 
+import Dao.DaoLicencia;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
+import Gestores.GestorLicencias;
 import Gestores.GestorTitular;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
@@ -58,6 +61,7 @@ public class GestionLicencias extends javax.swing.JFrame {
         boton_modificar_titular = new javax.swing.JButton();
         boton_nuevo_titular = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -240,41 +244,48 @@ public class GestionLicencias extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Emitir Copia");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_copiaActionPreformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
         jPanel_centro.setLayout(jPanel_centroLayout);
         jPanel_centroLayout.setHorizontalGroup(
             jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_nuevo_titular)
-                        .addGap(13, 13, 13)
-                        .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(3, 3, 3)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boton_buscar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_centroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(3, 3, 3)
+                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(boton_buscar)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_centroLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boton_nuevo_titular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(boton_modificar_titular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(67, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)))
         );
         jPanel_centroLayout.setVerticalGroup(
             jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,12 +306,13 @@ public class GestionLicencias extends javax.swing.JFrame {
                     .addComponent(boton_emitir_licencia)
                     .addComponent(boton_modificar_titular)
                     .addComponent(boton_nuevo_titular)
-                    .addComponent(jButton1)))
+                    .addComponent(jButton1)
+                    .addComponent(jButton3)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -500,8 +512,52 @@ public class GestionLicencias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_renovar_licenciaActionPermirmed
 
+    private void boton_copiaActionPreformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_copiaActionPreformed
+        //TODO  code here:
+        
+       Integer filaSeleccionada= tabla.getSelectedRow();
+       if (filaSeleccionada != -1) {
+           TitularAuxParaTabla titularAuxParaTabla = modeloTabla.getTitularAuxParaTabla(tabla.getSelectedRow());
+           if(GestorLicencias.realizarCopia(titularAuxParaTabla.getLicencia())){
+               String sEstado_old = titularAuxParaTabla.getLicencia().getEstado();
+               int iCopia = obtenerNumeroCopia(sEstado_old) + 1;
+               String sMensaje = "Realmente deséa crear una nueva copia de la Licencia de "+ titularAuxParaTabla.getTitularOriginal().getApellido() + ", " + titularAuxParaTabla.getTitularOriginal().getNombre() + " la misma será la número: " + iCopia + ".";
+               if(JOptionPane.showConfirmDialog(null,sMensaje, "Confirmar Acción", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)==0){
+                    titularAuxParaTabla.getLicencia().setEstado("Copia Numero: " + iCopia);
+                    titularAuxParaTabla.getLicencia().setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+                    DaoLicencia lic = new DaoLicencia();
+                    lic.update( titularAuxParaTabla.getLicencia());
+                    GestorLicencias.imprimirLicencia(titularAuxParaTabla.getLicencia());
+               }
+           }
+           else{
+               txt_mensaje_error.setText("Ésta licencia no está en Vigencia, deberá renovarla.");
+           }
+       }
+        
+           else{
+            txt_mensaje_error.setText("Seleccione el titular al cual desea crear una copia"); 
+        }
+       
+       
+    }//GEN-LAST:event_boton_copiaActionPreformed
+
     private void limpiarTabla(JTable tabla, TablaModeloTitular modeloTabla){
        modeloTabla.deleteAllTitulares();
+    }
+
+    private int obtenerNumeroCopia(String sEstado_old) {
+        int iResultado = 0;
+        if(sEstado_old.equals("Original")){
+            iResultado = 0;
+        }
+        else{
+            int iTamanio = sEstado_old.length();
+            int iDiferencia = iTamanio - 14;
+            String sNumero = sEstado_old.charAt(iTamanio - iDiferencia)+"";
+            iResultado = Integer.parseInt(sNumero);
+        }
+        return iResultado;
     }
     
     public class TablaModeloTitular extends AbstractTableModel {
@@ -652,6 +708,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JButton boton_nuevo_titular;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
