@@ -58,7 +58,11 @@ public class GestorAdministrativo {
         return daoAdministrativo.findPorNombreApellidoDni(nombre, apellido, dni);   
     }
     
-    public void modificarTitular(Administrativo administrativo_aux) {
-        daoAdministrativo.update(administrativo_aux);
+    public void modificarAdministrativo(Administrativo administrativo) {
+        daoAdministrativo.update(administrativo);
+    }
+    
+     public void guardarAdministrativo(Administrativo administrativo) {
+        daoAdministrativo.save(administrativo);
     }
 }

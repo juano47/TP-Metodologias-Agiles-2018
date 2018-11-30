@@ -62,8 +62,6 @@
                   <Component id="boton_atras" min="-2" pref="112" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="txt_mensaje_error" min="-2" pref="313" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="112" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -74,10 +72,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txt_mensaje_error" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="boton_atras" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="boton_atras" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
@@ -85,11 +80,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="boton_atras">
           <Properties>
             <Property name="text" type="java.lang.String" value="Atras"/>
@@ -163,9 +153,9 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="boton_nuevo_titular" min="-2" max="-2" attributes="0"/>
+                          <Component id="boton_nuevo_administrativo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="boton_modificar_titular" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="boton_modificar_administrativo" min="-2" pref="166" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -198,8 +188,8 @@
                   </Group>
                   <EmptySpace pref="295" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="boton_modificar_titular" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="boton_nuevo_titular" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="boton_modificar_administrativo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="boton_nuevo_administrativo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -294,21 +284,21 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="boton_modificar_titular">
+        <Component class="javax.swing.JButton" name="boton_modificar_administrativo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Administrativo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_modificar_titularActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="boton_modificar_titularKeyPressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_modificar_administrativoActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="boton_modificar_administrativoKeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="boton_nuevo_titular">
+        <Component class="javax.swing.JButton" name="boton_nuevo_administrativo">
           <Properties>
             <Property name="text" type="java.lang.String" value=" Nuevo Administrativo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_nuevo_titularActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_nuevo_administrativoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

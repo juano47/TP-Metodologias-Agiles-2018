@@ -14,37 +14,19 @@ import javax.swing.JOptionPane;
  *
  * @author mueve el toto
  */
-public class ModificarAdministrativo extends javax.swing.JFrame {
-    Administrativo administrativo_aux;
-    //pido la instancia de gestor de administrativos
+public class NuevoAdministrativo extends javax.swing.JFrame {
+    //pido la instancia de gestor de administrativo
     GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance();
     
-    public ModificarAdministrativo() {
-  
-    }
     
-    public ModificarAdministrativo(Administrativo administrativo) {
-        administrativo_aux = administrativo; 
+    public NuevoAdministrativo() {
+        
         initComponents();
-        setTitle("Modificar Administrativo");
+        setTitle("Alta Administrativo");
         setLocationRelativeTo(null);
         //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
         txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
         txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
-   
-        //se setean los datos no modificables (datos del administrativo)
-        txt_nombre.setText((String.valueOf(administrativo.getNombre())));
-        txt_apellido.setText((String.valueOf(administrativo.getApellido())));
-        txt_nro_doc.setText((String.valueOf(administrativo.getDni())));
-        txt_nombre_usuario.setText((String.valueOf(administrativo.getUsername())));
-        txt_pass.setText((String.valueOf(administrativo.getPassword())));
-        int check = administrativo.getSuperuser();
- 
-        if(check == 1)
-            checkBox_superuser.setSelected(true);
-        else
-            checkBox_superuser.setSelected(false);
-    
     }
 
     /**
@@ -63,7 +45,7 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txt_nombre_user = new javax.swing.JLabel();
         jPanel_inferior = new javax.swing.JPanel();
-        boton_modificar = new javax.swing.JButton();
+        boton_guardar = new javax.swing.JButton();
         boton_atras = new javax.swing.JButton();
         txt_mensaje_error = new javax.swing.JLabel();
         jPanel_izq = new javax.swing.JPanel();
@@ -87,7 +69,7 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modificar Administrativo");
+        jLabel1.setText("Alta Administrativo");
 
         jLabel8.setText("Usuario: ");
 
@@ -133,10 +115,10 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        boton_modificar.setText("Modificar");
-        boton_modificar.addActionListener(new java.awt.event.ActionListener() {
+        boton_guardar.setText("Guardar");
+        boton_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_modificarActionPerformed(evt);
+                boton_guardarActionPerformed(evt);
             }
         });
 
@@ -164,7 +146,7 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(boton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel_inferiorLayout.setVerticalGroup(
@@ -175,7 +157,7 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
                     .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(boton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -209,14 +191,41 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
 
         txt_titulo_num_doc.setText("DNI:");
 
+        txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nombreFocusGained(evt);
+            }
+        });
+
+        txt_apellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_apellidoFocusGained(evt);
+            }
+        });
+
         try {
             txt_nro_doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txt_nro_doc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nro_docFocusGained(evt);
+            }
+        });
+        txt_nro_doc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nro_docKeyTyped(evt);
+            }
+        });
 
         jLabel3.setText("Superuser:");
 
+        checkBox_superuser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                checkBox_superuserFocusGained(evt);
+            }
+        });
         checkBox_superuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBox_superuserActionPerformed(evt);
@@ -227,11 +236,27 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
 
         jLabel4.setText("Contraseña:");
 
+        txt_nombre_usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nombre_usuarioFocusGained(evt);
+            }
+        });
+        txt_nombre_usuario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txt_nombre_usuarioPropertyChange(evt);
+            }
+        });
+
         try {
             txt_pass.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("********")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txt_pass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_passFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -349,7 +374,8 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_atrasKeyPressed
 
-    private void boton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificarActionPerformed
+    private void boton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardarActionPerformed
+        Administrativo administrativo = new Administrativo();
         txt_nombre.setBackground(java.awt.Color.WHITE);
         txt_apellido.setBackground(java.awt.Color.WHITE);
         txt_nro_doc.setBackground(java.awt.Color.WHITE);
@@ -381,30 +407,77 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
                 }
              }
              else {
-                 administrativo_aux.setNombre(txt_nombre.getText());
-                 administrativo_aux.setApellido(txt_apellido.getText());
-                 administrativo_aux.setDni(txt_nro_doc.getText());
-                 administrativo_aux.setUsername(txt_nombre_usuario.getText());
-                 administrativo_aux.setPassword(txt_pass.getText());
+                 administrativo.setNombre(txt_nombre.getText());
+                 administrativo.setApellido(txt_apellido.getText());
+                 administrativo.setDni(txt_nro_doc.getText());
+                 administrativo.setUsername(txt_nombre_usuario.getText());
+                 administrativo.setPassword(txt_pass.getText());
                  
                  if(checkBox_superuser.isSelected())
-                     administrativo_aux.setSuperuser(1);
-                 else administrativo_aux.setSuperuser(0);
+                     administrativo.setSuperuser(1);
+                 else administrativo.setSuperuser(0);
                  
-                 gestorAdministrativo.modificarAdministrativo(administrativo_aux);
+                 gestorAdministrativo.guardarAdministrativo(administrativo);
      
-                 JOptionPane.showMessageDialog(null, "El administrativo se ha modificado correctamente");
+                 JOptionPane.showMessageDialog(null, "El administrativo se ha guardado correctamente");
                  GestionAdministrativos obj = new GestionAdministrativos();
                  obj.setVisible(true);
                  dispose();
              }
                 
         
-    }//GEN-LAST:event_boton_modificarActionPerformed
+    }//GEN-LAST:event_boton_guardarActionPerformed
 
     private void checkBox_superuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_superuserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkBox_superuserActionPerformed
+
+    private void txt_nombre_usuarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txt_nombre_usuarioPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombre_usuarioPropertyChange
+
+    private void txt_nro_docKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_docKeyTyped
+        
+    }//GEN-LAST:event_txt_nro_docKeyTyped
+
+    //funciones para completar automaticamente en tiempo de ejecucion los campos usuario y pass:
+    private void txt_apellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+            //concatenamos las primeras 3 letras del nombre + el apellido - sin espacios - todo en minuscula
+            txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+    }//GEN-LAST:event_txt_apellidoFocusGained
+
+    private void txt_nombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+        txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+    }//GEN-LAST:event_txt_nombreFocusGained
+
+    private void txt_nombre_usuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombre_usuarioFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+        txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+    }//GEN-LAST:event_txt_nombre_usuarioFocusGained
+
+    private void txt_passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+        txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+        
+    }//GEN-LAST:event_txt_passFocusGained
+
+    private void checkBox_superuserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_checkBox_superuserFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+        txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+    }//GEN-LAST:event_checkBox_superuserFocusGained
+
+    private void txt_nro_docFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nro_docFocusGained
+        txt_pass.setText(txt_nro_doc.getText().toString());
+        if(!txt_nombre.getText().equals("") && !txt_apellido.getText().equals(""))
+        txt_nombre_usuario.setText(txt_nombre.getText().replace(" ","").toLowerCase().substring(0, 3) + txt_apellido.getText().replace(" ","").toLowerCase());
+    }//GEN-LAST:event_txt_nro_docFocusGained
 
     /**
      * @param args the command line arguments
@@ -423,14 +496,16 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoAdministrativo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         
@@ -438,14 +513,14 @@ public class ModificarAdministrativo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificarAdministrativo().setVisible(true);
+                new NuevoAdministrativo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
-    private javax.swing.JButton boton_modificar;
+    private javax.swing.JButton boton_guardar;
     private javax.swing.JCheckBox checkBox_superuser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;

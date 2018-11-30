@@ -6,10 +6,7 @@
 package Pantallas;
 
 import Entidades.Administrativo;
-import Entidades.Titular;
-import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
-import Gestores.GestorTitular;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +45,6 @@ public class GestionAdministrativos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_inferior = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         boton_atras = new javax.swing.JButton();
         txt_mensaje_error = new javax.swing.JLabel();
         jPanel_izq = new javax.swing.JPanel();
@@ -63,8 +59,8 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         boton_buscar = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        boton_modificar_titular = new javax.swing.JButton();
-        boton_nuevo_titular = new javax.swing.JButton();
+        boton_modificar_administrativo = new javax.swing.JButton();
+        boton_nuevo_administrativo = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -74,8 +70,6 @@ public class GestionAdministrativos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-
-        jButton2.setText("jButton1");
 
         boton_atras.setText("Atras");
         boton_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -100,8 +94,6 @@ public class GestionAdministrativos extends javax.swing.JFrame {
                 .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_inferiorLayout.setVerticalGroup(
@@ -110,9 +102,7 @@ public class GestionAdministrativos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -209,22 +199,22 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         });
         jScrollPane13.setViewportView(tabla);
 
-        boton_modificar_titular.setText("Modificar Administrativo");
-        boton_modificar_titular.addActionListener(new java.awt.event.ActionListener() {
+        boton_modificar_administrativo.setText("Modificar Administrativo");
+        boton_modificar_administrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_modificar_titularActionPerformed(evt);
+                boton_modificar_administrativoActionPerformed(evt);
             }
         });
-        boton_modificar_titular.addKeyListener(new java.awt.event.KeyAdapter() {
+        boton_modificar_administrativo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                boton_modificar_titularKeyPressed(evt);
+                boton_modificar_administrativoKeyPressed(evt);
             }
         });
 
-        boton_nuevo_titular.setText(" Nuevo Administrativo");
-        boton_nuevo_titular.addActionListener(new java.awt.event.ActionListener() {
+        boton_nuevo_administrativo.setText(" Nuevo Administrativo");
+        boton_nuevo_administrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_nuevo_titularActionPerformed(evt);
+                boton_nuevo_administrativoActionPerformed(evt);
             }
         });
 
@@ -251,9 +241,9 @@ public class GestionAdministrativos extends javax.swing.JFrame {
                         .addComponent(boton_buscar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(boton_nuevo_titular)
+                        .addComponent(boton_nuevo_administrativo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boton_modificar_titular, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton_modificar_administrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(157, 157, 157))))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
@@ -277,8 +267,8 @@ public class GestionAdministrativos extends javax.swing.JFrame {
                         .addComponent(boton_buscar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
                 .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_modificar_titular)
-                    .addComponent(boton_nuevo_titular)))
+                    .addComponent(boton_modificar_administrativo)
+                    .addComponent(boton_nuevo_administrativo)))
             .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_centroLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
@@ -380,12 +370,12 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         
         GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance(); //se pide la instancia de GestorAdministrativo
         List<Administrativo> listaAdministrativo= new ArrayList<Administrativo>();
-        if("".equals(nombre) && "".equals(apellido) && "".equals(dni)){ //no completo al menos un criterio de busqueda, se buscan todos los titulares  
-            listaAdministrativo = gestorAdministrativo.buscarAdministrativos();  //busca en la BS y pasa una lista con TODOS los titulares
+        if("".equals(nombre) && "".equals(apellido) && "".equals(dni)){ //no completo al menos un criterio de busqueda, se buscan todos los administrativos  
+            listaAdministrativo = gestorAdministrativo.buscarAdministrativos();  //busca en la BS y pasa una lista con TODOS los administrativos
             modeloTabla.addAllAdministrativos(listaAdministrativo);
         }
         else{
-            listaAdministrativo = gestorAdministrativo.buscarAdministrativos(nombre, apellido, dni);  //busca en la BS y pasa una lista con los titulares filtrados
+            listaAdministrativo = gestorAdministrativo.buscarAdministrativos(nombre, apellido, dni);  //busca en la BS y pasa una lista con los administrativos filtrados
             modeloTabla.addAllAdministrativos(listaAdministrativo);
         }
        
@@ -423,7 +413,7 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_atrasKeyPressed
 
-    private void boton_modificar_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificar_titularActionPerformed
+    private void boton_modificar_administrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_modificar_administrativoActionPerformed
         Integer filaSeleccionada= tabla.getSelectedRow();
        //si no hay una fila seleccionada filaSeleccionada= -1 por default
         if (filaSeleccionada != -1) {
@@ -435,17 +425,17 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         else{
             txt_mensaje_error.setText("Seleccione el administrador al cual desea modificar"); 
         }
-    }//GEN-LAST:event_boton_modificar_titularActionPerformed
+    }//GEN-LAST:event_boton_modificar_administrativoActionPerformed
 
-    private void boton_modificar_titularKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_modificar_titularKeyPressed
+    private void boton_modificar_administrativoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_modificar_administrativoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton_modificar_titularKeyPressed
+    }//GEN-LAST:event_boton_modificar_administrativoKeyPressed
 
-    private void boton_nuevo_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_nuevo_titularActionPerformed
-/*        NuevoAdministrativo obj = new NuevoAdministrativo();
+    private void boton_nuevo_administrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_nuevo_administrativoActionPerformed
+        NuevoAdministrativo obj = new NuevoAdministrativo();
         obj.setVisible(true);
-        dispose();*/
-    }//GEN-LAST:event_boton_nuevo_titularActionPerformed
+        dispose();
+    }//GEN-LAST:event_boton_nuevo_administrativoActionPerformed
 
     private void limpiarTabla(JTable tabla, TablaModeloAdministrativo modeloTabla){
        modeloTabla.deleteAllAdministrativos();
@@ -582,9 +572,8 @@ public class GestionAdministrativos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_atras;
     private javax.swing.JButton boton_buscar;
-    private javax.swing.JButton boton_modificar_titular;
-    private javax.swing.JButton boton_nuevo_titular;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton boton_modificar_administrativo;
+    private javax.swing.JButton boton_nuevo_administrativo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
