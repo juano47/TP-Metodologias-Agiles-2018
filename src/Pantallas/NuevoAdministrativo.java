@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pantallas;
 
 import Entidades.Administrativo;
@@ -12,7 +7,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mueve el toto
+ * @author Juan Ignacio de la Iglesia
  */
 public class NuevoAdministrativo extends javax.swing.JFrame {
     //pido la instancia de gestor de administrativo
@@ -417,6 +412,7 @@ public class NuevoAdministrativo extends javax.swing.JFrame {
                      administrativo.setSuperuser(1);
                  else administrativo.setSuperuser(0);
                  
+                 administrativo.setUser_nuevo(1);
                  gestorAdministrativo.guardarAdministrativo(administrativo);
      
                  JOptionPane.showMessageDialog(null, "El administrativo se ha guardado correctamente");

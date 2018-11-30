@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pantallas;
 
 import Entidades.Administrativo;
@@ -15,15 +10,12 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author mueve el toto
+ * @author Juan Ignacio de la Iglesia
  */
 public class GestionAdministrativos extends javax.swing.JFrame {
 
     TablaModeloAdministrativo modeloTabla = new TablaModeloAdministrativo();
     
-    /**
-     * Creates new form Inicio2
-     */
     public GestionAdministrativos() {
         initComponents();
         setTitle("Gestión");

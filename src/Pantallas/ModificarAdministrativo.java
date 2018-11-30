@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pantallas;
 
 import Entidades.Administrativo;
@@ -12,7 +7,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mueve el toto
+ * @author Juan Ignacio de la Iglesia
  */
 public class ModificarAdministrativo extends javax.swing.JFrame {
     Administrativo administrativo_aux;

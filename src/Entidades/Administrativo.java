@@ -18,27 +18,30 @@ public class Administrativo  implements java.io.Serializable {
      private String username;
      private String password;
      private int superuser;
+     private int user_nuevo;
      private Set licencias = new HashSet(0);
 
     public Administrativo() {
     }
 
 	
-    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser) {
+    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser, int user_nuevo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.username = username;
         this.password = password;
         this.superuser = superuser;
+        this.user_nuevo = user_nuevo;
     }
-    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser, Set licencias) {
+    public Administrativo(String nombre, String apellido, String dni, String username, String password, int superuser, int user_nuevo, Set licencias) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.dni = dni;
        this.username = username;
        this.password = password;
        this.superuser = superuser;
+       this.user_nuevo = user_nuevo;
        this.licencias = licencias;
     }
    
@@ -91,6 +94,14 @@ public class Administrativo  implements java.io.Serializable {
 
     public void setSuperuser(int superuser) {
         this.superuser = superuser;
+    }
+
+    public int getUser_nuevo() {
+        return user_nuevo;
+    }
+
+    public void setUser_nuevo(int user_nuevo) {
+        this.user_nuevo = user_nuevo;
     }
     
     public Set getLicencias() {

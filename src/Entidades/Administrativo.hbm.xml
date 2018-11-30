@@ -26,6 +26,9 @@
         <property name="superuser" type="int">
             <column name="superuser" not-null="true" />
         </property>
+        <property name="user_nuevo" type="int">
+            <column name="user_nuevo" length="1" not-null="true" />
+        </property>
         <set name="licencias" table="Licencia" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_administrativo" not-null="true" />

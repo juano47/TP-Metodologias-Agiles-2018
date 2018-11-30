@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pantallas;
 
 import Entidades.Titular;
@@ -21,7 +16,7 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /**
  *
- * @author mueve el toto
+ * @author Juan Ignacio de la Iglesia
  */
 public class ModificarTitular extends javax.swing.JFrame {
     Titular titular_aux;

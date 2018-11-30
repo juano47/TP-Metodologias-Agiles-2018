@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pantallas;
 
 import Entidades.Administrativo;
@@ -22,13 +17,10 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mueve el toto
+ * @author Juan Ignacio de la Iglesia
  */
 public class Ingreso extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio2
-     */
     public Ingreso() {
         initComponents();
         setTitle("Ingreso");
@@ -158,6 +150,8 @@ public class Ingreso extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña:");
 
+        txt_pass.setFocusAccelerator('\u25cf');
+        txt_pass.setFocusCycleRoot(true);
         txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_passKeyPressed(evt);
@@ -226,16 +220,12 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        Administrativo a = new Administrativo("pedro", "Escamoso", "33889977", "pedrin", "hakca", 0);
+        Administrativo a = new Administrativo("pedro", "Escamoso", "33889977", "pedrin", "hakca", 0,0);
         Titular t = new Titular(9999, "PAblo", "pachu", "33220099", "Su csas221", new Date(),"DNI", "Si", "otro SI", a, new Date());
         Licencia l = new Licencia(a, t, new Date(), "A", "Ni en pedo", "Es Gay", "Bastante Puto", new Date());
         l.setIdLicencia(9999);
         GestorLicencias.imprimirLicencia(l);
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_userActionPerformed
 
     private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
         GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance();
@@ -246,10 +236,18 @@ public class Ingreso extends javax.swing.JFrame {
         int validacion = gestorAdministrativo.validarAdministrativo(user2, password);
        
         if (validacion==1) {
-
-            Gestion obj = new Gestion();
-            obj.setVisible(true);
-            dispose();
+            //si el campo user_nuevo == 1 abrimos un pop up que permite cambiar la contraseña antes de ingresar al sistema
+            if(GestorAdministrativo.getInstance().getAdministrativo().getUser_nuevo()== 1){
+                txt_pass.setText("");
+                txt_pass.requestFocus();
+                PopUpCambioPass obj = new PopUpCambioPass();
+                obj.setVisible(true);
+            }
+            else{
+                Gestion obj = new Gestion();
+                obj.setVisible(true);
+                dispose();
+            }
         } else {
              /*AudioClip sonido;
                 sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/error2.wav"));
@@ -269,17 +267,21 @@ public class Ingreso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_ingresarKeyPressed
 
-    private void txt_userKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_userKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-           boton_ingresarActionPerformed(null);
-        }
-    }//GEN-LAST:event_txt_userKeyPressed
-
     private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
            boton_ingresarActionPerformed(null);
         }
     }//GEN-LAST:event_txt_passKeyPressed
+
+    private void txt_userKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_userKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            boton_ingresarActionPerformed(null);
+        }
+    }//GEN-LAST:event_txt_userKeyPressed
+
+    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_userActionPerformed
 
     /**
      * @param args the command line arguments

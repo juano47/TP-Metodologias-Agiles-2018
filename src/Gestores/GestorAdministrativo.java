@@ -12,7 +12,7 @@ import java.util.List;
 //COMPROBAR QUE FUNCIONA COMO SINGLETON!
 /**
  *
- * @author John
+ * @author Juan Ignacio de la Iglesia
  */
 public class GestorAdministrativo {
     
