@@ -1,6 +1,10 @@
 package Gestores;
 
+import Dao.DaoLicencia;
+import Dao.DaoTitular;
 import Entidades.Licencia;
+import Entidades.Titular;
+import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
 import java.io.File;
 import java.nio.file.Path;
@@ -40,45 +44,10 @@ public class GestorLicencias {
 -        Mayores de 70 años: 1 año
 	*/
     
-    //private static Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
+    DaoLicencia daoLicencia = new DaoLicencia();
     
     public GestorLicencias () {
-        /*Vector costoA = new Vector();
-        Vector costoB = new Vector();
-        Vector costoC = new Vector();
-        Vector costoE = new Vector();
-        Vector costoG = new Vector();
         
-        costoA.add(40);
-        costoA.add(30);
-        costoA.add(25);
-        costoA.add(20);
-        
-        costoB.add(40);
-        costoB.add(30);
-        costoB.add(25);
-        costoB.add(20);
-        
-        costoC.add(47);
-        costoC.add(35);
-        costoC.add(30);
-        costoC.add(23);
-        
-        costoE.add(59);
-        costoE.add(44);
-        costoE.add(39);
-        costoE.add(29);
-        
-        costoG.add(40);
-        costoG.add(30);
-        costoG.add(25);
-        costoG.add(20);
-        
-        mapaCostos.put('A', costoA);
-        mapaCostos.put('B', costoB); 
-        mapaCostos.put('C', costoC); 
-        mapaCostos.put('E', costoE); 
-        mapaCostos.put('G', costoG); */
     }
     /***
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
@@ -370,5 +339,29 @@ public class GestorLicencias {
         costo +=8;
         
         return costo;
+    }
+    
+    public List<TitularAuxParaTabla> buscarTitulares(int criterioFiltrado, ArrayList<String> arregloParametros) {
+   
+        List listaLicencias = null;
+        Licencia licencia;
+  
+        listaLicencias = daoLicencia.findLicenciasPorCriterio(criterioFiltrado, arregloParametros);
+        
+        List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
+        
+        for (int a = 0; a < listaLicencias.size(); a++) {
+            licencia = (Licencia) listaLicencias.get(a);
+            Titular titular;
+            titular = licencia.getTitular();
+            
+            System.out.print(licencia);
+            System.out.print(titular);
+            
+            TitularAuxParaTabla licenciaAux = new TitularAuxParaTabla(titular, licencia);
+            listaTitularAux.add(licenciaAux);
+        }
+        
+        return listaTitularAux;
     }
 }

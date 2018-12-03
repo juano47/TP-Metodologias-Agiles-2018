@@ -48,7 +48,7 @@ public class Gestion extends javax.swing.JFrame {
         jPanel_centro = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         boton_licencias = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        boton_listados = new javax.swing.JButton();
         boton_usuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,14 +179,14 @@ public class Gestion extends javax.swing.JFrame {
         jPanel_centro.add(boton_licencias);
         boton_licencias.setBounds(231, 21, 182, 36);
 
-        jButton6.setText("Listados");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        boton_listados.setText("Listados");
+        boton_listados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                boton_listadosActionPerformed(evt);
             }
         });
-        jPanel_centro.add(jButton6);
-        jButton6.setBounds(231, 129, 182, 36);
+        jPanel_centro.add(boton_listados);
+        boton_listados.setBounds(231, 129, 182, 36);
 
         boton_usuarios.setText("Administración de Usuarios");
         boton_usuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -239,8 +239,11 @@ public class Gestion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void boton_listadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_listadosActionPerformed
+        ListaLicencias obj = new ListaLicencias();
+            obj.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_boton_listadosActionPerformed
 
     private void boton_licenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_licenciasActionPerformed
       
@@ -311,11 +314,11 @@ public class Gestion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_licencias;
+    private javax.swing.JButton boton_listados;
     private javax.swing.JButton boton_usuarios;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel8;

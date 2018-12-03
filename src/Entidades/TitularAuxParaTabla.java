@@ -6,8 +6,6 @@ package Entidades;
  */
 public class TitularAuxParaTabla {
 
-    
-    
     private Titular titularOriginal;
     private Licencia licencia;
     
