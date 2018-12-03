@@ -368,7 +368,7 @@ public class GestorLicencias {
         
         duracionLicencia = duracionLicencia / 365;
         
-        costo = (Integer) costos.get(duracionLicencia);
+        costo = (Integer) costos.get(duracionLicencia - 1);
         
         costo +=8;
         
