@@ -344,7 +344,10 @@ public class GestorLicencias {
         
         return costo;
     }
-    
+        /***
+     * Permite realizar, o no, una nueva copia de la licencia.
+     * @param titularAuxParaTabla auxiliar de tabla. 
+     */
     public List<TitularAuxParaTabla> buscarTitulares(int criterioFiltrado, ArrayList<String> arregloParametros) {
    
         List listaLicencias = null;
@@ -367,10 +370,7 @@ public class GestorLicencias {
         }
         
         return listaTitularAux;
-    /***
-     * Permite realizar, o no, una nueva copia de la licencia.
-     * @param titularAuxParaTabla auxiliar de tabla. 
-     */
+    }
     public static boolean realizarCopia(Licencia licencia) {
         boolean bresultado = false;
         Date dfecha_vencimiento = licencia.getFechaVenc();
