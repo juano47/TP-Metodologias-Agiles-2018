@@ -35,108 +35,70 @@ public class Ingreso extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel_superior = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel_inferior = new javax.swing.JPanel();
-        boton_ingresar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel_izq = new javax.swing.JPanel();
-        jPanel_der = new javax.swing.JPanel();
         jPanel_centro = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 125), new java.awt.Dimension(400, 125), new java.awt.Dimension(400, 125));
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txt_pass = new javax.swing.JPasswordField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 225), new java.awt.Dimension(400, 225), new java.awt.Dimension(400, 225));
+        jPanel_inferior = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        boton_abandonar_sistema = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        boton_ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel_superior.setMaximumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setMinimumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setPreferredSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Ingreso");
+        jLabel1.setMaximumSize(new java.awt.Dimension(500, 120));
+        jLabel1.setMinimumSize(new java.awt.Dimension(500, 120));
+        jLabel1.setPreferredSize(new java.awt.Dimension(500, 120));
+        jPanel_superior.add(jLabel1);
 
-        javax.swing.GroupLayout jPanel_superiorLayout = new javax.swing.GroupLayout(jPanel_superior);
-        jPanel_superior.setLayout(jPanel_superiorLayout);
-        jPanel_superiorLayout.setHorizontalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel_superiorLayout.setVerticalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel_superior);
 
-        boton_ingresar.setText("Ingresar");
-        boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_ingresarActionPerformed(evt);
-            }
-        });
-        boton_ingresar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                boton_ingresarKeyPressed(evt);
-            }
-        });
+        jPanel_centro.setMaximumSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setMinimumSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setPreferredSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jButton3.setText("jButton1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+        jPanel1.add(filler2);
 
-        javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
-        jPanel_inferior.setLayout(jPanel_inferiorLayout);
-        jPanel_inferiorLayout.setHorizontalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327)
-                .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        jPanel_inferiorLayout.setVerticalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel_izqLayout = new javax.swing.GroupLayout(jPanel_izq);
-        jPanel_izq.setLayout(jPanel_izqLayout);
-        jPanel_izqLayout.setHorizontalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_izqLayout.setVerticalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel_derLayout = new javax.swing.GroupLayout(jPanel_der);
-        jPanel_der.setLayout(jPanel_derLayout);
-        jPanel_derLayout.setHorizontalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_derLayout.setVerticalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel2.setMaximumSize(new java.awt.Dimension(400, 75));
+        jPanel2.setMinimumSize(new java.awt.Dimension(400, 75));
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 75));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel2.setText("Usuario:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(100, 75));
+        jLabel2.setMinimumSize(new java.awt.Dimension(100, 75));
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 75));
+        jPanel2.add(jLabel2);
 
+        txt_user.setMaximumSize(new java.awt.Dimension(300, 40));
+        txt_user.setMinimumSize(new java.awt.Dimension(300, 40));
+        txt_user.setPreferredSize(new java.awt.Dimension(300, 40));
         txt_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_userActionPerformed(evt);
@@ -147,85 +109,101 @@ public class Ingreso extends javax.swing.JFrame {
                 txt_userKeyPressed(evt);
             }
         });
+        jPanel2.add(txt_user);
+
+        jPanel1.add(jPanel2);
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(400, 75));
+        jPanel3.setMinimumSize(new java.awt.Dimension(400, 75));
+        jPanel3.setPreferredSize(new java.awt.Dimension(400, 75));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         jLabel3.setText("Contraseña:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(100, 75));
+        jLabel3.setMinimumSize(new java.awt.Dimension(100, 75));
+        jLabel3.setPreferredSize(new java.awt.Dimension(100, 75));
+        jPanel3.add(jLabel3);
 
         txt_pass.setFocusAccelerator('\u25cf');
         txt_pass.setFocusCycleRoot(true);
+        txt_pass.setMaximumSize(new java.awt.Dimension(300, 40));
+        txt_pass.setMinimumSize(new java.awt.Dimension(300, 40));
+        txt_pass.setPreferredSize(new java.awt.Dimension(300, 40));
         txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_passKeyPressed(evt);
             }
         });
+        jPanel3.add(txt_pass);
 
-        javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
-        jPanel_centro.setLayout(jPanel_centroLayout);
-        jPanel_centroLayout.setHorizontalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_pass))
-                    .addGroup(jPanel_centroLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(38, 38, 38)
-                        .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(279, Short.MAX_VALUE))
-        );
-        jPanel_centroLayout.setVerticalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel3);
+        jPanel1.add(filler1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_superior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_der, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_izq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_inferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel_centro.add(jPanel1);
+
+        getContentPane().add(jPanel_centro);
+
+        jPanel_inferior.setLayout(new javax.swing.BoxLayout(jPanel_inferior, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel5.setMaximumSize(new java.awt.Dimension(640, 100));
+        jPanel5.setMinimumSize(new java.awt.Dimension(640, 100));
+        jPanel5.setPreferredSize(new java.awt.Dimension(640, 100));
+        jPanel5.setLayout(new java.awt.GridBagLayout());
+
+        boton_abandonar_sistema.setText("Abandonar el Sistema");
+        boton_abandonar_sistema.setMaximumSize(new java.awt.Dimension(200, 50));
+        boton_abandonar_sistema.setMinimumSize(new java.awt.Dimension(200, 50));
+        boton_abandonar_sistema.setPreferredSize(new java.awt.Dimension(200, 50));
+        boton_abandonar_sistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_abandonar_sistemaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 220, 25, 220);
+        jPanel5.add(boton_abandonar_sistema, gridBagConstraints);
+
+        jPanel_inferior.add(jPanel5);
+
+        jPanel4.setMaximumSize(new java.awt.Dimension(640, 100));
+        jPanel4.setMinimumSize(new java.awt.Dimension(640, 100));
+        jPanel4.setPreferredSize(new java.awt.Dimension(640, 100));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        boton_ingresar.setText("Ingresar");
+        boton_ingresar.setMaximumSize(new java.awt.Dimension(200, 50));
+        boton_ingresar.setMinimumSize(new java.awt.Dimension(200, 50));
+        boton_ingresar.setPreferredSize(new java.awt.Dimension(200, 50));
+        boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_ingresarActionPerformed(evt);
+            }
+        });
+        boton_ingresar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_ingresarKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 220, 25, 220);
+        jPanel4.add(boton_ingresar, gridBagConstraints);
+
+        jPanel_inferior.add(jPanel4);
+
+        getContentPane().add(jPanel_inferior);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        Administrativo a = new Administrativo("pedro", "Escamoso", "33889977", "pedrin", "hakca", 0,0);
-        Titular t = new Titular(9999, "PAblo", "pachu", "33220099", "Su csas221", new Date(),"DNI", "Si", "otro SI", a, new Date());
-        Licencia l = new Licencia(a, t, new Date(), "A", "Ni en pedo", "Es Gay", "Bastante Puto", new Date());
-        l.setIdLicencia(9999);
-        GestorLicencias.imprimirLicencia(l);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void boton_abandonar_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_abandonar_sistemaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_boton_abandonar_sistemaActionPerformed
 
     private void boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ingresarActionPerformed
         GestorAdministrativo gestorAdministrativo = GestorAdministrativo.getInstance();
@@ -334,15 +312,20 @@ public class Ingreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_abandonar_sistema;
     private javax.swing.JButton boton_ingresar;
-    private javax.swing.JButton jButton3;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel_centro;
-    private javax.swing.JPanel jPanel_der;
     private javax.swing.JPanel jPanel_inferior;
-    private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JPasswordField txt_pass;
     private javax.swing.JTextField txt_user;

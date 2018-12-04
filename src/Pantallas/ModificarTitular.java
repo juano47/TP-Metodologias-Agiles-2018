@@ -58,97 +58,328 @@ public class ModificarTitular extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel_superior = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txt_user = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txt_nombre_user = new javax.swing.JLabel();
-        jPanel_inferior = new javax.swing.JPanel();
-        boton_modificar = new javax.swing.JButton();
-        boton_atras = new javax.swing.JButton();
-        txt_mensaje_error = new javax.swing.JLabel();
-        jPanel_izq = new javax.swing.JPanel();
-        jPanel_der = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
         txt_titulo_nombre = new javax.swing.JLabel();
-        txt_titulo_apellido = new javax.swing.JLabel();
-        txt_titulo_tipo_doc = new javax.swing.JLabel();
-        txt_titulo_num_doc = new javax.swing.JLabel();
-        combobox_tipo_dni = new javax.swing.JComboBox<>();
         txt_nombre = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
+        txt_titulo_apellido = new javax.swing.JLabel();
         txt_apellido = new javax.swing.JTextField();
-        txt_titulo_direccion = new javax.swing.JLabel();
-        txt_fecha_nacimiento = new javax.swing.JLabel();
-        txt_direccion = new javax.swing.JTextField();
-        txt_fecha_nac = new javax.swing.JFormattedTextField();
-        txt_titulo_grupo_sang = new javax.swing.JLabel();
-        txt_titulo_factor_rh = new javax.swing.JLabel();
-        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
-        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
+        txt_titulo_tipo_doc = new javax.swing.JLabel();
+        combobox_tipo_dni = new javax.swing.JComboBox<>();
+        jPanel13 = new javax.swing.JPanel();
+        txt_titulo_num_doc = new javax.swing.JLabel();
         txt_nro_doc = new javax.swing.JFormattedTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        txt_titulo_direccion = new javax.swing.JLabel();
+        txt_direccion = new javax.swing.JTextField();
+        jPanel15 = new javax.swing.JPanel();
+        txt_fecha_nacimiento = new javax.swing.JLabel();
+        txt_fecha_nac = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 250), new java.awt.Dimension(400, 250), new java.awt.Dimension(400, 250));
+        jPanel7 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        txt_titulo_grupo_sang = new javax.swing.JLabel();
+        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
+        jPanel16 = new javax.swing.JPanel();
+        txt_titulo_factor_rh = new javax.swing.JLabel();
+        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 250), new java.awt.Dimension(400, 250), new java.awt.Dimension(400, 250));
+        jPanel_inferior = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
+        boton_atras = new javax.swing.JButton();
+        jPanel20 = new javax.swing.JPanel();
+        txt_mensaje_error = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        boton_modificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel_superior.setMaximumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setMinimumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setPreferredSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jPanel4.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel4.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel4.setPreferredSize(new java.awt.Dimension(250, 120));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        jLabel8.setText("Usuario: ");
+        jPanel6.add(jLabel8, new java.awt.GridBagConstraints());
+
+        txt_user.setText("jLabel9");
+        jPanel6.add(txt_user, new java.awt.GridBagConstraints());
+
+        jPanel4.add(jPanel6);
+
+        jPanel5.setLayout(new java.awt.GridBagLayout());
+
+        jLabel15.setText("Nombre:");
+        jPanel5.add(jLabel15, new java.awt.GridBagConstraints());
+
+        txt_nombre_user.setText("jLabel9");
+        jPanel5.add(txt_nombre_user, new java.awt.GridBagConstraints());
+
+        jPanel4.add(jPanel5);
+
+        jPanel_superior.add(jPanel4);
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(750, 120));
+        jPanel3.setMinimumSize(new java.awt.Dimension(750, 120));
+        jPanel3.setPreferredSize(new java.awt.Dimension(750, 120));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Modificar Titular");
 
-        jLabel8.setText("Usuario: ");
-
-        txt_user.setText("jLabel9");
-
-        jLabel15.setText("Nombre:");
-
-        txt_nombre_user.setText("jLabel9");
-
-        javax.swing.GroupLayout jPanel_superiorLayout = new javax.swing.GroupLayout(jPanel_superior);
-        jPanel_superior.setLayout(jPanel_superiorLayout);
-        jPanel_superiorLayout.setHorizontalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_user))
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nombre_user)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel_superiorLayout.setVerticalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txt_user))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txt_nombre_user)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        boton_modificar.setText("Modificar");
-        boton_modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_modificarActionPerformed(evt);
-            }
-        });
+        jPanel_superior.add(jPanel3);
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel1.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel1.setPreferredSize(new java.awt.Dimension(250, 120));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+
+        jPanel_superior.add(jPanel1);
+
+        getContentPane().add(jPanel_superior);
+
+        jPanel2.setBorder(null);
+        jPanel2.setMaximumSize(new java.awt.Dimension(1280, 500));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1280, 500));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1280, 500));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jPanel9.setMaximumSize(new java.awt.Dimension(400, 500));
+        jPanel9.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel9.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_titulo_nombre.setText("Nombre:");
+        txt_titulo_nombre.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_nombre.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_nombre.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel10.add(txt_titulo_nombre);
+
+        txt_nombre.setMaximumSize(new java.awt.Dimension(300, 35));
+        txt_nombre.setMinimumSize(new java.awt.Dimension(300, 35));
+        txt_nombre.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel10.add(txt_nombre);
+
+        jPanel9.add(jPanel10);
+
+        jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_titulo_apellido.setText("Apellido:");
+        txt_titulo_apellido.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_apellido.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_apellido.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel11.add(txt_titulo_apellido);
+
+        txt_apellido.setMaximumSize(new java.awt.Dimension(300, 35));
+        txt_apellido.setMinimumSize(new java.awt.Dimension(300, 35));
+        txt_apellido.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel11.add(txt_apellido);
+
+        jPanel9.add(jPanel11);
+
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_titulo_tipo_doc.setText("Tipo Doc:");
+        txt_titulo_tipo_doc.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_tipo_doc.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_tipo_doc.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel12.add(txt_titulo_tipo_doc);
+
+        combobox_tipo_dni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
+        combobox_tipo_dni.setMaximumSize(new java.awt.Dimension(300, 35));
+        combobox_tipo_dni.setMinimumSize(new java.awt.Dimension(300, 35));
+        combobox_tipo_dni.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel12.add(combobox_tipo_dni);
+
+        jPanel9.add(jPanel12);
+
+        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_titulo_num_doc.setText("N° Doc:");
+        txt_titulo_num_doc.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_num_doc.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_num_doc.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel13.add(txt_titulo_num_doc);
+
+        try {
+            txt_nro_doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_nro_doc.setMaximumSize(new java.awt.Dimension(300, 35));
+        txt_nro_doc.setMinimumSize(new java.awt.Dimension(300, 35));
+        txt_nro_doc.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel13.add(txt_nro_doc);
+
+        jPanel9.add(jPanel13);
+
+        jPanel2.add(jPanel9);
+
+        jPanel8.setMaximumSize(new java.awt.Dimension(400, 500));
+        jPanel8.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel8.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_titulo_direccion.setText("Dirección:");
+        txt_titulo_direccion.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_direccion.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_direccion.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel14.add(txt_titulo_direccion);
+
+        txt_direccion.setMaximumSize(new java.awt.Dimension(300, 35));
+        txt_direccion.setMinimumSize(new java.awt.Dimension(300, 35));
+        txt_direccion.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel14.add(txt_direccion);
+
+        jPanel8.add(jPanel14);
+
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        txt_fecha_nacimiento.setText("Fecha Nac.:");
+        txt_fecha_nacimiento.setMaximumSize(new java.awt.Dimension(85, 125));
+        txt_fecha_nacimiento.setMinimumSize(new java.awt.Dimension(85, 125));
+        txt_fecha_nacimiento.setPreferredSize(new java.awt.Dimension(85, 125));
+        jPanel15.add(txt_fecha_nacimiento);
+
+        try {
+            txt_fecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_fecha_nac.setMaximumSize(new java.awt.Dimension(200, 35));
+        txt_fecha_nac.setMinimumSize(new java.awt.Dimension(200, 35));
+        txt_fecha_nac.setPreferredSize(new java.awt.Dimension(200, 35));
+        jPanel15.add(txt_fecha_nac);
+
+        jLabel2.setText("(día-mes-año)");
+        jPanel15.add(jLabel2);
+
+        jPanel8.add(jPanel15);
+        jPanel8.add(filler1);
+
+        jPanel2.add(jPanel8);
+
+        jPanel7.setMaximumSize(new java.awt.Dimension(400, 500));
+        jPanel7.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel7.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        txt_titulo_grupo_sang.setText("Grupo Sanguineo:");
+        txt_titulo_grupo_sang.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_grupo_sang.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_grupo_sang.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel17.add(txt_titulo_grupo_sang);
+
+        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
+        combobox_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(300, 35));
+        combobox_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(300, 35));
+        combobox_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel17.add(combobox_grupo_sanguineo);
+
+        jPanel7.add(jPanel17);
+
+        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        txt_titulo_factor_rh.setText("Factor RH:");
+        txt_titulo_factor_rh.setMaximumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_factor_rh.setMinimumSize(new java.awt.Dimension(75, 125));
+        txt_titulo_factor_rh.setPreferredSize(new java.awt.Dimension(75, 125));
+        jPanel16.add(txt_titulo_factor_rh);
+
+        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+        combobox_factor_sanguineo.setMaximumSize(new java.awt.Dimension(300, 35));
+        combobox_factor_sanguineo.setMinimumSize(new java.awt.Dimension(300, 35));
+        combobox_factor_sanguineo.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel16.add(combobox_factor_sanguineo);
+
+        jPanel7.add(jPanel16);
+        jPanel7.add(filler2);
+
+        jPanel2.add(jPanel7);
+
+        getContentPane().add(jPanel2);
+
+        jPanel_inferior.setMaximumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setMinimumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setPreferredSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setLayout(new javax.swing.BoxLayout(jPanel_inferior, javax.swing.BoxLayout.X_AXIS));
+
+        jPanel19.setMaximumSize(new java.awt.Dimension(350, 100));
+        jPanel19.setMinimumSize(new java.awt.Dimension(350, 100));
+        jPanel19.setPreferredSize(new java.awt.Dimension(350, 100));
+        jPanel19.setLayout(new java.awt.GridBagLayout());
 
         boton_atras.setText("Atras");
+        boton_atras.setMaximumSize(new java.awt.Dimension(200, 50));
+        boton_atras.setMinimumSize(new java.awt.Dimension(200, 50));
+        boton_atras.setPreferredSize(new java.awt.Dimension(200, 50));
         boton_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_atrasActionPerformed(evt);
@@ -159,205 +390,58 @@ public class ModificarTitular extends javax.swing.JFrame {
                 boton_atrasKeyPressed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 284, 36, 285);
+        jPanel19.add(boton_atras, gridBagConstraints);
+
+        jPanel_inferior.add(jPanel19);
+
+        jPanel20.setMaximumSize(new java.awt.Dimension(580, 100));
+        jPanel20.setMinimumSize(new java.awt.Dimension(580, 100));
+        jPanel20.setPreferredSize(new java.awt.Dimension(580, 100));
+        jPanel20.setRequestFocusEnabled(false);
+        jPanel20.setLayout(new java.awt.GridBagLayout());
 
         txt_mensaje_error.setForeground(new java.awt.Color(255, 0, 0));
+        txt_mensaje_error.setMaximumSize(new java.awt.Dimension(300, 100));
+        txt_mensaje_error.setMinimumSize(new java.awt.Dimension(300, 100));
+        txt_mensaje_error.setPreferredSize(new java.awt.Dimension(300, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 281);
+        jPanel20.add(txt_mensaje_error, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
-        jPanel_inferior.setLayout(jPanel_inferiorLayout);
-        jPanel_inferiorLayout.setHorizontalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
-        );
-        jPanel_inferiorLayout.setVerticalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(boton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jPanel_inferior.add(jPanel20);
 
-        javax.swing.GroupLayout jPanel_izqLayout = new javax.swing.GroupLayout(jPanel_izq);
-        jPanel_izq.setLayout(jPanel_izqLayout);
-        jPanel_izqLayout.setHorizontalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_izqLayout.setVerticalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
+        jPanel18.setMaximumSize(new java.awt.Dimension(350, 100));
+        jPanel18.setMinimumSize(new java.awt.Dimension(350, 100));
+        jPanel18.setPreferredSize(new java.awt.Dimension(350, 100));
+        jPanel18.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jPanel_derLayout = new javax.swing.GroupLayout(jPanel_der);
-        jPanel_der.setLayout(jPanel_derLayout);
-        jPanel_derLayout.setHorizontalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_derLayout.setVerticalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        boton_modificar.setText("Modificar");
+        boton_modificar.setMaximumSize(new java.awt.Dimension(200, 50));
+        boton_modificar.setMinimumSize(new java.awt.Dimension(200, 50));
+        boton_modificar.setPreferredSize(new java.awt.Dimension(200, 50));
+        boton_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_modificarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 0, 36, 0);
+        jPanel18.add(boton_modificar, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray));
+        jPanel_inferior.add(jPanel18);
 
-        txt_titulo_nombre.setText("Nombre:");
-
-        txt_titulo_apellido.setText("Apellido:");
-
-        txt_titulo_tipo_doc.setText("Tipo Doc:");
-
-        txt_titulo_num_doc.setText("N° Doc:");
-
-        combobox_tipo_dni.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
-
-        txt_titulo_direccion.setText("Dirección:");
-
-        txt_fecha_nacimiento.setText("Fecha Nac.:");
-
-        try {
-            txt_fecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        txt_titulo_grupo_sang.setText("Grupo Sanguineo:");
-
-        txt_titulo_factor_rh.setText("Factor RH:");
-
-        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
-
-        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
-
-        try {
-            txt_nro_doc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel2.setText("(día-mes-año)");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_titulo_tipo_doc)
-                            .addComponent(txt_titulo_num_doc))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
-                            .addComponent(txt_nro_doc))
-                        .addGap(38, 38, 38))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_titulo_nombre)
-                            .addComponent(txt_titulo_apellido))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(txt_apellido))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_titulo_direccion)
-                    .addComponent(txt_fecha_nacimiento))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_titulo_factor_rh)
-                            .addComponent(txt_titulo_grupo_sang))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(combobox_grupo_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(combobox_factor_sanguineo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_titulo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_direccion)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_grupo_sang)
-                    .addComponent(combobox_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_titulo_apellido)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_fecha_nacimiento)
-                    .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_titulo_factor_rh)
-                    .addComponent(combobox_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_titulo_tipo_doc)
-                    .addComponent(combobox_tipo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_titulo_num_doc)
-                    .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_superior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel_der, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(29, 29, 29)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_izq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_inferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(109, 109, 109)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(110, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel_inferior);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -480,14 +564,33 @@ public class ModificarTitular extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combobox_factor_sanguineo;
     private javax.swing.JComboBox<String> combobox_grupo_sanguineo;
     private javax.swing.JComboBox<String> combobox_tipo_dni;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel_der;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanel_inferior;
-    private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_direccion;

@@ -40,126 +40,190 @@ public class GestionLicencias extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel_inferior = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        boton_atras = new javax.swing.JButton();
-        txt_mensaje_error = new javax.swing.JLabel();
-        jPanel_izq = new javax.swing.JPanel();
-        jPanel_der = new javax.swing.JPanel();
-        jPanel_centro = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_nombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txt_apellido = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txt_dni = new javax.swing.JTextField();
-        boton_buscar = new javax.swing.JButton();
-        boton_emitir_licencia = new javax.swing.JButton();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
-        boton_modificar_titular = new javax.swing.JButton();
-        boton_nuevo_titular = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel_superior3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txt_user = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         txt_nombre_user = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel_centro = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 32767));
+        jLabel2 = new javax.swing.JLabel();
+        txt_apellido = new javax.swing.JTextField();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 0), new java.awt.Dimension(25, 32767));
+        jLabel3 = new javax.swing.JLabel();
+        txt_dni = new javax.swing.JTextField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(250, 0), new java.awt.Dimension(250, 0), new java.awt.Dimension(250, 0));
+        boton_buscar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        boton_emitir_licencia = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        boton_modificar_titular = new javax.swing.JButton();
+        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        boton_nuevo_titular = new javax.swing.JButton();
+        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        jButton1 = new javax.swing.JButton();
+        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        jButton3 = new javax.swing.JButton();
+        jPanel_inferior = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        boton_atras = new javax.swing.JButton();
+        filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(150, 0), new java.awt.Dimension(150, 0), new java.awt.Dimension(150, 0));
+        txt_mensaje_error = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        jButton2.setText("jButton1");
+        jPanel_superior3.setMaximumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior3.setMinimumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior3.setPreferredSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
-        boton_atras.setText("Atras");
-        boton_atras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_atrasActionPerformed(evt);
-            }
-        });
-        boton_atras.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                boton_atrasKeyPressed(evt);
-            }
-        });
+        jPanel2.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel2.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel2.setPreferredSize(new java.awt.Dimension(250, 120));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        txt_mensaje_error.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel5.setMaximumSize(new java.awt.Dimension(250, 60));
+        jPanel5.setMinimumSize(new java.awt.Dimension(250, 60));
+        jPanel5.setPreferredSize(new java.awt.Dimension(250, 60));
+        jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
-        jPanel_inferior.setLayout(jPanel_inferiorLayout);
-        jPanel_inferiorLayout.setHorizontalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jLabel11.setText("Usuario: ");
+        jPanel5.add(jLabel11, new java.awt.GridBagConstraints());
+
+        txt_user.setText("jLabel9");
+        txt_user.setMaximumSize(new java.awt.Dimension(150, 17));
+        txt_user.setMinimumSize(new java.awt.Dimension(150, 17));
+        txt_user.setPreferredSize(new java.awt.Dimension(150, 17));
+        jPanel5.add(txt_user, new java.awt.GridBagConstraints());
+
+        jPanel2.add(jPanel5);
+
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        jLabel18.setText("Nombre:");
+        jPanel4.add(jLabel18, new java.awt.GridBagConstraints());
+
+        txt_nombre_user.setText("jLabel9");
+        txt_nombre_user.setMaximumSize(new java.awt.Dimension(150, 17));
+        txt_nombre_user.setMinimumSize(new java.awt.Dimension(150, 17));
+        txt_nombre_user.setPreferredSize(new java.awt.Dimension(150, 17));
+        jPanel4.add(txt_nombre_user, new java.awt.GridBagConstraints());
+
+        jPanel2.add(jPanel4);
+
+        jPanel_superior3.add(jPanel2);
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 120));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 120));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 120));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Gestión de Licencias");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(38, 164, 39, 165);
+        jPanel1.add(jLabel4, gridBagConstraints);
+
+        jPanel_superior3.add(jPanel1);
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel3.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel3.setPreferredSize(new java.awt.Dimension(250, 120));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
-        jPanel_inferiorLayout.setVerticalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_mensaje_error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boton_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel_izqLayout = new javax.swing.GroupLayout(jPanel_izq);
-        jPanel_izq.setLayout(jPanel_izqLayout);
-        jPanel_izqLayout.setHorizontalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_izqLayout.setVerticalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel_superior3.add(jPanel3);
 
-        javax.swing.GroupLayout jPanel_derLayout = new javax.swing.GroupLayout(jPanel_der);
-        jPanel_der.setLayout(jPanel_derLayout);
-        jPanel_derLayout.setHorizontalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_derLayout.setVerticalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel_superior3);
+
+        jPanel_centro.setMaximumSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setMinimumSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setPreferredSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setRequestFocusEnabled(false);
+        jPanel_centro.setLayout(new javax.swing.BoxLayout(jPanel_centro, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel8.setMaximumSize(new java.awt.Dimension(1280, 70));
+        jPanel8.setMinimumSize(new java.awt.Dimension(1280, 70));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1280, 70));
+        jPanel8.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Apellido:");
+        jPanel8.add(jLabel1, new java.awt.GridBagConstraints());
 
+        txt_nombre.setMaximumSize(new java.awt.Dimension(200, 27));
+        txt_nombre.setMinimumSize(new java.awt.Dimension(200, 27));
+        txt_nombre.setPreferredSize(new java.awt.Dimension(200, 27));
         txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_nombreKeyPressed(evt);
             }
         });
+        jPanel8.add(txt_nombre, new java.awt.GridBagConstraints());
+        jPanel8.add(filler2, new java.awt.GridBagConstraints());
 
         jLabel2.setText("Nombre:");
+        jPanel8.add(jLabel2, new java.awt.GridBagConstraints());
 
+        txt_apellido.setMaximumSize(new java.awt.Dimension(200, 27));
+        txt_apellido.setMinimumSize(new java.awt.Dimension(200, 27));
+        txt_apellido.setPreferredSize(new java.awt.Dimension(200, 27));
+        txt_apellido.setRequestFocusEnabled(false);
         txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_apellidoKeyPressed(evt);
             }
         });
+        jPanel8.add(txt_apellido, new java.awt.GridBagConstraints());
+        jPanel8.add(filler3, new java.awt.GridBagConstraints());
 
         jLabel3.setText("DNI:");
+        jPanel8.add(jLabel3, new java.awt.GridBagConstraints());
 
+        txt_dni.setMaximumSize(new java.awt.Dimension(200, 27));
+        txt_dni.setMinimumSize(new java.awt.Dimension(200, 27));
+        txt_dni.setPreferredSize(new java.awt.Dimension(200, 27));
+        txt_dni.setRequestFocusEnabled(false);
         txt_dni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_dniKeyPressed(evt);
             }
         });
+        jPanel8.add(txt_dni, new java.awt.GridBagConstraints());
+        jPanel8.add(filler1, new java.awt.GridBagConstraints());
 
         boton_buscar.setText("Buscar");
+        boton_buscar.setMaximumSize(new java.awt.Dimension(100, 29));
+        boton_buscar.setMinimumSize(new java.awt.Dimension(100, 29));
+        boton_buscar.setPreferredSize(new java.awt.Dimension(100, 29));
         boton_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_buscarActionPerformed(evt);
@@ -170,18 +234,14 @@ public class GestionLicencias extends javax.swing.JFrame {
                 boton_buscarKeyPressed(evt);
             }
         });
+        jPanel8.add(boton_buscar, new java.awt.GridBagConstraints());
 
-        boton_emitir_licencia.setText("Emitir Licencia");
-        boton_emitir_licencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_emitir_licenciaActionPerformed(evt);
-            }
-        });
-        boton_emitir_licencia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                boton_emitir_licenciaKeyPressed(evt);
-            }
-        });
+        jPanel_centro.add(jPanel8);
+
+        jPanel7.setMaximumSize(new java.awt.Dimension(1280, 350));
+        jPanel7.setMinimumSize(new java.awt.Dimension(1280, 350));
+        jPanel7.setPreferredSize(new java.awt.Dimension(1280, 350));
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,7 +278,33 @@ public class GestionLicencias extends javax.swing.JFrame {
         });
         jScrollPane13.setViewportView(tabla);
 
+        jPanel7.add(jScrollPane13);
+
+        jPanel_centro.add(jPanel7);
+
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        boton_emitir_licencia.setText("Emitir Licencia");
+        boton_emitir_licencia.setMaximumSize(new java.awt.Dimension(175, 40));
+        boton_emitir_licencia.setMinimumSize(new java.awt.Dimension(175, 40));
+        boton_emitir_licencia.setPreferredSize(new java.awt.Dimension(175, 40));
+        boton_emitir_licencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_emitir_licenciaActionPerformed(evt);
+            }
+        });
+        boton_emitir_licencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_emitir_licenciaKeyPressed(evt);
+            }
+        });
+        jPanel6.add(boton_emitir_licencia, new java.awt.GridBagConstraints());
+        jPanel6.add(filler4, new java.awt.GridBagConstraints());
+
         boton_modificar_titular.setText("Modificar Titular");
+        boton_modificar_titular.setMaximumSize(new java.awt.Dimension(175, 40));
+        boton_modificar_titular.setMinimumSize(new java.awt.Dimension(175, 40));
+        boton_modificar_titular.setPreferredSize(new java.awt.Dimension(175, 40));
         boton_modificar_titular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_modificar_titularActionPerformed(evt);
@@ -229,165 +315,83 @@ public class GestionLicencias extends javax.swing.JFrame {
                 boton_modificar_titularKeyPressed(evt);
             }
         });
+        jPanel6.add(boton_modificar_titular, new java.awt.GridBagConstraints());
+        jPanel6.add(filler5, new java.awt.GridBagConstraints());
 
         boton_nuevo_titular.setText("Crear Nuevo Titular");
+        boton_nuevo_titular.setMaximumSize(new java.awt.Dimension(175, 40));
+        boton_nuevo_titular.setMinimumSize(new java.awt.Dimension(175, 40));
+        boton_nuevo_titular.setPreferredSize(new java.awt.Dimension(175, 40));
         boton_nuevo_titular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_nuevo_titularActionPerformed(evt);
             }
         });
+        jPanel6.add(boton_nuevo_titular, new java.awt.GridBagConstraints());
+        jPanel6.add(filler6, new java.awt.GridBagConstraints());
 
         jButton1.setText("Renovar Licencia");
+        jButton1.setMaximumSize(new java.awt.Dimension(175, 40));
+        jButton1.setMinimumSize(new java.awt.Dimension(175, 40));
+        jButton1.setPreferredSize(new java.awt.Dimension(175, 40));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_renovar_licenciaActionPermirmed(evt);
             }
         });
+        jPanel6.add(jButton1, new java.awt.GridBagConstraints());
+        jPanel6.add(filler7, new java.awt.GridBagConstraints());
 
         jButton3.setText("Emitir Copia");
+        jButton3.setMaximumSize(new java.awt.Dimension(175, 40));
+        jButton3.setMinimumSize(new java.awt.Dimension(175, 40));
+        jButton3.setPreferredSize(new java.awt.Dimension(175, 40));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_copiaActionPreformed(evt);
             }
         });
+        jPanel6.add(jButton3, new java.awt.GridBagConstraints());
 
-        javax.swing.GroupLayout jPanel_centroLayout = new javax.swing.GroupLayout(jPanel_centro);
-        jPanel_centro.setLayout(jPanel_centroLayout);
-        jPanel_centroLayout.setHorizontalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_centroLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(boton_buscar)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_centroLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(boton_nuevo_titular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(boton_modificar_titular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(boton_emitir_licencia, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel_centroLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)))
-        );
-        jPanel_centroLayout.setVerticalGroup(
-            jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_centroLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(boton_buscar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_emitir_licencia)
-                    .addComponent(boton_modificar_titular)
-                    .addComponent(boton_nuevo_titular)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)))
-            .addGroup(jPanel_centroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel_centroLayout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(34, Short.MAX_VALUE)))
-        );
+        jPanel_centro.add(jPanel6);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Gestión de Licencias");
+        getContentPane().add(jPanel_centro);
 
-        jLabel11.setText("Usuario: ");
+        jPanel_inferior.setMaximumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setMinimumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setPreferredSize(new java.awt.Dimension(1280, 100));
 
-        txt_user.setText("jLabel9");
+        jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        jLabel18.setText("Nombre:");
+        boton_atras.setText("Atras");
+        boton_atras.setMaximumSize(new java.awt.Dimension(175, 40));
+        boton_atras.setMinimumSize(new java.awt.Dimension(175, 40));
+        boton_atras.setPreferredSize(new java.awt.Dimension(175, 40));
+        boton_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_atrasActionPerformed(evt);
+            }
+        });
+        boton_atras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_atrasKeyPressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 30, 0);
+        jPanel9.add(boton_atras, gridBagConstraints);
 
-        txt_nombre_user.setText("jLabel9");
+        jPanel_inferior.add(jPanel9);
+        jPanel_inferior.add(filler8);
 
-        javax.swing.GroupLayout jPanel_superior3Layout = new javax.swing.GroupLayout(jPanel_superior3);
-        jPanel_superior3.setLayout(jPanel_superior3Layout);
-        jPanel_superior3Layout.setHorizontalGroup(
-            jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superior3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superior3Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_user))
-                    .addGroup(jPanel_superior3Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nombre_user)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
-        );
-        jPanel_superior3Layout.setVerticalGroup(
-            jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superior3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superior3Layout.createSequentialGroup()
-                        .addGroup(jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txt_user))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_superior3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(txt_nombre_user)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        txt_mensaje_error.setForeground(new java.awt.Color(255, 0, 0));
+        txt_mensaje_error.setPreferredSize(new java.awt.Dimension(600, 50));
+        jPanel_inferior.add(txt_mensaje_error);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_der, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel_superior3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_superior3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_izq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_inferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel_inferior);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -706,8 +710,15 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JButton boton_emitir_licencia;
     private javax.swing.JButton boton_modificar_titular;
     private javax.swing.JButton boton_nuevo_titular;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.Box.Filler filler5;
+    private javax.swing.Box.Filler filler6;
+    private javax.swing.Box.Filler filler7;
+    private javax.swing.Box.Filler filler8;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -715,10 +726,17 @@ public class GestionLicencias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanel_centro;
-    private javax.swing.JPanel jPanel_der;
     private javax.swing.JPanel jPanel_inferior;
-    private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior3;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JTable tabla;

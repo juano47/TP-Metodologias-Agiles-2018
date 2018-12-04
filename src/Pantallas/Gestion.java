@@ -35,137 +35,130 @@ public class Gestion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_superior = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txt_user = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txt_nombre_user = new javax.swing.JLabel();
-        jPanel_inferior = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel_izq = new javax.swing.JPanel();
-        jPanel_der = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel_centro = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         boton_licencias = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10));
+        jButton4 = new javax.swing.JButton();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10));
         boton_listados = new javax.swing.JButton();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10));
         boton_usuarios = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10), new java.awt.Dimension(400, 10));
+        boton_salir_sistema = new javax.swing.JButton();
+        jPanel_inferior = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel_superior.setMaximumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setMinimumSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setPreferredSize(new java.awt.Dimension(1280, 120));
+        jPanel_superior.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel1.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel1.setPreferredSize(new java.awt.Dimension(250, 120));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(300, 60));
+        jPanel3.setMinimumSize(new java.awt.Dimension(300, 60));
+        jPanel3.setPreferredSize(new java.awt.Dimension(300, 60));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel8.setText("Usuario: ");
+        jLabel8.setPreferredSize(new java.awt.Dimension(100, 60));
+        jPanel3.add(jLabel8);
+
+        txt_user.setText("jLabel9");
+        txt_user.setMaximumSize(new java.awt.Dimension(130, 60));
+        txt_user.setMinimumSize(new java.awt.Dimension(130, 60));
+        txt_user.setPreferredSize(new java.awt.Dimension(130, 60));
+        jPanel3.add(txt_user);
+
+        jPanel1.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel15.setText("Nombre:");
+        jLabel15.setMaximumSize(new java.awt.Dimension(100, 60));
+        jLabel15.setMinimumSize(new java.awt.Dimension(100, 60));
+        jLabel15.setPreferredSize(new java.awt.Dimension(100, 60));
+        jPanel4.add(jLabel15);
+
+        txt_nombre_user.setText("jLabel9");
+        txt_nombre_user.setMaximumSize(new java.awt.Dimension(130, 60));
+        txt_nombre_user.setMinimumSize(new java.awt.Dimension(130, 60));
+        txt_nombre_user.setPreferredSize(new java.awt.Dimension(130, 60));
+        jPanel4.add(txt_nombre_user);
+
+        jPanel1.add(jPanel4);
+
+        jPanel_superior.add(jPanel1);
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(850, 120));
+        jPanel2.setMinimumSize(new java.awt.Dimension(850, 120));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gestión");
+        jLabel1.setMaximumSize(new java.awt.Dimension(750, 120));
+        jLabel1.setMinimumSize(new java.awt.Dimension(750, 120));
+        jLabel1.setPreferredSize(new java.awt.Dimension(750, 120));
+        jPanel2.add(jLabel1);
 
-        jLabel8.setText("Usuario: ");
+        jPanel_superior.add(jPanel2);
 
-        txt_user.setText("jLabel9");
+        jPanel5.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel5.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel5.setPreferredSize(new java.awt.Dimension(250, 120));
 
-        jLabel15.setText("Nombre:");
-
-        txt_nombre_user.setText("jLabel9");
-
-        javax.swing.GroupLayout jPanel_superiorLayout = new javax.swing.GroupLayout(jPanel_superior);
-        jPanel_superior.setLayout(jPanel_superiorLayout);
-        jPanel_superiorLayout.setHorizontalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_user))
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nombre_user)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(361, 361, 361))
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
-        jPanel_superiorLayout.setVerticalGroup(
-            jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_superiorLayout.createSequentialGroup()
-                        .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txt_user))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txt_nombre_user)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
-        jButton2.setText("jButton1");
+        jPanel_superior.add(jPanel5);
 
-        jButton3.setText("jButton1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jPanel_superior);
 
-        javax.swing.GroupLayout jPanel_inferiorLayout = new javax.swing.GroupLayout(jPanel_inferior);
-        jPanel_inferior.setLayout(jPanel_inferiorLayout);
-        jPanel_inferiorLayout.setHorizontalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel_inferiorLayout.setVerticalGroup(
-            jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_inferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_inferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jPanel_centro.setPreferredSize(new java.awt.Dimension(1280, 500));
+        jPanel_centro.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        javax.swing.GroupLayout jPanel_izqLayout = new javax.swing.GroupLayout(jPanel_izq);
-        jPanel_izq.setLayout(jPanel_izqLayout);
-        jPanel_izqLayout.setHorizontalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_izqLayout.setVerticalGroup(
-            jPanel_izqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel_derLayout = new javax.swing.GroupLayout(jPanel_der);
-        jPanel_der.setLayout(jPanel_derLayout);
-        jPanel_derLayout.setHorizontalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        jPanel_derLayout.setVerticalGroup(
-            jPanel_derLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel_centro.setLayout(null);
-
-        jButton4.setText("Titulares");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel_centro.add(jButton4);
-        jButton4.setBounds(231, 75, 182, 36);
+        jPanel6.setAlignmentX(0.0F);
+        jPanel6.setAlignmentY(0.0F);
+        jPanel6.setFocusCycleRoot(true);
+        jPanel6.setFocusTraversalPolicyProvider(true);
+        jPanel6.setMaximumSize(new java.awt.Dimension(400, 500));
+        jPanel6.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel6.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
 
         boton_licencias.setText("Licencias");
+        boton_licencias.setAlignmentY(0.0F);
+        boton_licencias.setMaximumSize(new java.awt.Dimension(400, 75));
+        boton_licencias.setMinimumSize(new java.awt.Dimension(400, 75));
+        boton_licencias.setPreferredSize(new java.awt.Dimension(400, 75));
         boton_licencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_licenciasActionPerformed(evt);
@@ -176,19 +169,50 @@ public class Gestion extends javax.swing.JFrame {
                 boton_licenciasKeyPressed(evt);
             }
         });
-        jPanel_centro.add(boton_licencias);
-        boton_licencias.setBounds(231, 21, 182, 36);
+        jPanel6.add(boton_licencias);
+
+        filler1.setAlignmentX(0.0F);
+        filler1.setAlignmentY(0.0F);
+        jPanel6.add(filler1);
+
+        jButton4.setText("Titulares");
+        jButton4.setAlignmentY(0.0F);
+        jButton4.setMaximumSize(new java.awt.Dimension(400, 75));
+        jButton4.setMinimumSize(new java.awt.Dimension(400, 75));
+        jButton4.setPreferredSize(new java.awt.Dimension(400, 75));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton4);
+
+        filler2.setAlignmentX(0.0F);
+        filler2.setAlignmentY(0.0F);
+        jPanel6.add(filler2);
 
         boton_listados.setText("Listados");
+        boton_listados.setAlignmentY(0.0F);
+        boton_listados.setMaximumSize(new java.awt.Dimension(400, 75));
+        boton_listados.setMinimumSize(new java.awt.Dimension(400, 75));
+        boton_listados.setPreferredSize(new java.awt.Dimension(400, 75));
         boton_listados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_listadosActionPerformed(evt);
             }
         });
-        jPanel_centro.add(boton_listados);
-        boton_listados.setBounds(231, 129, 182, 36);
+        jPanel6.add(boton_listados);
+
+        filler3.setAlignmentX(0.0F);
+        filler3.setAlignmentY(0.0F);
+        jPanel6.add(filler3);
 
         boton_usuarios.setText("Administración de Usuarios");
+        boton_usuarios.setAlignmentY(0.0F);
+        boton_usuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_usuarios.setMaximumSize(new java.awt.Dimension(400, 75));
+        boton_usuarios.setMinimumSize(new java.awt.Dimension(400, 75));
+        boton_usuarios.setPreferredSize(new java.awt.Dimension(400, 75));
         boton_usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_usuariosActionPerformed(evt);
@@ -199,41 +223,41 @@ public class Gestion extends javax.swing.JFrame {
                 boton_usuariosKeyPressed(evt);
             }
         });
-        jPanel_centro.add(boton_usuarios);
-        boton_usuarios.setBounds(231, 183, 182, 36);
+        jPanel6.add(boton_usuarios);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_der, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_izq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_der, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_centro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_inferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        filler4.setAlignmentX(0.0F);
+        filler4.setAlignmentY(0.0F);
+        jPanel6.add(filler4);
+
+        boton_salir_sistema.setText("Abandonar el Sistema");
+        boton_salir_sistema.setAlignmentY(0.0F);
+        boton_salir_sistema.setMaximumSize(new java.awt.Dimension(400, 75));
+        boton_salir_sistema.setMinimumSize(new java.awt.Dimension(400, 75));
+        boton_salir_sistema.setPreferredSize(new java.awt.Dimension(400, 75));
+        boton_salir_sistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_salir_sistemaActionPerformed(evt);
+            }
+        });
+        boton_salir_sistema.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boton_salir_sistemaKeyPressed(evt);
+            }
+        });
+        jPanel6.add(boton_salir_sistema);
+
+        jPanel_centro.add(jPanel6);
+
+        getContentPane().add(jPanel_centro);
+
+        jPanel_inferior.setMaximumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setMinimumSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setPreferredSize(new java.awt.Dimension(1280, 100));
+        jPanel_inferior.setLayout(new javax.swing.BoxLayout(jPanel_inferior, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(jPanel_inferior);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -269,6 +293,16 @@ public class Gestion extends javax.swing.JFrame {
            boton_usuariosActionPerformed(null);
         }
     }//GEN-LAST:event_boton_usuariosKeyPressed
+
+    private void boton_salir_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_salir_sistemaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_boton_salir_sistemaActionPerformed
+
+    private void boton_salir_sistemaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boton_salir_sistemaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+           boton_salir_sistemaActionPerformed(null);
+        }
+    }//GEN-LAST:event_boton_salir_sistemaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -315,17 +349,24 @@ public class Gestion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_licencias;
     private javax.swing.JButton boton_listados;
+    private javax.swing.JButton boton_salir_sistema;
     private javax.swing.JButton boton_usuarios;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel_centro;
-    private javax.swing.JPanel jPanel_der;
     private javax.swing.JPanel jPanel_inferior;
-    private javax.swing.JPanel jPanel_izq;
     private javax.swing.JPanel jPanel_superior;
     private javax.swing.JLabel txt_nombre_user;
     private javax.swing.JLabel txt_user;

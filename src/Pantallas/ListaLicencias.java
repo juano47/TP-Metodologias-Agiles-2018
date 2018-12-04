@@ -94,7 +94,6 @@ public class ListaLicencias extends javax.swing.JFrame {
         btn_filtrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 120));
@@ -102,19 +101,21 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 120));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jPanel5.setPreferredSize(new java.awt.Dimension(200, 120));
+        jPanel5.setMaximumSize(new java.awt.Dimension(250, 660));
+        jPanel5.setMinimumSize(new java.awt.Dimension(250, 660));
+        jPanel5.setPreferredSize(new java.awt.Dimension(250, 120));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel7.setMaximumSize(new java.awt.Dimension(200, 600));
-        jPanel7.setMinimumSize(new java.awt.Dimension(200, 600));
-        jPanel7.setPreferredSize(new java.awt.Dimension(200, 60));
+        jPanel7.setMaximumSize(new java.awt.Dimension(250, 600));
+        jPanel7.setMinimumSize(new java.awt.Dimension(250, 600));
+        jPanel7.setPreferredSize(new java.awt.Dimension(250, 60));
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         lb_titulo_username.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lb_titulo_username.setText("Usuario:");
-        lb_titulo_username.setMaximumSize(new java.awt.Dimension(50, 60));
-        lb_titulo_username.setMinimumSize(new java.awt.Dimension(50, 60));
-        lb_titulo_username.setPreferredSize(new java.awt.Dimension(50, 60));
+        lb_titulo_username.setMaximumSize(new java.awt.Dimension(100, 60));
+        lb_titulo_username.setMinimumSize(new java.awt.Dimension(100, 60));
+        lb_titulo_username.setPreferredSize(new java.awt.Dimension(100, 60));
         jPanel7.add(lb_titulo_username);
         lb_titulo_username.getAccessibleContext().setAccessibleDescription("");
 
@@ -125,16 +126,17 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         jPanel5.add(jPanel7);
 
-        jPanel8.setMaximumSize(new java.awt.Dimension(200, 60));
-        jPanel8.setMinimumSize(new java.awt.Dimension(200, 60));
-        jPanel8.setPreferredSize(new java.awt.Dimension(200, 60));
+        jPanel8.setMaximumSize(new java.awt.Dimension(250, 60));
+        jPanel8.setMinimumSize(new java.awt.Dimension(250, 60));
+        jPanel8.setPreferredSize(new java.awt.Dimension(250, 60));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         lb_titulo_nombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lb_titulo_nombre.setText("Nombre:");
-        lb_titulo_nombre.setMaximumSize(new java.awt.Dimension(50, 60));
-        lb_titulo_nombre.setMinimumSize(new java.awt.Dimension(50, 60));
-        lb_titulo_nombre.setPreferredSize(new java.awt.Dimension(50, 60));
+        lb_titulo_nombre.setMaximumSize(new java.awt.Dimension(100, 60));
+        lb_titulo_nombre.setMinimumSize(new java.awt.Dimension(100, 60));
+        lb_titulo_nombre.setPreferredSize(new java.awt.Dimension(100, 60));
+        lb_titulo_nombre.setRequestFocusEnabled(false);
         jPanel8.add(lb_titulo_nombre);
 
         lb_nombre.setMaximumSize(new java.awt.Dimension(130, 60));
@@ -149,31 +151,34 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel3.setToolTipText("");
         jPanel3.setAlignmentX(0.0F);
         jPanel3.setAlignmentY(0.0F);
-        jPanel3.setMaximumSize(new java.awt.Dimension(850, 120));
-        jPanel3.setMinimumSize(new java.awt.Dimension(850, 120));
+        jPanel3.setMaximumSize(new java.awt.Dimension(750, 120));
+        jPanel3.setMinimumSize(new java.awt.Dimension(750, 120));
         jPanel3.setOpaque(false);
-        jPanel3.setPreferredSize(new java.awt.Dimension(850, 120));
+        jPanel3.setPreferredSize(new java.awt.Dimension(750, 120));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
         lb_titulo_pantalla.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lb_titulo_pantalla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_titulo_pantalla.setText("Listado de Licencias");
         lb_titulo_pantalla.setToolTipText("");
         lb_titulo_pantalla.setAlignmentY(0.0F);
         lb_titulo_pantalla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lb_titulo_pantalla.setMaximumSize(new java.awt.Dimension(211, 120));
-        lb_titulo_pantalla.setMinimumSize(new java.awt.Dimension(211, 120));
-        lb_titulo_pantalla.setPreferredSize(new java.awt.Dimension(211, 120));
+        lb_titulo_pantalla.setMaximumSize(new java.awt.Dimension(500, 120));
+        lb_titulo_pantalla.setMinimumSize(new java.awt.Dimension(500, 120));
+        lb_titulo_pantalla.setPreferredSize(new java.awt.Dimension(500, 120));
         jPanel3.add(lb_titulo_pantalla);
 
         jPanel1.add(jPanel3);
 
-        jPanel6.setPreferredSize(new java.awt.Dimension(200, 120));
+        jPanel6.setMaximumSize(new java.awt.Dimension(250, 120));
+        jPanel6.setMinimumSize(new java.awt.Dimension(250, 120));
+        jPanel6.setPreferredSize(new java.awt.Dimension(250, 120));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
