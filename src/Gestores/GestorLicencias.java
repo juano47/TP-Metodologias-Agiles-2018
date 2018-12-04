@@ -1,6 +1,9 @@
 package Gestores;
 
+import Dao.DaoLicencia;
+import Dao.DaoTitular;
 import Entidades.Licencia;
+import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
 import java.io.File;
@@ -43,7 +46,10 @@ public class GestorLicencias {
 -        Mayores de 70 años: 1 año
 	*/
     
+    DaoLicencia daoLicencia = new DaoLicencia();
+    
     public GestorLicencias () {
+        
     }
     /***
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
@@ -339,6 +345,28 @@ public class GestorLicencias {
         return costo;
     }
     
+    public List<TitularAuxParaTabla> buscarTitulares(int criterioFiltrado, ArrayList<String> arregloParametros) {
+   
+        List listaLicencias = null;
+        Licencia licencia;
+  
+        listaLicencias = daoLicencia.findLicenciasPorCriterio(criterioFiltrado, arregloParametros);
+        
+        List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
+        
+        for (int a = 0; a < listaLicencias.size(); a++) {
+            licencia = (Licencia) listaLicencias.get(a);
+            Titular titular;
+            titular = licencia.getTitular();
+            
+            System.out.print(licencia);
+            System.out.print(titular);
+            
+            TitularAuxParaTabla licenciaAux = new TitularAuxParaTabla(titular, licencia);
+            listaTitularAux.add(licenciaAux);
+        }
+        
+        return listaTitularAux;
     /***
      * Permite realizar, o no, una nueva copia de la licencia.
      * @param titularAuxParaTabla auxiliar de tabla. 
