@@ -43,7 +43,7 @@ public class DaoLicencia extends AbstractDao{
             Query query;
             switch (criterio) {
                 case 5:
-                        query = session.createQuery("from Licencia L WHERE L.fechaVenc >= :date");
+                        query = session.createQuery("from Licencia L WHERE L.fechaVenc <= :date");
                         query.setDate("date", new Date());
                         response = query.list();
                          break;

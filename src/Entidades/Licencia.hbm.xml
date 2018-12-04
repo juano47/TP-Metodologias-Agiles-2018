@@ -8,10 +8,10 @@
             <column name="id_licencia" />
             <generator class="identity" />
         </id>
-        <many-to-one name="administrativo" class="Entidades.Administrativo" fetch="select">
+        <many-to-one name="administrativo" class="Entidades.Administrativo" lazy="false" fetch="select">
             <column name="id_administrativo" not-null="true" />
         </many-to-one>
-        <many-to-one name="titular" class="Entidades.Titular" fetch="select">
+        <many-to-one name="titular" class="Entidades.Titular" lazy="false" fetch="select">
             <column name="id_titular" not-null="true" />
         </many-to-one>
         <property name="fechaVenc" type="date">

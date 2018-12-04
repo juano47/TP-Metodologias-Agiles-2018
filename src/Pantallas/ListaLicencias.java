@@ -628,20 +628,19 @@ public class ListaLicencias extends javax.swing.JFrame {
                 else
                     return data.get(rowIndex).getLicencia().getClase();
             case 4:
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                return data.get(rowIndex).getLicencia().getEstado();
-            case 5: 
-                if(data.get(rowIndex).getLicencia() == null)
-                    return " ";
-                else
-                return data.get(rowIndex).getLicencia().getFechaVenc();
+                return data.get(rowIndex).getTitularOriginal().getGrupoSanguineo();
+            case 5:
+                return data.get(rowIndex).getTitularOriginal().getFactorSanguineo();
             case 6: 
                 if(data.get(rowIndex).getLicencia() == null)
                     return " ";
                 else
-                return data.get(rowIndex).getLicencia().getFechaRegistro();
+                return data.get(rowIndex).getLicencia().getDonante();
+            case 7:
+                if(data.get(rowIndex).getLicencia() == null)
+                    return " ";
+                else
+                return data.get(rowIndex).getLicencia().getFechaVenc();
             default:
                 return null;
         }
