@@ -1,6 +1,7 @@
 package Gestores;
 
 import Entidades.Licencia;
+import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
 import java.io.File;
 import java.nio.file.Path;
@@ -32,6 +33,8 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Nico y Mati
  */
 public class GestorLicencias {
+
+    
         /*
 	Menores de 21 años: 1 año la primera vez y 3 años las siguientes.
 -        Hasta 46 años: 5 años
@@ -40,45 +43,7 @@ public class GestorLicencias {
 -        Mayores de 70 años: 1 año
 	*/
     
-    //private static Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
-    
     public GestorLicencias () {
-        /*Vector costoA = new Vector();
-        Vector costoB = new Vector();
-        Vector costoC = new Vector();
-        Vector costoE = new Vector();
-        Vector costoG = new Vector();
-        
-        costoA.add(40);
-        costoA.add(30);
-        costoA.add(25);
-        costoA.add(20);
-        
-        costoB.add(40);
-        costoB.add(30);
-        costoB.add(25);
-        costoB.add(20);
-        
-        costoC.add(47);
-        costoC.add(35);
-        costoC.add(30);
-        costoC.add(23);
-        
-        costoE.add(59);
-        costoE.add(44);
-        costoE.add(39);
-        costoE.add(29);
-        
-        costoG.add(40);
-        costoG.add(30);
-        costoG.add(25);
-        costoG.add(20);
-        
-        mapaCostos.put('A', costoA);
-        mapaCostos.put('B', costoB); 
-        mapaCostos.put('C', costoC); 
-        mapaCostos.put('E', costoE); 
-        mapaCostos.put('G', costoG); */
     }
     /***
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
@@ -352,23 +317,53 @@ public class GestorLicencias {
         mapaCostos.put('A', costoA);
         mapaCostos.put('B', costoB); 
         mapaCostos.put('C', costoC); 
+        mapaCostos.put('D', costoC); 
         mapaCostos.put('E', costoE); 
+        mapaCostos.put('F', costoG); 
         mapaCostos.put('G', costoG); 
-        Vector costos = new Vector();
+        
         Date fechaRegistro = licencia.getFechaRegistro();
         Date fechaVencimiento = licencia.getFechaVenc();
         String clase = licencia.getClase();
         char letra = licencia.getClase().charAt(0);
         duracionLicencia = restarFechas(fechaRegistro, fechaVencimiento);
         
-        costos = mapaCostos.get(letra);
-        
         duracionLicencia = duracionLicencia / 365;
         
-        costo = (Integer) costos.get(duracionLicencia);
+        costo = (Integer) mapaCostos.get(letra).get(duracionLicencia - 1);
         
         costo +=8;
         
+        System.out.print(costo);
+        
         return costo;
+    }
+    
+    /***
+     * Permite realizar, o no, una nueva copia de la licencia.
+     * @param titularAuxParaTabla auxiliar de tabla. 
+     */
+    public static boolean realizarCopia(Licencia licencia) {
+        boolean bresultado = false;
+        Date dfecha_vencimiento = licencia.getFechaVenc();
+        Date dfecha_actual = new Date();
+        
+        if(dfecha_vencimiento.getYear() > dfecha_actual.getYear()){
+            bresultado = true;
+        }
+        else if(dfecha_vencimiento.getYear() == dfecha_actual.getYear()){
+            if (dfecha_vencimiento.getMonth() > dfecha_actual.getMonth()){
+                bresultado = true;
+            }
+            else if(dfecha_vencimiento.getMonth() == dfecha_actual.getMonth()){
+                if(dfecha_vencimiento.getDay() > dfecha_actual.getDay()){
+                    bresultado = true;
+                }
+            }
+        }
+        
+        //titularAuxParaTabla.getLicencia().get
+        //if(titularAuxParaTabla.getLicencia().getFechaVenc())
+        return bresultado;
     }
 }
