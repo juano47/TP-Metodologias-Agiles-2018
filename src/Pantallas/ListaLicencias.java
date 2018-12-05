@@ -198,179 +198,168 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel9.setPreferredSize(new java.awt.Dimension(1280, 75));
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jPanel15.setMaximumSize(new java.awt.Dimension(250, 75));
-        jPanel15.setMinimumSize(new java.awt.Dimension(250, 75));
-        jPanel15.setPreferredSize(new java.awt.Dimension(250, 75));
+        jPanel15.setMaximumSize(new java.awt.Dimension(300, 75));
+        jPanel15.setMinimumSize(new java.awt.Dimension(300, 75));
+        jPanel15.setPreferredSize(new java.awt.Dimension(300, 75));
         jPanel15.setLayout(new java.awt.GridBagLayout());
 
-        jPanel10.setMaximumSize(new java.awt.Dimension(250, 50));
-        jPanel10.setMinimumSize(new java.awt.Dimension(250, 50));
-        jPanel10.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel10.setMaximumSize(new java.awt.Dimension(300, 50));
+        jPanel10.setMinimumSize(new java.awt.Dimension(300, 50));
+        jPanel10.setPreferredSize(new java.awt.Dimension(300, 50));
         jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_criterios_busqueda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_criterios_busqueda.setText("Criterios:");
-        txt_criterios_busqueda.setMaximumSize(new java.awt.Dimension(50, 50));
+        txt_criterios_busqueda.setMaximumSize(new java.awt.Dimension(90, 50));
         txt_criterios_busqueda.setMinimumSize(new java.awt.Dimension(50, 50));
-        txt_criterios_busqueda.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt_criterios_busqueda.setPreferredSize(new java.awt.Dimension(90, 50));
         jPanel10.add(txt_criterios_busqueda);
 
         cb_criterios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre y/o Apellido", "Orden Alfabetico", "Factor y Grupo Sanguineo", "Donante", "Licencias Expiradas" }));
-        cb_criterios.setMaximumSize(new java.awt.Dimension(185, 32767));
-        cb_criterios.setMinimumSize(new java.awt.Dimension(185, 20));
-        cb_criterios.setPreferredSize(new java.awt.Dimension(185, 20));
+        cb_criterios.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_criterios.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_criterios.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel10.add(cb_criterios);
 
         jPanel15.add(jPanel10, new java.awt.GridBagConstraints());
 
         jPanel9.add(jPanel15);
 
-        jPanel16.setMaximumSize(new java.awt.Dimension(250, 75));
-        jPanel16.setMinimumSize(new java.awt.Dimension(250, 75));
-        jPanel16.setPreferredSize(new java.awt.Dimension(250, 75));
+        jPanel16.setMaximumSize(new java.awt.Dimension(300, 75));
+        jPanel16.setMinimumSize(new java.awt.Dimension(300, 75));
+        jPanel16.setPreferredSize(new java.awt.Dimension(300, 75));
         jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel18.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel18.setMinimumSize(new java.awt.Dimension(250, 37));
+        jPanel18.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel18.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel18.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_nombre_titutal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_nombre_titutal.setText("Nombre:");
         txt_nombre_titutal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        txt_nombre_titutal.setMaximumSize(new java.awt.Dimension(50, 37));
-        txt_nombre_titutal.setMinimumSize(new java.awt.Dimension(50, 37));
-        txt_nombre_titutal.setPreferredSize(new java.awt.Dimension(50, 37));
+        txt_nombre_titutal.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_nombre_titutal.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_nombre_titutal.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel18.add(txt_nombre_titutal);
 
-        input_nombre_titular.setMaximumSize(new java.awt.Dimension(150, 20));
-        input_nombre_titular.setMinimumSize(new java.awt.Dimension(150, 20));
-        input_nombre_titular.setPreferredSize(new java.awt.Dimension(150, 20));
+        input_nombre_titular.setMaximumSize(new java.awt.Dimension(185, 35));
+        input_nombre_titular.setMinimumSize(new java.awt.Dimension(185, 35));
+        input_nombre_titular.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel18.add(input_nombre_titular);
 
         jPanel16.add(jPanel18);
 
-        jPanel19.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel19.setMinimumSize(new java.awt.Dimension(250, 37));
-        jPanel19.setPreferredSize(new java.awt.Dimension(250, 37));
+        jPanel19.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel19.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel19.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_apellido_titular.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_apellido_titular.setText("Apellido:");
-        txt_apellido_titular.setMaximumSize(new java.awt.Dimension(50, 37));
-        txt_apellido_titular.setMinimumSize(new java.awt.Dimension(50, 37));
-        txt_apellido_titular.setPreferredSize(new java.awt.Dimension(50, 37));
+        txt_apellido_titular.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_apellido_titular.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_apellido_titular.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel19.add(txt_apellido_titular);
 
-        input_apellido_titular.setMaximumSize(new java.awt.Dimension(150, 20));
-        input_apellido_titular.setMinimumSize(new java.awt.Dimension(150, 20));
-        input_apellido_titular.setPreferredSize(new java.awt.Dimension(150, 20));
+        input_apellido_titular.setMaximumSize(new java.awt.Dimension(185, 35));
+        input_apellido_titular.setMinimumSize(new java.awt.Dimension(185, 35));
+        input_apellido_titular.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel19.add(input_apellido_titular);
 
         jPanel16.add(jPanel19);
 
         jPanel9.add(jPanel16);
 
-        jPanel21.setMaximumSize(new java.awt.Dimension(250, 75));
-        jPanel21.setMinimumSize(new java.awt.Dimension(250, 75));
-        jPanel21.setPreferredSize(new java.awt.Dimension(250, 75));
+        jPanel21.setMaximumSize(new java.awt.Dimension(300, 75));
+        jPanel21.setMinimumSize(new java.awt.Dimension(300, 75));
+        jPanel21.setPreferredSize(new java.awt.Dimension(300, 75));
+        jPanel21.setLayout(new javax.swing.BoxLayout(jPanel21, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel22.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel22.setMinimumSize(new java.awt.Dimension(250, 37));
+        jPanel22.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel22.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel22.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_grupo_sanguineo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_grupo_sanguineo.setText("Grupo:");
         txt_grupo_sanguineo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        txt_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(70, 37));
-        txt_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(70, 37));
-        txt_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(70, 37));
+        txt_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel22.add(txt_grupo_sanguineo);
 
         cb_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "A", "B", "AB" }));
-        cb_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(150, 20));
-        cb_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(150, 20));
-        cb_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(150, 20));
+        cb_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel22.add(cb_grupo_sanguineo);
 
-        jPanel23.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel23.setMinimumSize(new java.awt.Dimension(250, 37));
-        jPanel23.setPreferredSize(new java.awt.Dimension(250, 37));
+        jPanel21.add(jPanel22);
+
+        jPanel23.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel23.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel23.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel23.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_factor_rh.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_factor_rh.setText("Factor RH:");
-        txt_factor_rh.setMaximumSize(new java.awt.Dimension(70, 37));
-        txt_factor_rh.setMinimumSize(new java.awt.Dimension(70, 37));
-        txt_factor_rh.setPreferredSize(new java.awt.Dimension(70, 37));
+        txt_factor_rh.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_factor_rh.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_factor_rh.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel23.add(txt_factor_rh);
 
         cb_factor_rh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
-        cb_factor_rh.setMaximumSize(new java.awt.Dimension(150, 20));
-        cb_factor_rh.setMinimumSize(new java.awt.Dimension(150, 20));
-        cb_factor_rh.setPreferredSize(new java.awt.Dimension(150, 20));
+        cb_factor_rh.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_factor_rh.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_factor_rh.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel23.add(cb_factor_rh);
 
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel21Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 75, Short.MAX_VALUE)
-            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel21Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel21.add(jPanel23);
 
         jPanel9.add(jPanel21);
 
-        jPanel17.setMaximumSize(new java.awt.Dimension(250, 75));
-        jPanel17.setMinimumSize(new java.awt.Dimension(250, 75));
-        jPanel17.setPreferredSize(new java.awt.Dimension(250, 75));
+        jPanel17.setMaximumSize(new java.awt.Dimension(300, 75));
+        jPanel17.setMinimumSize(new java.awt.Dimension(300, 75));
+        jPanel17.setPreferredSize(new java.awt.Dimension(300, 75));
         jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel20.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel20.setMinimumSize(new java.awt.Dimension(250, 37));
-        jPanel20.setPreferredSize(new java.awt.Dimension(250, 37));
+        jPanel20.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel20.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel20.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_orden_alf.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_orden_alf.setText("Ord. Alf.:");
-        txt_orden_alf.setMaximumSize(new java.awt.Dimension(75, 37));
-        txt_orden_alf.setMinimumSize(new java.awt.Dimension(75, 37));
-        txt_orden_alf.setPreferredSize(new java.awt.Dimension(75, 37));
+        txt_orden_alf.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_orden_alf.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_orden_alf.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel20.add(txt_orden_alf);
 
         cb_orden_alf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ascendente", "Descendente" }));
-        cb_orden_alf.setMaximumSize(new java.awt.Dimension(150, 32767));
-        cb_orden_alf.setMinimumSize(new java.awt.Dimension(150, 20));
-        cb_orden_alf.setPreferredSize(new java.awt.Dimension(150, 20));
+        cb_orden_alf.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_orden_alf.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_orden_alf.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel20.add(cb_orden_alf);
 
         jPanel17.add(jPanel20);
 
-        jPanel25.setMaximumSize(new java.awt.Dimension(250, 37));
-        jPanel25.setMinimumSize(new java.awt.Dimension(250, 37));
-        jPanel25.setPreferredSize(new java.awt.Dimension(250, 37));
+        jPanel25.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel25.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel25.setPreferredSize(new java.awt.Dimension(300, 37));
         jPanel25.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        txt_donante.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_donante.setText("Es donante:");
-        txt_donante.setMaximumSize(new java.awt.Dimension(75, 37));
-        txt_donante.setMinimumSize(new java.awt.Dimension(75, 37));
-        txt_donante.setPreferredSize(new java.awt.Dimension(75, 37));
+        txt_donante.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_donante.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_donante.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel25.add(txt_donante);
 
         cb_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-        cb_donante.setMaximumSize(new java.awt.Dimension(150, 32767));
-        cb_donante.setMinimumSize(new java.awt.Dimension(150, 20));
-        cb_donante.setPreferredSize(new java.awt.Dimension(150, 20));
+        cb_donante.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_donante.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_donante.setPreferredSize(new java.awt.Dimension(185, 35));
         jPanel25.add(cb_donante);
 
         jPanel17.add(jPanel25);
@@ -387,9 +376,9 @@ public class ListaLicencias extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("*Configure solo los parametros correspondientes al criterio seleccionado");
-        jLabel6.setMaximumSize(new java.awt.Dimension(500, 50));
-        jLabel6.setMinimumSize(new java.awt.Dimension(500, 50));
-        jLabel6.setPreferredSize(new java.awt.Dimension(500, 50));
+        jLabel6.setMaximumSize(new java.awt.Dimension(750, 50));
+        jLabel6.setMinimumSize(new java.awt.Dimension(750, 50));
+        jLabel6.setPreferredSize(new java.awt.Dimension(750, 50));
         jPanel24.add(jLabel6);
 
         jPanel2.add(jPanel24);

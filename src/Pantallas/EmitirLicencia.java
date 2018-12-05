@@ -160,9 +160,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         boton_emitir_licencia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -275,14 +273,18 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
-        jLabel2.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel2.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel2.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel2.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel2.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel16.add(jLabel2);
 
         txt_nombre.setText("jLabel15");
+        txt_nombre.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_nombre.setMinimumSize(new java.awt.Dimension(225, 35));
         txt_nombre.setName("li_nombre"); // NOI18N
+        txt_nombre.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel16.add(txt_nombre);
         txt_nombre.getAccessibleContext().setAccessibleName("li_nombre");
 
@@ -290,39 +292,51 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Apellido:");
-        jLabel9.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel9.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel9.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel9.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel9.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel9.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel15.add(jLabel9);
 
         txt_apellido.setText("jLabel15");
+        txt_apellido.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_apellido.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_apellido.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel15.add(txt_apellido);
 
         jPanel10.add(jPanel15);
 
         jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Tipo Doc:");
-        jLabel3.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel3.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel3.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel3.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel3.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel3.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel14.add(jLabel3);
 
         txt_tipo_doc.setText("jLabel15");
+        txt_tipo_doc.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_tipo_doc.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_tipo_doc.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel14.add(txt_tipo_doc);
 
         jPanel10.add(jPanel14);
 
         jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("N° Doc:");
-        jLabel10.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel10.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel10.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel10.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel10.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel10.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel13.add(jLabel10);
 
         txt_nro_doc.setText("jLabel15");
+        txt_nro_doc.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_nro_doc.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_nro_doc.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel13.add(txt_nro_doc);
 
         jPanel10.add(jPanel13);
@@ -339,13 +353,17 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel19.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Dirección:");
-        jLabel11.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel11.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel11.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel11.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel11.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel11.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel19.add(jLabel11);
 
         txt_direccion.setText("jLabel15");
+        txt_direccion.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_direccion.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_direccion.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel19.add(txt_direccion);
 
         jPanel11.add(jPanel19);
@@ -355,6 +373,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel18.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Fecha Nac.:");
         jLabel4.setMaximumSize(new java.awt.Dimension(100, 100));
         jLabel4.setMinimumSize(new java.awt.Dimension(100, 100));
@@ -362,6 +381,9 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel18.add(jLabel4);
 
         txt_fecha_nac.setText("jLabel15");
+        txt_fecha_nac.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_fecha_nac.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_fecha_nac.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel18.add(txt_fecha_nac);
 
         jPanel11.add(jPanel18);
@@ -371,14 +393,18 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel17.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Clase:");
-        jLabel5.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel5.setMinimumSize(new java.awt.Dimension(75, 100));
+        jLabel5.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel5.setMinimumSize(new java.awt.Dimension(100, 100));
         jLabel5.setName(""); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel5.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel17.add(jLabel5);
 
         listaClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
+        listaClase.setMaximumSize(new java.awt.Dimension(225, 35));
+        listaClase.setMinimumSize(new java.awt.Dimension(225, 35));
+        listaClase.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel17.add(listaClase);
 
         jPanel11.add(jPanel17);
@@ -396,13 +422,17 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel22.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Grupo Sanguineo:");
-        jLabel13.setMaximumSize(new java.awt.Dimension(125, 100));
-        jLabel13.setMinimumSize(new java.awt.Dimension(125, 100));
-        jLabel13.setPreferredSize(new java.awt.Dimension(125, 100));
+        jLabel13.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel13.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel13.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel22.add(jLabel13);
 
         txt_grupo_sanguineo.setText("jLabel15");
+        txt_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel22.add(txt_grupo_sanguineo);
 
         jPanel12.add(jPanel22);
@@ -412,13 +442,17 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel21.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Factor RH:");
-        jLabel14.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel14.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel14.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel14.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel14.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel14.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel21.add(jLabel14);
 
         txt_factor_sanguineo.setText("jLabel15");
+        txt_factor_sanguineo.setMaximumSize(new java.awt.Dimension(225, 35));
+        txt_factor_sanguineo.setMinimumSize(new java.awt.Dimension(225, 35));
+        txt_factor_sanguineo.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel21.add(txt_factor_sanguineo);
 
         jPanel12.add(jPanel21);
@@ -428,13 +462,17 @@ public class EmitirLicencia extends javax.swing.JFrame {
         jPanel20.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Donante:");
-        jLabel12.setMaximumSize(new java.awt.Dimension(75, 100));
-        jLabel12.setMinimumSize(new java.awt.Dimension(75, 100));
-        jLabel12.setPreferredSize(new java.awt.Dimension(75, 100));
+        jLabel12.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel12.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel12.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel20.add(jLabel12);
 
         listaDonante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        listaDonante.setMaximumSize(new java.awt.Dimension(225, 35));
+        listaDonante.setMinimumSize(new java.awt.Dimension(225, 35));
+        listaDonante.setPreferredSize(new java.awt.Dimension(225, 35));
         jPanel20.add(listaDonante);
 
         jPanel12.add(jPanel20);
@@ -596,6 +634,7 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 daoLicencia.save(nuevaLicencia);
                 System.out.print("Se guardo bien la licencia!");
                 GestorLicencias.imprimirLicencia(nuevaLicencia);
+                JOptionPane.showMessageDialog(null, "El nuevo titular y la nueva licencia se han guardado correctamente");
                 GestionLicencias pantalla = new GestionLicencias();
                 pantalla.setVisible(true);
                 dispose();
