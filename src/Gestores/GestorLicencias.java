@@ -47,9 +47,23 @@ public class GestorLicencias {
 	*/
     
     DaoLicencia daoLicencia = new DaoLicencia();
+    private Licencia licencia;
     
     public GestorLicencias () {
         
+    }
+    
+    
+    public static GestorLicencias getInstance() {
+        return GestorLicenciaHolder.INSTANCE;
+    }
+
+    private static class GestorLicenciaHolder {
+        private static final GestorLicencias INSTANCE = new GestorLicencias();
+    }
+    
+    public Licencia getLicencia() {
+        return this.licencia;
     }
     /***
      * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
@@ -394,4 +408,14 @@ public class GestorLicencias {
         //if(titularAuxParaTabla.getLicencia().getFechaVenc())
         return bresultado;
     }
+    
+    public List<Licencia> buscarLicencias() {
+        return daoLicencia.porCamposRequeridos();
+    }
+    
+    public List<Licencia> buscarLicencias(String nombre, String apellido, String grupo_sanguineo, String factor_sanguineo, String donante) {
+   
+        return daoLicencia.porCamposRequeridos(nombre, apellido, grupo_sanguineo,factor_sanguineo,donante);   
+    }
+    
 }

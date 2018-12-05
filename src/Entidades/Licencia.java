@@ -98,9 +98,6 @@ public class Licencia  implements java.io.Serializable {
         this.fechaRegistro = fechaRegistro;
     }
 
-
-
-
 }
 
 

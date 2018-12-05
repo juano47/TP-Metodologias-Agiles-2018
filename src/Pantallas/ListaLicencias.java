@@ -6,20 +6,28 @@
 package Pantallas;
 
 import Dao.DaoLicencia;
+import Dao.DaoTitular;
+import Entidades.Licencia;
+import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
 import Gestores.GestorLicencias;
+import Gestores.GestorTitular;
 import com.mysql.jdbc.StringUtils;
+import static java.lang.System.console;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
-
+import javax.swing.table.AbstractTableModel;
+import java.Lang.System.console();
 /**
  *
  * @author PC
  */
+import static java.lang.System.console;
 public class ListaLicencias extends javax.swing.JFrame {
     TablaModeloTitular modeloTabla = new TablaModeloTitular();
     /**
@@ -523,6 +531,29 @@ public class ListaLicencias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_filtrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filtrarActionPerformed
+        //<-------------------------------------------------------------------->
+        /*
+        limpiarTabla(tabla_licencias_filtradas, modeloTabla);
+        txt_mensaje_error.setText("");
+        
+                
+        String nombre = input_nombre_titular.getText();    
+        String apellido = input_apellido_titular.getText();
+        String grupo_sanguineo = (String)cb_grupo_sanguineo.getSelectedItem();
+        String factor_sanguineo = (String)cb_factor_rh.getSelectedItem();
+        String donante = (String)cb_donante.getSelectedItem();
+        
+        GestorLicencias gestorLicencia = GestorLicencias.getInstance(); //se pide la instancia de GestorAdministrativo
+        List<Licencia> listaLicencias= new ArrayList<Licencia>();
+        if("".equals(nombre) && "".equals(apellido) && "".equals(grupo_sanguineo) && "".equals(factor_sanguineo) && "".equals(donante)){
+            listaLicencias = gestorLicencia.buscarLicencias();
+            modeloTabla.addAllTitulares(listaLicencias);
+        }
+        else{
+            listaLicencias = gestorLicencia.buscarLicencias(nombre,apellido,grupo_sanguineo,factor_sanguineo,donante);
+            modeloTabla.addAllTitulares(listaLicencias);
+        }*/
+        //<--------------------------------------------------------------------->
         
         List licencias = new ArrayList();
         int codigoFiltrado = 0;
@@ -537,7 +568,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         String factorRH = cb_factor_rh.getSelectedItem().toString();
         String ordenAlfabetico = cb_orden_alf.getSelectedItem().toString();
         String esDonante = cb_donante.getSelectedItem().toString();
-                
+            
         switch (opcion_filtrado) {
             case "Nombre y/o Apellido":
                     codigoFiltrado = 1;
@@ -563,7 +594,9 @@ public class ListaLicencias extends javax.swing.JFrame {
         }
         
         GestorLicencias gestorLicencias = new GestorLicencias(); //se pide la instancia de GestorTitular
-        licencias = gestorLicencias.buscarTitulares(codigoFiltrado, arregloParametros);
+        //licencias = gestorLicencias.buscarLicencias(nombreTitular,apellidoTitular,grupoSanguineo,factorRH,esDonante);
+        licencias = gestorLicencias.buscarLicencias();
+
         
         modeloTabla.addAllTitulares(licencias);
     }//GEN-LAST:event_btn_filtrarActionPerformed
@@ -650,7 +683,8 @@ public class ListaLicencias extends javax.swing.JFrame {
                 return null;
         }
     }
-    }
+
+   }
     /**
      * @param args the command line arguments
      */
