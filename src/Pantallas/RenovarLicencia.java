@@ -87,28 +87,43 @@ public class RenovarLicencia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel_centro = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        listaDonante = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         txt_apellido = new javax.swing.JTextField();
-        txt_nro_doc = new javax.swing.JTextField();
-        txt_direccion = new javax.swing.JTextField();
-        txt_licencia = new javax.swing.JLabel();
-        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
-        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
-        txt_fecha_nac = new javax.swing.JFormattedTextField();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         combo_tipo_doc = new javax.swing.JComboBox<>();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        txt_nro_doc = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_direccion = new javax.swing.JTextField();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_fecha_nac = new javax.swing.JFormattedTextField();
+        jPanel19 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         txt_fecha_venc = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txt_licencia = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        combobox_grupo_sanguineo = new javax.swing.JComboBox<>();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        combobox_factor_sanguineo = new javax.swing.JComboBox<>();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        listaDonante = new javax.swing.JComboBox<>();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 100), new java.awt.Dimension(0, 100), new java.awt.Dimension(32767, 100));
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -212,146 +227,250 @@ public class RenovarLicencia extends javax.swing.JFrame {
         jPanel9.setMaximumSize(new java.awt.Dimension(1280, 400));
         jPanel9.setMinimumSize(new java.awt.Dimension(1280, 400));
         jPanel9.setPreferredSize(new java.awt.Dimension(1280, 400));
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jLabel12.setText("Donante");
+        jPanel12.setMaximumSize(new java.awt.Dimension(400, 400));
+        jPanel12.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel12.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel12.setLayout(new javax.swing.BoxLayout(jPanel12, javax.swing.BoxLayout.Y_AXIS));
 
-        jLabel13.setText("Grupo Sanguineo");
+        jPanel13.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel13.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel13.setPreferredSize(new java.awt.Dimension(400, 100));
+        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jLabel14.setText("Factor RH");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Nombre:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel2.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel13.add(jLabel2);
 
-        listaDonante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-
+        txt_nombre.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_nombre.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_nombre.setPreferredSize(new java.awt.Dimension(225, 30));
         txt_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nombreActionPerformed(evt);
             }
         });
+        jPanel13.add(txt_nombre);
+
+        jPanel12.add(jPanel13);
+
+        jPanel14.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel14.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel14.setPreferredSize(new java.awt.Dimension(400, 100));
+        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Apellido:");
+        jLabel9.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel9.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel9.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel14.add(jLabel9);
 
         txt_apellido.setText("jTextField1");
+        txt_apellido.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_apellido.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_apellido.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel14.add(txt_apellido);
+
+        jPanel12.add(jPanel14);
+
+        jPanel15.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel15.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel15.setPreferredSize(new java.awt.Dimension(400, 100));
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Tipo Doc:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel3.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel3.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel15.add(jLabel3);
+
+        combo_tipo_doc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
+        combo_tipo_doc.setMaximumSize(new java.awt.Dimension(225, 30));
+        combo_tipo_doc.setMinimumSize(new java.awt.Dimension(225, 30));
+        combo_tipo_doc.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel15.add(combo_tipo_doc);
+
+        jPanel12.add(jPanel15);
+
+        jPanel16.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel16.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel16.setPreferredSize(new java.awt.Dimension(400, 100));
+        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("N° Doc:");
+        jLabel10.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel10.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel10.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel16.add(jLabel10);
 
         txt_nro_doc.setText("jTextField1");
+        txt_nro_doc.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_nro_doc.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_nro_doc.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel16.add(txt_nro_doc);
+
+        jPanel12.add(jPanel16);
+
+        jPanel9.add(jPanel12);
+
+        jPanel11.setMaximumSize(new java.awt.Dimension(400, 400));
+        jPanel11.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel11.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel17.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel17.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel17.setPreferredSize(new java.awt.Dimension(400, 100));
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Dirección:");
+        jLabel11.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel11.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel11.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel17.add(jLabel11);
 
         txt_direccion.setText("jTextField1");
+        txt_direccion.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_direccion.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_direccion.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel17.add(txt_direccion);
 
-        txt_licencia.setText("jLabel16");
+        jPanel11.add(jPanel17);
 
-        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
+        jPanel18.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel18.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel18.setPreferredSize(new java.awt.Dimension(400, 100));
 
-        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Fecha Nac.:");
+        jLabel4.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel4.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel4.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel18.add(jLabel4);
 
         try {
             txt_fecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txt_fecha_nac.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_fecha_nac.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_fecha_nac.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel18.add(txt_fecha_nac);
 
-        combo_tipo_doc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "LC", "LE" }));
+        jPanel11.add(jPanel18);
 
-        jLabel16.setText("Fecha Ven.");
+        jPanel19.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel19.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel19.setPreferredSize(new java.awt.Dimension(400, 100));
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel16.setText("Fecha Ven.:");
+        jLabel16.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel16.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel16.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel19.add(jLabel16);
 
         txt_fecha_venc.setText("jLabel17");
+        txt_fecha_venc.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_fecha_venc.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_fecha_venc.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel19.add(txt_fecha_venc);
 
-        jLabel11.setText("Dirección");
+        jPanel11.add(jPanel19);
 
-        jLabel10.setText("N° Doc");
+        jPanel20.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel20.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel20.setPreferredSize(new java.awt.Dimension(400, 100));
 
-        jLabel9.setText("Apellido");
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("Clase:");
+        jLabel5.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel5.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel5.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel20.add(jLabel5);
 
-        jLabel5.setText("Clase");
+        txt_licencia.setText("jLabel16");
+        txt_licencia.setMaximumSize(new java.awt.Dimension(225, 30));
+        txt_licencia.setMinimumSize(new java.awt.Dimension(225, 30));
+        txt_licencia.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel20.add(txt_licencia);
 
-        jLabel4.setText("Fecha Nac.");
+        jPanel11.add(jPanel20);
 
-        jLabel3.setText("Tipo Doc");
+        jPanel9.add(jPanel11);
 
-        jLabel2.setText("Nombre");
+        jPanel10.setMaximumSize(new java.awt.Dimension(400, 400));
+        jPanel10.setMinimumSize(new java.awt.Dimension(400, 400));
+        jPanel10.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(listaDonante, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(combobox_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(combobox_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(combo_tipo_doc, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel9Layout.createSequentialGroup()
-                            .addGap(640, 640, 640)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel11)
-                                .addComponent(jLabel12)
-                                .addComponent(jLabel13)
-                                .addComponent(jLabel14)
-                                .addComponent(txt_licencia)
-                                .addComponent(jLabel16)
-                                .addComponent(txt_fecha_venc))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel4)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel5)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel9)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel10)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel11)
-                    .addGap(182, 182, 182)
-                    .addComponent(jLabel12)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel13)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel14)
-                    .addGap(0, 0, 0)
-                    .addComponent(listaDonante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_nro_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_licencia)
-                    .addGap(0, 0, 0)
-                    .addComponent(combobox_grupo_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(combobox_factor_sanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(combo_tipo_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(jLabel16)
-                    .addGap(0, 0, 0)
-                    .addComponent(txt_fecha_venc)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel23.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel23.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel23.setPreferredSize(new java.awt.Dimension(400, 100));
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Grupo San.:");
+        jLabel13.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel13.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel13.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel23.add(jLabel13);
+
+        combobox_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "0", "AB" }));
+        combobox_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(225, 30));
+        combobox_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(225, 30));
+        combobox_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel23.add(combobox_grupo_sanguineo);
+
+        jPanel10.add(jPanel23);
+
+        jPanel22.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel22.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel22.setPreferredSize(new java.awt.Dimension(400, 100));
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel14.setText("Factor RH:");
+        jLabel14.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel14.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel14.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel22.add(jLabel14);
+
+        combobox_factor_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+        combobox_factor_sanguineo.setMaximumSize(new java.awt.Dimension(225, 30));
+        combobox_factor_sanguineo.setMinimumSize(new java.awt.Dimension(225, 30));
+        combobox_factor_sanguineo.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel22.add(combobox_factor_sanguineo);
+
+        jPanel10.add(jPanel22);
+
+        jPanel21.setMaximumSize(new java.awt.Dimension(400, 100));
+        jPanel21.setMinimumSize(new java.awt.Dimension(400, 100));
+        jPanel21.setPreferredSize(new java.awt.Dimension(400, 100));
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Donante:");
+        jLabel12.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel12.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel12.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel21.add(jLabel12);
+
+        listaDonante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        listaDonante.setMaximumSize(new java.awt.Dimension(225, 30));
+        listaDonante.setMinimumSize(new java.awt.Dimension(225, 30));
+        listaDonante.setPreferredSize(new java.awt.Dimension(225, 30));
+        jPanel21.add(listaDonante);
+
+        jPanel10.add(jPanel21);
+        jPanel10.add(filler1);
+
+        jPanel9.add(jPanel10);
 
         jPanel_centro.add(jPanel9);
 
@@ -365,6 +484,10 @@ public class RenovarLicencia extends javax.swing.JFrame {
 
         jLabel7.setText("Observaciones");
         jPanel8.add(jLabel7);
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(350, 100));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(350, 100));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(350, 100));
 
         txt_observaciones.setColumns(20);
         txt_observaciones.setLineWrap(true);
@@ -602,6 +725,7 @@ public class RenovarLicencia extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combo_tipo_doc;
     private javax.swing.JComboBox<String> combobox_factor_sanguineo;
     private javax.swing.JComboBox<String> combobox_grupo_sanguineo;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -619,7 +743,21 @@ public class RenovarLicencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
