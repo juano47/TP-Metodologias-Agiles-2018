@@ -1,15 +1,11 @@
 package Gestores;
 
 import Dao.DaoLicencia;
-import Dao.DaoTitular;
 import Entidades.Licencia;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
-import Pantallas.EmitirLicencia;
 import Pantallas.ListaLicencias;
-import com.mysql.jdbc.StringUtils;
 import java.io.File;
-import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,19 +14,12 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
-import static javassist.CtMethod.ConstParameter.string;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -68,8 +57,8 @@ public class GestorLicencias {
         return this.licencia;
     }
     /***
-     * abre una nueva ventana en la que se puede visualizar y descarga la licencia. el datasource debe ser una lista en la que se 
-     * @param datasource 
+     * Abre una nueva ventana en la que se puede visualizar y descargar la licencia.
+     * @param nuevaLicencia 
      */
     public static void imprimirLicencia(Licencia nuevaLicencia){
         
@@ -302,14 +291,14 @@ public class GestorLicencias {
     }
     
     public static Integer calculcarCostoLicencia(Licencia licencia){
-        Integer costo = 0;
-        Integer duracionLicencia = 0;
-        Map<Character, Vector> mapaCostos = new HashMap<Character, Vector>();
-        Vector costoA = new Vector();
-        Vector costoB = new Vector();
-        Vector costoC = new Vector();
-        Vector costoE = new Vector();
-        Vector costoG = new Vector();
+        Integer costo;
+        Integer duracionLicencia;
+        Map<Character, ArrayList> mapaCostos = new HashMap<>();
+        ArrayList<Integer> costoA = new ArrayList<>();
+        ArrayList<Integer> costoB = new ArrayList<>();
+        ArrayList<Integer> costoC = new ArrayList<>();
+        ArrayList<Integer> costoE = new ArrayList<>();
+        ArrayList<Integer> costoG = new ArrayList<>();
         
         costoA.add(40);
         costoA.add(30);
@@ -372,11 +361,9 @@ public class GestorLicencias {
     */
     public List<TitularAuxParaTabla> buscarLicencias(ArrayList<String> arregloParametros) {
    
-        List listaLicencias = null;
-        Licencia licencia;
-        String vigencia = "";            
+        Licencia licencia;       
 
-        listaLicencias = daoLicencia.porCamposRequeridos(arregloParametros);
+        List listaLicencias = daoLicencia.porCamposRequeridos(arregloParametros);
         
         List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
         
