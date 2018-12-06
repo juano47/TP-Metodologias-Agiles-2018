@@ -63,6 +63,7 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         boton_modificar_administrativo = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(35, 0), new java.awt.Dimension(35, 0), new java.awt.Dimension(35, 32767));
         boton_nuevo_administrativo = new javax.swing.JButton();
         jPanel_inferior = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -164,6 +165,8 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         jPanel9.setPreferredSize(new java.awt.Dimension(1280, 50));
         jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 50));
@@ -220,6 +223,9 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
         boton_buscar.setText("Buscar");
+        boton_buscar.setMaximumSize(new java.awt.Dimension(100, 35));
+        boton_buscar.setMinimumSize(new java.awt.Dimension(100, 35));
+        boton_buscar.setPreferredSize(new java.awt.Dimension(100, 35));
         boton_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_buscarActionPerformed(evt);
@@ -240,6 +246,10 @@ public class GestionAdministrativos extends javax.swing.JFrame {
         jPanel9.add(jPanel11);
 
         jPanel_centro.add(jPanel9);
+
+        jScrollPane13.setMaximumSize(new java.awt.Dimension(1280, 350));
+        jScrollPane13.setMinimumSize(new java.awt.Dimension(1280, 350));
+        jScrollPane13.setPreferredSize(new java.awt.Dimension(1280, 350));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,12 +288,15 @@ public class GestionAdministrativos extends javax.swing.JFrame {
 
         jPanel_centro.add(jScrollPane13);
 
-        jPanel8.setMaximumSize(new java.awt.Dimension(1280, 50));
-        jPanel8.setMinimumSize(new java.awt.Dimension(1280, 50));
-        jPanel8.setPreferredSize(new java.awt.Dimension(1280, 50));
+        jPanel8.setMaximumSize(new java.awt.Dimension(1280, 100));
+        jPanel8.setMinimumSize(new java.awt.Dimension(1280, 100));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1280, 100));
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
         boton_modificar_administrativo.setText("Modificar Administrativo");
+        boton_modificar_administrativo.setMaximumSize(new java.awt.Dimension(250, 50));
+        boton_modificar_administrativo.setMinimumSize(new java.awt.Dimension(250, 50));
+        boton_modificar_administrativo.setPreferredSize(new java.awt.Dimension(250, 50));
         boton_modificar_administrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_modificar_administrativoActionPerformed(evt);
@@ -295,8 +308,12 @@ public class GestionAdministrativos extends javax.swing.JFrame {
             }
         });
         jPanel8.add(boton_modificar_administrativo, new java.awt.GridBagConstraints());
+        jPanel8.add(filler1, new java.awt.GridBagConstraints());
 
         boton_nuevo_administrativo.setText(" Nuevo Administrativo");
+        boton_nuevo_administrativo.setMaximumSize(new java.awt.Dimension(250, 50));
+        boton_nuevo_administrativo.setMinimumSize(new java.awt.Dimension(250, 50));
+        boton_nuevo_administrativo.setPreferredSize(new java.awt.Dimension(250, 50));
         boton_nuevo_administrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_nuevo_administrativoActionPerformed(evt);
@@ -581,6 +598,7 @@ public class GestionAdministrativos extends javax.swing.JFrame {
     private javax.swing.JButton boton_buscar;
     private javax.swing.JButton boton_modificar_administrativo;
     private javax.swing.JButton boton_nuevo_administrativo;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
