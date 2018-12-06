@@ -360,27 +360,23 @@ public class GestorLicencias {
         
         return costo;
     }
-        /***
-     * Permite realizar, o no, una nueva copia de la licencia.
-     * @param titularAuxParaTabla auxiliar de tabla. 
-     */
-    public List<TitularAuxParaTabla> buscarTitulares(int criterioFiltrado, ArrayList<String> arregloParametros) {
+
+    /**
+    * Devuelve el resultado de la consulta procesado y listo para mostrarse en tabla.
+    * TitularAuxParaTabla es un auxiliar utilizado para almacemar en una sola isntancia un titular y una de sus licencias.
+    * El metodo recupera cada licencia retornada y luego de vincularla con su titular la agrega a la listaLicencias para entregarla a la vista ListaLicencias
+    *
+    * @param  arregloParametros son los parametros indicados para el filtrado por el usuario, si no especifico nada el valor del mismo es null
+    * @return retorna una lista de TitularAuxParaTabla, cada instancia de este ultimo posee como atributos un titular y una de sus licencias asociadas
+    * @see DaoLicencia.porCamposRequeridos
+    */
+    public List<TitularAuxParaTabla> buscarLicencias(ArrayList<String> arregloParametros) {
    
         List listaLicencias = null;
         Licencia licencia;
-        String vigencia = "";
-        
-            if(StringUtils.isNullOrEmpty(arregloParametros.get(5))){
-                vigencia = "";
-            }
-            else if(arregloParametros.get(5).equals("Solo Vigentes")){
-                vigencia = " AND l.fechaVenc >= NOW()";
-            }
-            else if(arregloParametros.get(5).equals("Solo Expiradas")){
-                vigencia = " AND l.fechaVenc <= NOW()";
-            }
+        String vigencia = "";            
 
-        listaLicencias = daoLicencia.porCamposRequeridos(arregloParametros.get(0), arregloParametros.get(1), arregloParametros.get(2), arregloParametros.get(3), arregloParametros.get(4), vigencia);
+        listaLicencias = daoLicencia.porCamposRequeridos(arregloParametros);
         
         List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
         
@@ -389,15 +385,17 @@ public class GestorLicencias {
             Titular titular;
             titular = licencia.getTitular();
             
-            System.out.print(licencia);
-            System.out.print(titular);
-            
             TitularAuxParaTabla licenciaAux = new TitularAuxParaTabla(titular, licencia);
             listaTitularAux.add(licenciaAux);
         }
         
         return listaTitularAux;
     }
+    
+    /***
+     * Permite realizar, o no, una nueva copia de la licencia.
+     * @param titularAuxParaTabla auxiliar de tabla. 
+     */
     public static boolean realizarCopia(Licencia licencia) {
         boolean bresultado = false;
         Date dfecha_vencimiento = licencia.getFechaVenc();

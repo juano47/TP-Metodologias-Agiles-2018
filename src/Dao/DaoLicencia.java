@@ -60,156 +60,31 @@ public class DaoLicencia extends AbstractDao{
         return licencia;
     }
     
-    public List porCamposRequeridos(String nombre, String apellido, String grupo_sanguineo, String factor_sanguineo, String donante, String vigencia) {
+    /**
+    * Devuelve el resultado de la consulta para el posterior procesado
+    *
+    * @param  arregloParametros son los parametros indicados para el filtrado por el usuario, si no especifico nada el valor del mismo es null
+    * @return el resultado de la consulta en forma de lista
+    * @see generarQuery
+    */
+    public List porCamposRequeridos(ArrayList<String> arregloParametros) {
         
         List objects = null;
         
-        if(!StringUtils.isNullOrEmpty(apellido)){
-            apellido = "%" + apellido + "%";
-        }
-        if(!StringUtils.isNullOrEmpty(nombre)){
-            nombre = "%" + nombre + "%";
-        }
-        if(!StringUtils.isNullOrEmpty(grupo_sanguineo)){
-            grupo_sanguineo = "%" + grupo_sanguineo + "%";
-        }
-        if(!StringUtils.isNullOrEmpty(factor_sanguineo)){
-            factor_sanguineo = "%" + factor_sanguineo + "%";
-        }
-        if(!StringUtils.isNullOrEmpty(donante)){
-            donante = "%" + donante + "%";
-        }
-        
-
+        String queryString = "SELECT DISTINCT l from Licencia l JOIN l.titular t";
+        queryString = generarQuery(queryString, arregloParametros, 0);
+        queryString = queryString.replaceFirst("AND", "WHERE");
         try {
             startOperation();
             Query query;
-
-           if (nombre!=null && apellido!=null && grupo_sanguineo!=null && factor_sanguineo!=null && donante!=null)  { //busqueda por todos los parametros
-               query = session.createQuery("SELECT DISTINCT l FROM Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+ vigencia);     
-                query.setParameter("nombre", nombre);
-                query.setParameter("apellido", apellido);
-                query.setParameter("grupo_sanguineo", grupo_sanguineo);
-                query.setParameter("factor_sanguineo", factor_sanguineo);
-                query.setParameter("donante", donante);
-                objects = query.list();
-                
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante)){
-               vigencia = vigencia.replace("AND", "WHERE");
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular"+ vigencia);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante) ){ //busqueda solo por nombre
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre"+vigencia);     
-               query.setParameter("nombre", nombre);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante) ){ //busqueda solo por apellido
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.apellido LIKE :apellido"+vigencia);     
-               query.setParameter("apellido", apellido);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante) ){ //busqueda solo por grupo_sanguineo
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.grupoSanguineo LIKE :grupo_sanguineo"+vigencia);     
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               objects = query.list();
-           } 
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(donante) ){ //busqueda solo por factor_sanguineo
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.factorSanguineo LIKE :factor_sanguineo"+vigencia);     
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(factor_sanguineo) ) { //busqueda solo por donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE l.donante LIKE :donante"+vigencia);     
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(grupo_sanguineo) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante)) { //busqueda solo por nombre y apellido
-                query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido"+vigencia);                
-                query.setParameter("nombre", nombre);
-                query.setParameter("apellido", apellido);
-                objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante)) { //busqueda solo por apellido y grupo_sanguineo
-                query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo"+vigencia);                
-                query.setParameter("apellido", apellido);
-                query.setParameter("grupo_sanguineo", grupo_sanguineo);
-                objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(donante)) { //busqueda solo por grupo_sanguineo y factor_sanguineo
-                query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo"+vigencia);                
-                query.setParameter("grupo_sanguineo", grupo_sanguineo);
-                query.setParameter("factor_sanguineo", factor_sanguineo);
-                objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) && StringUtils.isNullOrEmpty(grupo_sanguineo)) { //busqueda solo por factor_sanguineo y donante
-                query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+vigencia);                
-                query.setParameter("factor_sanguineo", factor_sanguineo);
-                query.setParameter("donante", donante);
-                objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(factor_sanguineo) && StringUtils.isNullOrEmpty(donante) ) { //busqueda solo por nombre, apellido y grupo_sanguineo
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo"+vigencia);     
-               query.setParameter("nombre", nombre);
-               query.setParameter("apellido", apellido);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(donante) ) { //busqueda solo por apellido y grupo_sanguineo y factor_sanguineo
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo"+vigencia);    
-               query.setParameter("apellido", apellido);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre) && StringUtils.isNullOrEmpty(apellido) ) { //busqueda solo por grupo_sanguineo, factor_sanguineo y donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+vigencia);    
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(nombre)) { //busqueda solo por apellido, grupo_sanguineo, factor_sanguineo y donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+vigencia);    
-               query.setParameter("apellido",apellido);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(apellido)) { //busqueda solo por nombre, grupo_sanguineo, factor_sanguineo y donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+vigencia);    
-               query.setParameter("nombre",nombre);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(grupo_sanguineo)) { //busqueda solo por nombre, apellido, factor_sanguineo y donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido AND t.factorSanguineo LIKE :factor_sanguineo AND l.donante LIKE :donante"+vigencia);    
-               query.setParameter("nombre", nombre); 
-               query.setParameter("apellido",apellido);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(factor_sanguineo)) { //busqueda solo por nombre, apellido, grupo_sanguineo y donante
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo AND l.donante LIKE :donante"+vigencia);    
-               query.setParameter("nombre", nombre); 
-               query.setParameter("apellido",apellido);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("donante", donante);
-               objects = query.list();
-           }
-           else if(StringUtils.isNullOrEmpty(donante)) { //busqueda solo por nombre, apellido, grupo_sanguineo y factor_sanguineo
-               query = session.createQuery("SELECT DISTINCT l from Licencia l JOIN l.titular t WHERE t.nombre LIKE :nombre AND t.apellido LIKE :apellido AND t.grupoSanguineo LIKE :grupo_sanguineo AND t.factorSanguineo LIKE :factor_sanguineo"+vigencia);    
-               query.setParameter("nombre", nombre); 
-               query.setParameter("apellido",apellido);
-               query.setParameter("grupo_sanguineo", grupo_sanguineo);
-               query.setParameter("factor_sanguineo", factor_sanguineo);
-               objects = query.list();
-           }
+            
+            query = session.createQuery(queryString);     
+            if(!StringUtils.isNullOrEmpty(arregloParametros.get(0))) query.setParameter("nombre", "%"+arregloParametros.get(0)+"%");
+            if(!StringUtils.isNullOrEmpty(arregloParametros.get(1))) query.setParameter("apellido", "%"+arregloParametros.get(1)+"%");
+            if(!StringUtils.isNullOrEmpty(arregloParametros.get(2))) query.setParameter("grupo_sanguineo", "%"+arregloParametros.get(2)+"%");
+            if(!StringUtils.isNullOrEmpty(arregloParametros.get(3))) query.setParameter("factor_sanguineo", "%"+arregloParametros.get(3)+"%");
+            if(!StringUtils.isNullOrEmpty(arregloParametros.get(4))) query.setParameter("donante", "%"+arregloParametros.get(4)+"%");
+            objects = query.list();
            
             tx.commit();
         } catch (HibernateException e) {
@@ -218,5 +93,53 @@ public class DaoLicencia extends AbstractDao{
             HibernateFactory.close(session);
         }
         return objects;
+    }
+    
+    /**
+    * Devuelve la estructura final de la query generada de manera recursiva. 
+    *
+    * @param  query  es la estructura base de la query
+    * @param  arregloParametros son los parametros indicados para el filtrado por el usuario, si no especifico nada el valor del mismo es null
+    * @param  index  la posicion actual de arregloParametros, inicialmente 0
+    * @return la query final con todas las condiciones requeridas
+    */
+    public String generarQuery(String query, ArrayList<String> arregloParametros, int index) {
+        
+        String dato = arregloParametros.get(index);
+        
+        switch(index){
+            case 0:
+                if(!StringUtils.isNullOrEmpty(dato)) query = query.concat(" AND t.nombre LIKE :nombre");
+                break;
+            case 1:
+                if(!StringUtils.isNullOrEmpty(dato)) query = query.concat(" AND t.apellido LIKE :apellido");
+                break;
+            case 2:
+                if(!StringUtils.isNullOrEmpty(dato)) query = query.concat(" AND t.grupoSanguineo LIKE :grupo_sanguineo");
+                break;
+            case 3:
+                if(!StringUtils.isNullOrEmpty(dato)) query = query.concat(" AND t.factorSanguineo LIKE :factor_sanguineo");
+                break;
+            case 4:
+                if(!StringUtils.isNullOrEmpty(dato)) query = query.concat(" AND l.donante LIKE :donante");
+                break;
+            case 5:
+                if(StringUtils.isNullOrEmpty(dato)){ query = query.concat("");}
+                else if(dato.equals("Solo Vigentes")){
+                    query = query.concat(" AND l.fechaVenc >= NOW()");
+                }
+                else if(dato.equals("Solo Expiradas")){
+                    query = query.concat(" AND l.fechaVenc <= NOW()");
+                }
+                break;
+        }
+        
+        index++;
+        
+        if(index < 6){
+            query = generarQuery(query, arregloParametros, index);
+        }
+        
+        return query;
     }
 }

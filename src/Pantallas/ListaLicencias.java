@@ -91,8 +91,8 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         btn_atras = new javax.swing.JButton();
-        btn_imprimir = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
+        btn_imprimir = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         btn_filtrar = new javax.swing.JButton();
 
@@ -420,6 +420,13 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         jPanel11.add(jPanel13);
 
+        jPanel4.add(jPanel11);
+
+        jPanel12.setMaximumSize(new java.awt.Dimension(640, 100));
+        jPanel12.setMinimumSize(new java.awt.Dimension(640, 100));
+        jPanel12.setPreferredSize(new java.awt.Dimension(640, 100));
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
         btn_imprimir.setText("Imprimir");
         btn_imprimir.setMaximumSize(new java.awt.Dimension(200, 50));
         btn_imprimir.setMinimumSize(new java.awt.Dimension(200, 50));
@@ -430,14 +437,7 @@ public class ListaLicencias extends javax.swing.JFrame {
                 btn_imprimirActionPerformed(evt);
             }
         });
-        jPanel11.add(btn_imprimir);
-
-        jPanel4.add(jPanel11);
-
-        jPanel12.setMaximumSize(new java.awt.Dimension(640, 100));
-        jPanel12.setMinimumSize(new java.awt.Dimension(640, 100));
-        jPanel12.setPreferredSize(new java.awt.Dimension(640, 100));
-        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        jPanel12.add(btn_imprimir);
 
         jPanel14.setMaximumSize(new java.awt.Dimension(200, 100));
         jPanel14.setMinimumSize(new java.awt.Dimension(200, 100));
@@ -483,34 +483,16 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+    * Recupera datos ingresados por el usuario y muestra en pantalla el resultado de la consulta.
+    *
+    * @param  evt evento de boton de Swing
+    * @see GestorLicencias.buscarLicencias
+    */
     private void btn_filtrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filtrarActionPerformed
-        //<-------------------------------------------------------------------->
-        /*
-        limpiarTabla(tabla_licencias_filtradas, modeloTabla);
-        txt_mensaje_error.setText("");
-        
-                
-        String nombre = input_nombre_titular.getText();    
-        String apellido = input_apellido_titular.getText();
-        String grupo_sanguineo = (String)cb_grupo_sanguineo.getSelectedItem();
-        String factor_sanguineo = (String)cb_factor_rh.getSelectedItem();
-        String donante = (String)cb_donante.getSelectedItem();
-        
-        GestorLicencias gestorLicencia = GestorLicencias.getInstance(); //se pide la instancia de GestorAdministrativo
-        List<Licencia> listaLicencias= new ArrayList<Licencia>();
-        if("".equals(nombre) && "".equals(apellido) && "".equals(grupo_sanguineo) && "".equals(factor_sanguineo) && "".equals(donante)){
-            listaLicencias = gestorLicencia.buscarLicencias();
-            modeloTabla.addAllTitulares(listaLicencias);
-        }
-        else{
-            listaLicencias = gestorLicencia.buscarLicencias(nombre,apellido,grupo_sanguineo,factor_sanguineo,donante);
-            modeloTabla.addAllTitulares(listaLicencias);
-        }*/
-        //<--------------------------------------------------------------------->
         
         List licencias = new ArrayList();
-        int codigoFiltrado = 0;
         ArrayList<String> arregloParametros = new ArrayList<>();
         
         limpiarTabla(tabla_licencias_filtradas, modeloTabla);
@@ -531,9 +513,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         
         GestorLicencias gestorLicencias = new GestorLicencias(); //se pide la instancia de GestorTitular
         
-        System.out.print(arregloParametros.toString());
-        
-        licencias = gestorLicencias.buscarTitulares(codigoFiltrado, arregloParametros);
+        licencias = gestorLicencias.buscarLicencias(arregloParametros);
         
         modeloTabla.addAllTitulares(licencias);
     }//GEN-LAST:event_btn_filtrarActionPerformed
@@ -562,8 +542,6 @@ public class ListaLicencias extends javax.swing.JFrame {
             arregloParametros.add(4, esDonante);
             arregloParametros.add(5, vigencia);
             GestorLicencias.imprimirReporte(modeloTabla, arregloParametros);
-            System.out.println();
-            System.out.println("ESTE ES EL STRING QUE MANDAS IDIOTA!: " + arregloParametros);
         }
         
     }//GEN-LAST:event_btn_imprimirActionPerformed
