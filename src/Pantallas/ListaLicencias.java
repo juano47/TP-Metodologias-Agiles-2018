@@ -91,6 +91,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         btn_atras = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         btn_filtrar = new javax.swing.JButton();
@@ -161,7 +162,7 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         lb_titulo_pantalla.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lb_titulo_pantalla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_titulo_pantalla.setText("Listado de Licencias");
+        lb_titulo_pantalla.setText("Listado de Titulares");
         lb_titulo_pantalla.setToolTipText("");
         lb_titulo_pantalla.setAlignmentY(0.0F);
         lb_titulo_pantalla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -419,6 +420,18 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         jPanel11.add(jPanel13);
 
+        btn_imprimir.setText("Imprimir");
+        btn_imprimir.setMaximumSize(new java.awt.Dimension(200, 50));
+        btn_imprimir.setMinimumSize(new java.awt.Dimension(200, 50));
+        btn_imprimir.setName("btn_imprimir"); // NOI18N
+        btn_imprimir.setPreferredSize(new java.awt.Dimension(200, 50));
+        btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btn_imprimir);
+
         jPanel4.add(jPanel11);
 
         jPanel12.setMaximumSize(new java.awt.Dimension(640, 100));
@@ -530,6 +543,30 @@ public class ListaLicencias extends javax.swing.JFrame {
             obj.setVisible(true);
             dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
+
+    private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
+        if(modeloTabla.getRowCount()>0){
+            ArrayList<String> arregloParametros = new ArrayList<>();
+            
+            String vigencia = (cb_vigencia.getSelectedItem().toString().equals("Ambas")) ? null : cb_vigencia.getSelectedItem().toString();
+            String nombreTitular = (StringUtils.isNullOrEmpty(input_nombre_titular.getText())) ? null : input_nombre_titular.getText();
+            String apellidoTitular = (StringUtils.isNullOrEmpty(input_apellido_titular.getText())) ? null : input_apellido_titular.getText();
+            String grupoSanguineo = (cb_grupo_sanguineo.getSelectedItem().toString().equals("Indiferente")) ? null : cb_grupo_sanguineo.getSelectedItem().toString();
+            String factorRH = (cb_factor_rh.getSelectedItem().toString().equals("Indiferente")) ? null : cb_factor_rh.getSelectedItem().toString();
+            String esDonante = (cb_donante.getSelectedItem().toString().equals("Indiferente")) ? null : cb_donante.getSelectedItem().toString();
+
+            arregloParametros.add(0, nombreTitular);
+            arregloParametros.add(1, apellidoTitular);
+            arregloParametros.add(2, grupoSanguineo);
+            arregloParametros.add(3, factorRH);
+            arregloParametros.add(4, esDonante);
+            arregloParametros.add(5, vigencia);
+            GestorLicencias.imprimirReporte(modeloTabla, arregloParametros);
+            System.out.println();
+            System.out.println("ESTE ES EL STRING QUE MANDAS IDIOTA!: " + arregloParametros);
+        }
+        
+    }//GEN-LAST:event_btn_imprimirActionPerformed
     
     private void limpiarTabla(JTable tabla, ListaLicencias.TablaModeloTitular modeloTabla){
        modeloTabla.deleteAllTitulares();
@@ -647,6 +684,7 @@ public class ListaLicencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_filtrar;
+    private javax.swing.JButton btn_imprimir;
     private javax.swing.JComboBox<String> cb_donante;
     private javax.swing.JComboBox<String> cb_factor_rh;
     private javax.swing.JComboBox<String> cb_grupo_sanguineo;

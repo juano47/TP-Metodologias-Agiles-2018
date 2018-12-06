@@ -6,6 +6,7 @@ import Entidades.Licencia;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
+import Pantallas.ListaLicencias;
 import com.mysql.jdbc.StringUtils;
 import java.io.File;
 import java.nio.file.Path;
@@ -38,7 +39,7 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class GestorLicencias {
 
-    
+       
         /*
 	Menores de 21 años: 1 año la primera vez y 3 años las siguientes.
 -        Hasta 46 años: 5 años
@@ -419,6 +420,83 @@ public class GestorLicencias {
         //titularAuxParaTabla.getLicencia().get
         //if(titularAuxParaTabla.getLicencia().getFechaVenc())
         return bresultado;
+    }
+    
+    public static void imprimirReporte(ListaLicencias.TablaModeloTitular modeloTabla, ArrayList<String> arregloParametros) {
+        
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        List <Map<String,String>> datasource = new ArrayList<Map<String,String>>();
+        for(int i=0; i < modeloTabla.getRowCount(); i++){
+            Map <String, String> row = new HashMap<String, String>();
+            //"Nombre", "Apellido", "DNI", "Clase", "Grupo Sanguineo", "Factor RH", "Donante", "Fecha de Vencimiento"
+            
+            row.put("Nombre", modeloTabla.getValueAt(i, 0).toString());
+            row.put("Apellido", modeloTabla.getValueAt(i, 1).toString());
+            row.put("DNI", modeloTabla.getValueAt(i, 2).toString());
+            row.put("Clase", modeloTabla.getValueAt(i, 3).toString());
+            row.put("Grupo", modeloTabla.getValueAt(i, 4).toString());
+            row.put("Factor", modeloTabla.getValueAt(i, 5).toString());
+            row.put("Donante", modeloTabla.getValueAt(i, 6).toString());
+            row.put("Fecha_vencimiento", modeloTabla.getValueAt(i, 7).toString());
+            datasource.add(row);
+        }
+        
+        
+        Map parametros = new HashMap<String,Object>();
+        if(arregloParametros.get(0) != null){
+            parametros.put("NombreTitular", arregloParametros.get(0));
+        }
+        else{
+            parametros.put("NombreTitular", " - ");
+        }
+        if(arregloParametros.get(1) != null){
+            parametros.put("ApellidoTitular", arregloParametros.get(1));
+        }
+        else{
+           parametros.put("ApellidoTitular", " - ");
+        }
+        if(arregloParametros.get(2) != null){
+            parametros.put("GrupoSanguineo", arregloParametros.get(2));
+        }
+        else{
+            parametros.put("GrupoSanguineo", " - ");
+        }
+        if(arregloParametros.get(3) != null){
+            parametros.put("FactorSanguineo", arregloParametros.get(3));
+        }
+        else{
+            parametros.put("FactorSanguineo", " - ");
+        }
+        if(arregloParametros.get(4)!= null){
+            parametros.put("EsDonante", arregloParametros.get(4));
+        }
+        else{
+            parametros.put("EsDonante", " - ");
+            
+        }
+        if(arregloParametros.get(5) != null){
+            parametros.put("Vigencia", arregloParametros.get(5));
+        }
+        else{
+          parametros.put("Vigencia", " - ");
+        }
+        
+        
+        
+        
+        try{ 
+        JRDataSource a = new JRBeanCollectionDataSource(datasource);
+        //JasperReport reporJasper = (JasperReport) JRLoader.loadObject(imagenClose + "reporteLicencias.jasper");
+        JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\listado.jrxml");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,parametros, a);
+        JasperViewer viewer = new JasperViewer(jasperPrint,false);
+        viewer.setVisible(true);
+        jasperPrint.setName("Listado");
+        }
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+        
     }
     
 }
