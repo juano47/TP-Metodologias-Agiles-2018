@@ -90,6 +90,7 @@ public class Ingreso extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 75));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Usuario:");
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 75));
         jLabel2.setMinimumSize(new java.awt.Dimension(100, 75));
@@ -118,6 +119,7 @@ public class Ingreso extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(400, 75));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Contraseña:");
         jLabel3.setMaximumSize(new java.awt.Dimension(100, 75));
         jLabel3.setMinimumSize(new java.awt.Dimension(100, 75));

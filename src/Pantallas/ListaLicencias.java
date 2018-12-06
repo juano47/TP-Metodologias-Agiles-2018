@@ -5,28 +5,19 @@
  */
 package Pantallas;
 
-import Dao.DaoLicencia;
-import Dao.DaoTitular;
-import Entidades.Licencia;
-import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Gestores.GestorAdministrativo;
 import Gestores.GestorLicencias;
-import Gestores.GestorTitular;
 import com.mysql.jdbc.StringUtils;
-import static java.lang.System.console;
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
 /**
  *
  * @author PC
  */
 import static java.lang.System.console;
+import javax.swing.JOptionPane;
 public class ListaLicencias extends javax.swing.JFrame {
     TablaModeloTitular modeloTabla = new TablaModeloTitular();
     /**
@@ -515,7 +506,12 @@ public class ListaLicencias extends javax.swing.JFrame {
         
         licencias = gestorLicencias.buscarLicencias(arregloParametros);
         
-        modeloTabla.addAllTitulares(licencias);
+        if(licencias.size() > 0){
+            modeloTabla.addAllTitulares(licencias);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No se encontraron resultados para su busqueda.");
+        } 
     }//GEN-LAST:event_btn_filtrarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed

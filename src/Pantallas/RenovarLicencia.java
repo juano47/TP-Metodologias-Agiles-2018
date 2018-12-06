@@ -78,10 +78,10 @@ public class RenovarLicencia extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        txt_nombre_user = new javax.swing.JLabel();
+        txt_user = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        txt_user = new javax.swing.JLabel();
+        txt_nombre_user = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -152,9 +152,7 @@ public class RenovarLicencia extends javax.swing.JFrame {
 
         jLabel8.setText("Usuario: ");
         jPanel5.add(jLabel8, new java.awt.GridBagConstraints());
-
-        txt_nombre_user.setText("jLabel9");
-        jPanel5.add(txt_nombre_user, new java.awt.GridBagConstraints());
+        jPanel5.add(txt_user, new java.awt.GridBagConstraints());
 
         jPanel3.add(jPanel5);
 
@@ -162,9 +160,7 @@ public class RenovarLicencia extends javax.swing.JFrame {
 
         jLabel15.setText("Nombre:");
         jPanel4.add(jLabel15, new java.awt.GridBagConstraints());
-
-        txt_user.setText("jLabel9");
-        jPanel4.add(txt_user, new java.awt.GridBagConstraints());
+        jPanel4.add(txt_nombre_user, new java.awt.GridBagConstraints());
 
         jPanel3.add(jPanel4);
 
@@ -567,7 +563,7 @@ public class RenovarLicencia extends javax.swing.JFrame {
             .addComponent(jPanel_superior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel_inferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel_centro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

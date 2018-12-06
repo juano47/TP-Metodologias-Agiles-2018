@@ -571,6 +571,7 @@
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                       <Format format="####-##-##" subtype="-1" type="5"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Formato: AAAA-MM-DD"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[225, 30]"/>
                     </Property>
@@ -581,9 +582,6 @@
                       <Dimension value="[225, 30]"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="input_fecha_nac_titularActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

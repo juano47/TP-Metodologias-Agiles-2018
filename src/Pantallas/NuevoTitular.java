@@ -7,12 +7,14 @@ package Pantallas;
 
 import Entidades.Titular;
 import Gestores.GestorAdministrativo;
+import com.mysql.jdbc.StringUtils;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -346,14 +348,10 @@ public class NuevoTitular extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        input_fecha_nac_titular.setToolTipText("Formato: AAAA-MM-DD");
         input_fecha_nac_titular.setMaximumSize(new java.awt.Dimension(225, 30));
         input_fecha_nac_titular.setMinimumSize(new java.awt.Dimension(225, 30));
         input_fecha_nac_titular.setPreferredSize(new java.awt.Dimension(225, 30));
-        input_fecha_nac_titular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_fecha_nac_titularActionPerformed(evt);
-            }
-        });
         jPanel17.add(input_fecha_nac_titular);
 
         jPanel10.add(jPanel17);
@@ -474,47 +472,46 @@ public class NuevoTitular extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_pantalla_atrasActionPerformed
 
     private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaActionPerformed
-        String nombre_titular = input_nombre_titular.getText();
-        String apellido_titular = input_apellido_titular.getText();
-        String tipo_doc = combo_tipo_doc.getSelectedItem().toString();
-        String numero_doc = input_numero_doc.getText();
-        String direccion_titular = input_direccion_titular.getText();
-        String fecha_nacimiento_titular = input_fecha_nac_titular.getText();
-        String grupo_sanguineo = combo_grupo_sanguineo.getSelectedItem().toString();
-        String factor_rh = combo_factor_rh.getSelectedItem().toString();
+        String nombreTitular = input_nombre_titular.getText();
+        String apellidoTitular = input_apellido_titular.getText();
+        String tipoDoc = combo_tipo_doc.getSelectedItem().toString();
+        String numeroDoc = input_numero_doc.getText();
+        String direccionTitular = input_direccion_titular.getText();
+        String fechaNacimientoTitularTxt = input_fecha_nac_titular.getText();
+        String grupoSanguineo = combo_grupo_sanguineo.getSelectedItem().toString();
+        String factorRH = combo_factor_rh.getSelectedItem().toString();
         
         Date fechaNacimientoTitular = new Date();
         
         try {
             
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            fechaNacimientoTitular = format.parse(fecha_nacimiento_titular);
+            fechaNacimientoTitular = format.parse(fechaNacimientoTitularTxt);
             
         } catch (ParseException ex) {
             Logger.getLogger(NuevoTitular.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        System.out.println(fechaNacimientoTitular);
-        
-        Titular nuevoTitular = new Titular();
-        
-        nuevoTitular.setNombre(nombre_titular);
-        nuevoTitular.setApellido(apellido_titular);
-        nuevoTitular.setTipoDni(tipo_doc);
-        nuevoTitular.setDni(numero_doc);
-        nuevoTitular.setDomicilio(direccion_titular);
-        nuevoTitular.setFechaNac(fechaNacimientoTitular);
-        nuevoTitular.setGrupoSanguineo(grupo_sanguineo);
-        nuevoTitular.setFactorSanguineo(factor_rh);
-        
-        EmitirLicencia pantalla = new EmitirLicencia(nuevoTitular);
-        pantalla.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
 
-    private void input_fecha_nac_titularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_fecha_nac_titularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input_fecha_nac_titularActionPerformed
+        if(StringUtils.isNullOrEmpty(nombreTitular) || StringUtils.isNullOrEmpty(apellidoTitular) || StringUtils.isNullOrEmpty(numeroDoc) || StringUtils.isNullOrEmpty(direccionTitular) || StringUtils.isNullOrEmpty(fechaNacimientoTitularTxt)){
+         JOptionPane.showMessageDialog(null, "Parece que ha dejado campos en blanco, completelos para poder avanzar.");   
+        }
+        else{
+            Titular nuevoTitular = new Titular();
+
+            nuevoTitular.setNombre(nombreTitular);
+            nuevoTitular.setApellido(apellidoTitular);
+            nuevoTitular.setTipoDni(tipoDoc);
+            nuevoTitular.setDni(numeroDoc);
+            nuevoTitular.setDomicilio(direccionTitular);
+            nuevoTitular.setFechaNac(fechaNacimientoTitular);
+            nuevoTitular.setGrupoSanguineo(grupoSanguineo);
+            nuevoTitular.setFactorSanguineo(factorRH);
+
+            EmitirLicencia pantalla = new EmitirLicencia(nuevoTitular);
+            pantalla.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_boton_emitir_licenciaActionPerformed
 
     /**
      * @param args the command line arguments

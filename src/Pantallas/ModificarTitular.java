@@ -45,8 +45,8 @@ public class ModificarTitular extends javax.swing.JFrame {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String dateString = format.format(date);
         txt_fecha_nac.setValue(dateString);
-        combobox_tipo_dni.setSelectedItem(titular.getTipoDni());;
-        combobox_grupo_sanguineo.setSelectedItem(titular.getGrupoSanguineo());;
+        combobox_tipo_dni.setSelectedItem(titular.getTipoDni());
+        combobox_grupo_sanguineo.setSelectedItem(titular.getGrupoSanguineo());
         combobox_factor_sanguineo.setSelectedItem(titular.getFactorSanguineo());
     }
 
