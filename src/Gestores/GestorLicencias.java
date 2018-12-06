@@ -6,6 +6,7 @@ import Entidades.Licencia;
 import Entidades.Titular;
 import Entidades.TitularAuxParaTabla;
 import Pantallas.EmitirLicencia;
+import com.mysql.jdbc.StringUtils;
 import java.io.File;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -366,8 +367,19 @@ public class GestorLicencias {
    
         List listaLicencias = null;
         Licencia licencia;
-  
-        listaLicencias = daoLicencia.findLicenciasPorCriterio(criterioFiltrado, arregloParametros);
+        String vigencia = "";
+        
+            if(StringUtils.isNullOrEmpty(arregloParametros.get(5))){
+                vigencia = "";
+            }
+            else if(arregloParametros.get(5).equals("Solo Vigentes")){
+                vigencia = " AND l.fechaVenc >= NOW()";
+            }
+            else if(arregloParametros.get(5).equals("Solo Expiradas")){
+                vigencia = " AND l.fechaVenc <= NOW()";
+            }
+
+        listaLicencias = daoLicencia.porCamposRequeridos(arregloParametros.get(0), arregloParametros.get(1), arregloParametros.get(2), arregloParametros.get(3), arregloParametros.get(4), vigencia);
         
         List<TitularAuxParaTabla> listaTitularAux = new ArrayList<TitularAuxParaTabla>();
         
@@ -407,15 +419,6 @@ public class GestorLicencias {
         //titularAuxParaTabla.getLicencia().get
         //if(titularAuxParaTabla.getLicencia().getFechaVenc())
         return bresultado;
-    }
-    
-    public List<Licencia> buscarLicencias() {
-        return daoLicencia.porCamposRequeridos();
-    }
-    
-    public List<Licencia> buscarLicencias(String nombre, String apellido, String grupo_sanguineo, String factor_sanguineo, String donante) {
-   
-        return daoLicencia.porCamposRequeridos(nombre, apellido, grupo_sanguineo,factor_sanguineo,donante);   
     }
     
 }

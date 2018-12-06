@@ -22,7 +22,6 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import java.Lang.System.console();
 /**
  *
  * @author PC
@@ -40,6 +39,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         lb_username.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
         lb_nombre.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
         tabla_licencias_filtradas.setModel(modeloTabla);
+        tabla_licencias_filtradas.setAutoCreateRowSorter(true);
     }
 
     /**
@@ -64,10 +64,6 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        txt_criterios_busqueda = new javax.swing.JLabel();
-        cb_criterios = new javax.swing.JComboBox<>();
         jPanel16 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         txt_nombre_titutal = new javax.swing.JLabel();
@@ -83,14 +79,12 @@ public class ListaLicencias extends javax.swing.JFrame {
         txt_factor_rh = new javax.swing.JLabel();
         cb_factor_rh = new javax.swing.JComboBox<>();
         jPanel17 = new javax.swing.JPanel();
-        jPanel20 = new javax.swing.JPanel();
-        txt_orden_alf = new javax.swing.JLabel();
-        cb_orden_alf = new javax.swing.JComboBox<>();
         jPanel25 = new javax.swing.JPanel();
         txt_donante = new javax.swing.JLabel();
         cb_donante = new javax.swing.JComboBox<>();
-        jPanel24 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        txt_criterios_busqueda = new javax.swing.JLabel();
+        cb_vigencia = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_licencias_filtradas = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -206,33 +200,6 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel9.setPreferredSize(new java.awt.Dimension(1280, 75));
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        jPanel15.setMaximumSize(new java.awt.Dimension(300, 75));
-        jPanel15.setMinimumSize(new java.awt.Dimension(300, 75));
-        jPanel15.setPreferredSize(new java.awt.Dimension(300, 75));
-        jPanel15.setLayout(new java.awt.GridBagLayout());
-
-        jPanel10.setMaximumSize(new java.awt.Dimension(300, 50));
-        jPanel10.setMinimumSize(new java.awt.Dimension(300, 50));
-        jPanel10.setPreferredSize(new java.awt.Dimension(300, 50));
-        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
-
-        txt_criterios_busqueda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txt_criterios_busqueda.setText("Criterios:");
-        txt_criterios_busqueda.setMaximumSize(new java.awt.Dimension(90, 50));
-        txt_criterios_busqueda.setMinimumSize(new java.awt.Dimension(50, 50));
-        txt_criterios_busqueda.setPreferredSize(new java.awt.Dimension(90, 50));
-        jPanel10.add(txt_criterios_busqueda);
-
-        cb_criterios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre y/o Apellido", "Orden Alfabetico", "Factor y Grupo Sanguineo", "Donante", "Licencias Expiradas" }));
-        cb_criterios.setMaximumSize(new java.awt.Dimension(185, 35));
-        cb_criterios.setMinimumSize(new java.awt.Dimension(185, 35));
-        cb_criterios.setPreferredSize(new java.awt.Dimension(185, 35));
-        jPanel10.add(cb_criterios);
-
-        jPanel15.add(jPanel10, new java.awt.GridBagConstraints());
-
-        jPanel9.add(jPanel15);
-
         jPanel16.setMaximumSize(new java.awt.Dimension(300, 75));
         jPanel16.setMinimumSize(new java.awt.Dimension(300, 75));
         jPanel16.setPreferredSize(new java.awt.Dimension(300, 75));
@@ -297,7 +264,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         txt_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel22.add(txt_grupo_sanguineo);
 
-        cb_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "A", "B", "AB" }));
+        cb_grupo_sanguineo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indiferente", "0", "A", "B", "AB" }));
         cb_grupo_sanguineo.setMaximumSize(new java.awt.Dimension(185, 35));
         cb_grupo_sanguineo.setMinimumSize(new java.awt.Dimension(185, 35));
         cb_grupo_sanguineo.setPreferredSize(new java.awt.Dimension(185, 35));
@@ -317,7 +284,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         txt_factor_rh.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel23.add(txt_factor_rh);
 
-        cb_factor_rh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+        cb_factor_rh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indiferente", "+", "-" }));
         cb_factor_rh.setMaximumSize(new java.awt.Dimension(185, 35));
         cb_factor_rh.setMinimumSize(new java.awt.Dimension(185, 35));
         cb_factor_rh.setPreferredSize(new java.awt.Dimension(185, 35));
@@ -332,26 +299,6 @@ public class ListaLicencias extends javax.swing.JFrame {
         jPanel17.setPreferredSize(new java.awt.Dimension(300, 75));
         jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel20.setMaximumSize(new java.awt.Dimension(300, 37));
-        jPanel20.setMinimumSize(new java.awt.Dimension(300, 37));
-        jPanel20.setPreferredSize(new java.awt.Dimension(300, 37));
-        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
-
-        txt_orden_alf.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txt_orden_alf.setText("Ord. Alf.:");
-        txt_orden_alf.setMaximumSize(new java.awt.Dimension(90, 37));
-        txt_orden_alf.setMinimumSize(new java.awt.Dimension(90, 37));
-        txt_orden_alf.setPreferredSize(new java.awt.Dimension(90, 37));
-        jPanel20.add(txt_orden_alf);
-
-        cb_orden_alf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ascendente", "Descendente" }));
-        cb_orden_alf.setMaximumSize(new java.awt.Dimension(185, 35));
-        cb_orden_alf.setMinimumSize(new java.awt.Dimension(185, 35));
-        cb_orden_alf.setPreferredSize(new java.awt.Dimension(185, 35));
-        jPanel20.add(cb_orden_alf);
-
-        jPanel17.add(jPanel20);
-
         jPanel25.setMaximumSize(new java.awt.Dimension(300, 37));
         jPanel25.setMinimumSize(new java.awt.Dimension(300, 37));
         jPanel25.setPreferredSize(new java.awt.Dimension(300, 37));
@@ -364,7 +311,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         txt_donante.setPreferredSize(new java.awt.Dimension(90, 37));
         jPanel25.add(txt_donante);
 
-        cb_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        cb_donante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indiferente", "Si", "No" }));
         cb_donante.setMaximumSize(new java.awt.Dimension(185, 35));
         cb_donante.setMinimumSize(new java.awt.Dimension(185, 35));
         cb_donante.setPreferredSize(new java.awt.Dimension(185, 35));
@@ -372,24 +319,29 @@ public class ListaLicencias extends javax.swing.JFrame {
 
         jPanel17.add(jPanel25);
 
+        jPanel10.setMaximumSize(new java.awt.Dimension(300, 37));
+        jPanel10.setMinimumSize(new java.awt.Dimension(300, 37));
+        jPanel10.setPreferredSize(new java.awt.Dimension(300, 37));
+        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        txt_criterios_busqueda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txt_criterios_busqueda.setText("Licencias Vig/Exp:");
+        txt_criterios_busqueda.setMaximumSize(new java.awt.Dimension(90, 37));
+        txt_criterios_busqueda.setMinimumSize(new java.awt.Dimension(90, 37));
+        txt_criterios_busqueda.setPreferredSize(new java.awt.Dimension(90, 37));
+        jPanel10.add(txt_criterios_busqueda);
+
+        cb_vigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ambas", "Solo Vigentes", "Solo Expiradas" }));
+        cb_vigencia.setMaximumSize(new java.awt.Dimension(185, 35));
+        cb_vigencia.setMinimumSize(new java.awt.Dimension(185, 35));
+        cb_vigencia.setPreferredSize(new java.awt.Dimension(185, 35));
+        jPanel10.add(cb_vigencia);
+
+        jPanel17.add(jPanel10);
+
         jPanel9.add(jPanel17);
 
         jPanel2.add(jPanel9);
-
-        jPanel24.setMaximumSize(new java.awt.Dimension(1280, 50));
-        jPanel24.setMinimumSize(new java.awt.Dimension(1250, 50));
-        jPanel24.setPreferredSize(new java.awt.Dimension(1280, 50));
-        jPanel24.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("*Configure solo los parametros correspondientes al criterio seleccionado");
-        jLabel6.setMaximumSize(new java.awt.Dimension(750, 50));
-        jLabel6.setMinimumSize(new java.awt.Dimension(750, 50));
-        jLabel6.setPreferredSize(new java.awt.Dimension(750, 50));
-        jPanel24.add(jLabel6);
-
-        jPanel2.add(jPanel24);
 
         tabla_licencias_filtradas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -550,42 +502,25 @@ public class ListaLicencias extends javax.swing.JFrame {
         
         limpiarTabla(tabla_licencias_filtradas, modeloTabla);
         
-        String opcion_filtrado = cb_criterios.getSelectedItem().toString();
+        String vigencia = (cb_vigencia.getSelectedItem().toString().equals("Ambas")) ? null : cb_vigencia.getSelectedItem().toString();
         String nombreTitular = (StringUtils.isNullOrEmpty(input_nombre_titular.getText())) ? null : input_nombre_titular.getText();
         String apellidoTitular = (StringUtils.isNullOrEmpty(input_apellido_titular.getText())) ? null : input_apellido_titular.getText();
-        String grupoSanguineo = cb_grupo_sanguineo.getSelectedItem().toString();
-        String factorRH = cb_factor_rh.getSelectedItem().toString();
-        String ordenAlfabetico = cb_orden_alf.getSelectedItem().toString();
-        String esDonante = cb_donante.getSelectedItem().toString();
-            
-        switch (opcion_filtrado) {
-            case "Nombre y/o Apellido":
-                    codigoFiltrado = 1;
-                    arregloParametros.add(nombreTitular);
-                    arregloParametros.add(apellidoTitular);
-                     break;
-            case "Orden Alfabetico":
-                    codigoFiltrado = 2;
-                    arregloParametros.add(ordenAlfabetico);
-                     break;
-            case "Factor y Grupo Sanguineo":
-                    codigoFiltrado = 3;
-                    arregloParametros.add(grupoSanguineo);
-                    arregloParametros.add(factorRH);
-                     break;
-            case "Donante":
-                    codigoFiltrado = 4;
-                    arregloParametros.add(esDonante);
-                     break;
-            case "Licencias Expiradas":
-                    codigoFiltrado = 5;
-                     break;
-        }
+        String grupoSanguineo = (cb_grupo_sanguineo.getSelectedItem().toString().equals("Indiferente")) ? null : cb_grupo_sanguineo.getSelectedItem().toString();
+        String factorRH = (cb_factor_rh.getSelectedItem().toString().equals("Indiferente")) ? null : cb_factor_rh.getSelectedItem().toString();
+        String esDonante = (cb_donante.getSelectedItem().toString().equals("Indiferente")) ? null : cb_donante.getSelectedItem().toString();
+        
+        arregloParametros.add(0, nombreTitular);
+        arregloParametros.add(1, apellidoTitular);
+        arregloParametros.add(2, grupoSanguineo);
+        arregloParametros.add(3, factorRH);
+        arregloParametros.add(4, esDonante);
+        arregloParametros.add(5, vigencia);
         
         GestorLicencias gestorLicencias = new GestorLicencias(); //se pide la instancia de GestorTitular
-        //licencias = gestorLicencias.buscarLicencias(nombreTitular,apellidoTitular,grupoSanguineo,factorRH,esDonante);
-        licencias = gestorLicencias.buscarLicencias();
-
+        
+        System.out.print(arregloParametros.toString());
+        
+        licencias = gestorLicencias.buscarTitulares(codigoFiltrado, arregloParametros);
         
         modeloTabla.addAllTitulares(licencias);
     }//GEN-LAST:event_btn_filtrarActionPerformed
@@ -712,31 +647,26 @@ public class ListaLicencias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_filtrar;
-    private javax.swing.JComboBox<String> cb_criterios;
     private javax.swing.JComboBox<String> cb_donante;
     private javax.swing.JComboBox<String> cb_factor_rh;
     private javax.swing.JComboBox<String> cb_grupo_sanguineo;
-    private javax.swing.JComboBox<String> cb_orden_alf;
+    private javax.swing.JComboBox<String> cb_vigencia;
     private javax.swing.JTextField input_apellido_titular;
     private javax.swing.JTextField input_nombre_titular;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -758,6 +688,5 @@ public class ListaLicencias extends javax.swing.JFrame {
     private javax.swing.JLabel txt_factor_rh;
     private javax.swing.JLabel txt_grupo_sanguineo;
     private javax.swing.JLabel txt_nombre_titutal;
-    private javax.swing.JLabel txt_orden_alf;
     // End of variables declaration//GEN-END:variables
 }
