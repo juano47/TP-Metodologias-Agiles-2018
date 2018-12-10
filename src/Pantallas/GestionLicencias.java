@@ -427,7 +427,7 @@ public class GestionLicencias extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_buscarActionPerformed
 
     private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_emitir_licenciaActionPerformed
-       //http://www.lawebdelprogramador.com/foros/Java/719076-Obtener-el-valor-de-una-celda-el-JTABLE.html
+       
        Integer filaSeleccionada= tabla.getSelectedRow();
        //si no hay una fila seleccionada filaSeleccionada= -1 por default
         if (filaSeleccionada != -1) {
@@ -529,9 +529,15 @@ public class GestionLicencias extends javax.swing.JFrame {
                if(JOptionPane.showConfirmDialog(null,sMensaje, "Confirmar Acción", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)==0){
                     titularAuxParaTabla.getLicencia().setEstado("Copia Numero: " + iCopia);
                     titularAuxParaTabla.getLicencia().setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
-                    DaoLicencia lic = new DaoLicencia();
-                    lic.update( titularAuxParaTabla.getLicencia());
-                    GestorLicencias.imprimirLicencia(titularAuxParaTabla.getLicencia());
+                    try{
+                        GestorLicencias.calculcarCostoLicencia(titularAuxParaTabla.getLicencia());
+                        DaoLicencia lic = new DaoLicencia();
+                        lic.update( titularAuxParaTabla.getLicencia());
+                        GestorLicencias.imprimirLicencia(titularAuxParaTabla.getLicencia());
+                    }
+                    catch(Exception e){
+                        System.out.print(e);
+                    }
                }
            }
            else{

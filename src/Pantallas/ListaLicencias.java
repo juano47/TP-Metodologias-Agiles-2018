@@ -20,6 +20,7 @@ import static java.lang.System.console;
 import javax.swing.JOptionPane;
 public class ListaLicencias extends javax.swing.JFrame {
     TablaModeloTitular modeloTabla = new TablaModeloTitular();
+    ArrayList<String> arregloParametrosAux = new ArrayList<>();
     /**
      * Creates new form ListaLicencias
      */
@@ -508,6 +509,7 @@ public class ListaLicencias extends javax.swing.JFrame {
         
         if(licencias.size() > 0){
             modeloTabla.addAllTitulares(licencias);
+            arregloParametrosAux = arregloParametros;
         }
         else{
             JOptionPane.showMessageDialog(null, "No se encontraron resultados para su busqueda.");
@@ -522,7 +524,9 @@ public class ListaLicencias extends javax.swing.JFrame {
 
     private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
         if(modeloTabla.getRowCount()>0){
+            /*
             ArrayList<String> arregloParametros = new ArrayList<>();
+            
             
             String vigencia = (cb_vigencia.getSelectedItem().toString().equals("Ambas")) ? null : cb_vigencia.getSelectedItem().toString();
             String nombreTitular = (StringUtils.isNullOrEmpty(input_nombre_titular.getText())) ? null : input_nombre_titular.getText();
@@ -537,7 +541,9 @@ public class ListaLicencias extends javax.swing.JFrame {
             arregloParametros.add(3, factorRH);
             arregloParametros.add(4, esDonante);
             arregloParametros.add(5, vigencia);
-            GestorLicencias.imprimirReporte(modeloTabla, arregloParametros);
+            */
+            
+            GestorLicencias.imprimirReporte(modeloTabla, arregloParametrosAux);
         }
         
     }//GEN-LAST:event_btn_imprimirActionPerformed

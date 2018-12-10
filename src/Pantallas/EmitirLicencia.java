@@ -36,9 +36,13 @@ public class EmitirLicencia extends javax.swing.JFrame {
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
-        //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
-        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
-        txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
+        //se pide al gestor y se muestra por pantalla los datos del 
+        //administrativo registrado
+        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().
+                getUsername());
+        txt_nombre_user.setText(GestorAdministrativo.getInstance().
+                getAdministrativo().getNombre() + " " + GestorAdministrativo.
+                        getInstance().getAdministrativo().getApellido());
         //borrar hasta aca
     }
     
@@ -47,19 +51,31 @@ public class EmitirLicencia extends javax.swing.JFrame {
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
-        //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
-        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
-        txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
+        //se pide al gestor y se muestra por pantalla los datos del
+        //administrativo registrado
+        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().
+                getUsername());
+        txt_nombre_user.setText(GestorAdministrativo.getInstance().
+                getAdministrativo().getNombre() + " " + GestorAdministrativo.
+                        getInstance().getAdministrativo().getApellido());
         
         //se setean los datos no modificables (datos del titular)
-        txt_nombre.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getNombre())));
-        txt_apellido.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getApellido())));
-        txt_nro_doc.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getDni())));
-        txt_direccion.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getDomicilio())));
-        txt_fecha_nac.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFechaNac())));
-        txt_tipo_doc.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getTipoDni())));
-        txt_grupo_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getGrupoSanguineo())));
-        txt_factor_sanguineo.setText((String.valueOf(titularAuxParaTabla.getTitularOriginal().getFactorSanguineo())));
+        txt_nombre.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getNombre())));
+        txt_apellido.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getApellido())));
+        txt_nro_doc.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getDni())));
+        txt_direccion.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getDomicilio())));
+        txt_fecha_nac.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getFechaNac())));
+        txt_tipo_doc.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getTipoDni())));
+        txt_grupo_sanguineo.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getGrupoSanguineo())));
+        txt_factor_sanguineo.setText((String.valueOf(titularAuxParaTabla.
+                getTitularOriginal().getFactorSanguineo())));
         
         this.nuevoTitular = titularAuxParaTabla.getTitularOriginal();
     }
@@ -70,9 +86,13 @@ public class EmitirLicencia extends javax.swing.JFrame {
         initComponents();
         setTitle("Emitir Licencia");
         setLocationRelativeTo(null);
-        //se pide al gestor y se muestra por pantalla los datos del administrativo registrado
-        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getUsername());
-        txt_nombre_user.setText(GestorAdministrativo.getInstance().getAdministrativo().getNombre() + " " + GestorAdministrativo.getInstance().getAdministrativo().getApellido());
+        //se pide al gestor y se muestra por pantalla los datos del 
+        //administrativo registrado
+        txt_user.setText(GestorAdministrativo.getInstance().getAdministrativo()
+                .getUsername());
+        txt_nombre_user.setText(GestorAdministrativo.getInstance().
+                getAdministrativo().getNombre() + " " + GestorAdministrativo.
+                        getInstance().getAdministrativo().getApellido());
    
         //se setean los datos no modificables (datos del titular)
         txt_nombre.setText(nuevoTitular.getNombre());
@@ -592,12 +612,15 @@ public class EmitirLicencia extends javax.swing.JFrame {
         
     }//GEN-LAST:event_boton_atrasActionPerformed
 
-    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent evt) {
+    private void boton_emitir_licenciaActionPerformed(java.awt.event.ActionEvent
+            evt) {
         
         Licencia nuevaLicencia = new Licencia();
-        nuevaLicencia.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        nuevaLicencia.setAdministrativo(GestorAdministrativo.getInstance()
+                .getAdministrativo());
         
-        nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance().getAdministrativo());
+        nuevoTitular.setAdministrativo(GestorAdministrativo.getInstance()
+                .getAdministrativo());
         DaoTitular daoTitular = new DaoTitular();
         DaoLicencia daoLicencia = new DaoLicencia();
 
@@ -614,19 +637,20 @@ public class EmitirLicencia extends javax.swing.JFrame {
 
         nuevaLicencia.setFechaRegistro(fechaRegistro);
 
-        Date fechaVencimiento = GestorLicencias.calcularFechaLicencia(nuevoTitular.getFechaNac(), null);
+        Date fechaVencimiento = GestorLicencias.
+                calcularFechaLicencia(nuevoTitular.getFechaNac(), null);
 
         nuevaLicencia.setFechaVenc(fechaVencimiento);
 
         nuevoTitular.setLicencias(nuevaLicencia);
-
         try{
+            GestorLicencias.calculcarCostoLicencia(nuevaLicencia);
             if(desdeNuevoTitular){
             daoTitular.save(nuevoTitular);
             System.out.print("Se guardo bien el titular!");
             }
         }
-        catch(DataAccessLayerException e){
+        catch(Exception e){
             System.out.print(e);
         }
         finally{
@@ -634,7 +658,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
                 daoLicencia.save(nuevaLicencia);
                 System.out.print("Se guardo bien la licencia!");
                 GestorLicencias.imprimirLicencia(nuevaLicencia);
-                JOptionPane.showMessageDialog(null, "El nuevo titular y la nueva licencia se han guardado correctamente");
+                JOptionPane.showMessageDialog(null, "El nuevo titular y "
+                        + "la nueva licencia se han guardado correctamente");
                 GestionLicencias pantalla = new GestionLicencias();
                 pantalla.setVisible(true);
                 dispose();
@@ -651,7 +676,8 @@ public class EmitirLicencia extends javax.swing.JFrame {
         if (txt_observaciones.getText().length()>= 500){
 
         evt.consume();
-        JOptionPane.showMessageDialog(rootPane,"Alcanzo el maximo de caracteres (500 caracteres)");
+        JOptionPane.showMessageDialog(rootPane,"Alcanzo el maximo de caracteres"
+                + " (500 caracteres)");
         }
     }//GEN-LAST:event_txt_observacionesKeyTyped
 

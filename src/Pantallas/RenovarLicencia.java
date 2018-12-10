@@ -615,10 +615,11 @@ public class RenovarLicencia extends javax.swing.JFrame {
         DaoLicencia daoLicencia = new DaoLicencia();
         DaoTitular daoTitular = new DaoTitular();
         try{
+                GestorLicencias.calculcarCostoLicencia(renovada);
                 daoTitular.update(renuevaTitu);
                 System.out.print("Se guardo bien el titular!");
             }
-            catch(DataAccessLayerException e){
+            catch(Exception e){
                 System.out.print(e);
             }
             finally{

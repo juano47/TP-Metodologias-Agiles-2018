@@ -18,6 +18,7 @@ import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
@@ -84,8 +85,10 @@ public class GestorLicencias {
         //JasperReport reporJasper = (JasperReport) JRLoader.loadObject(imagenClose + "reporteLicencias.jasper");
         JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\reporteLicencias.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,parametros, a);
+        jasperPrint.setName("Licencia de " + nuevaLicencia.getTitular().getApellido() + " numero: " + nuevaLicencia.getIdLicencia().toString());
         JasperViewer viewer = new JasperViewer(jasperPrint,false);
-        viewer.setVisible(true);
+        JasperPrintManager.printReport(jasperPrint, true);
+        viewer.setVisible(false);
         jasperPrint.setName("Reporte");
         }
        catch(Exception e){
@@ -292,7 +295,7 @@ public class GestorLicencias {
     
     public static Integer calculcarCostoLicencia(Licencia licencia){
         Integer costo;
-        Integer duracionLicencia;
+        Integer duracionLicencia = 0;
         Map<Character, ArrayList> mapaCostos = new HashMap<>();
         ArrayList<Integer> costoA = new ArrayList<>();
         ArrayList<Integer> costoB = new ArrayList<>();
@@ -340,9 +343,21 @@ public class GestorLicencias {
         duracionLicencia = restarFechas(fechaRegistro, fechaVencimiento);
         
         duracionLicencia = duracionLicencia / 365;
-        
-        costo = (Integer) mapaCostos.get(letra).get(duracionLicencia - 1);
-        
+
+        switch(duracionLicencia){
+            case 0:
+                costo = (Integer) mapaCostos.get(letra).get(3);
+                break;
+            case 1:
+            case 2: 
+                costo = (Integer) mapaCostos.get(letra).get(2);
+                break;
+            case 3:
+                costo = (Integer) mapaCostos.get(letra).get(1);
+                break;
+            default:
+                costo = (Integer) mapaCostos.get(letra).get(0);
+        }
         costo +=8;
         
         System.out.print(costo);
@@ -369,8 +384,8 @@ public class GestorLicencias {
         
         for (int a = 0; a < listaLicencias.size(); a++) {
             licencia = (Licencia) listaLicencias.get(a);
-            Titular titular;
-            titular = licencia.getTitular();
+            Titular titular = licencia.getTitular();
+            //titular = licencia.getTitular();
             
             TitularAuxParaTabla licenciaAux = new TitularAuxParaTabla(titular, licencia);
             listaTitularAux.add(licenciaAux);
@@ -474,8 +489,11 @@ public class GestorLicencias {
         //JasperReport reporJasper = (JasperReport) JRLoader.loadObject(imagenClose + "reporteLicencias.jasper");
         JasperReport reporJasper = JasperCompileManager.compileReport("src\\Resource\\listado.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport(reporJasper,parametros, a);
-        JasperViewer viewer = new JasperViewer(jasperPrint,false);
-        viewer.setVisible(true);
+        JasperViewer viewer = new JasperViewer(jasperPrint,false); 
+        Date ahora = new Date();
+        jasperPrint.setName("Listado del Sistema_Dia" + ahora.getDay() + ahora.getMonth() + ahora.getYear());
+        JasperPrintManager.printReport(jasperPrint, true);
+        viewer.setVisible(false);
         jasperPrint.setName("Listado");
         }
        catch(Exception e){
